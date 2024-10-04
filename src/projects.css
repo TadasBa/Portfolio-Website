@@ -3,6 +3,7 @@
     display: grid;
     gap: 20px;
     padding: 20px;
+    text-align: left;
   }
 
   .projects-container h1 {

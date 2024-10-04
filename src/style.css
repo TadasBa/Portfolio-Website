@@ -1,12 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 
-/* Adjust header styling for better spacing and visual clarity */
+
+/* Global styles */
+body {  
+  font-family: 'Poppins', sans-serif;
+  color: black;
+  background-color: rgb(238, 238, 238);
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
 .header {
   text-align: center;
   /* background-color: rgba(32, 33, 36, 0); */
   background-color: rgb(238, 238, 238);
   color: black;
   padding: 20px; /* Add padding for more breathing room */
+  font-family: 'Fira Code', monospace;
 }
 
 .header ul {
@@ -55,9 +67,6 @@
   margin-right: 150px;
 }
 
-.content h2{
-  text-align: center;
-}
 
 /* Links */
 a {
@@ -65,18 +74,8 @@ a {
   color: black;
 }
 
-/* Global styles */
-body {
-  font-family: 'Fira Code', monospace;
-  color: black;
-  background-color: rgb(238, 238, 238);
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
-}
-
 /* Headings */
-h1, h2, h3 {
+h1, h2, h3, h4 {
   color: black;
 }
 
