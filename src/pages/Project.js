@@ -1,4 +1,3 @@
-// src/pages/Project.js
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import 'C:\\Univerity\\Portfolio\\my-blog\\src\\project.css';

@@ -1,15 +1,15 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes, Link, useLocation } from 'react-router-dom';
-import './style.css'; // Assuming you have this CSS file for styles
+import './style.css';
 import Home from './pages/Home';
 import About from './pages/About';
 import Blog from './pages/Blog';
-import BlogPost from './pages/BlogPost'; // Import the BlogPost component
+import BlogPost from './pages/BlogPost';
 import { Projects, projectList } from './pages/Projects';
-import Project from './pages/Project'; // Make sure this file exists
-import githubIcon from './img/github.svg'; // Import the image
-import emailIcon from './img/email.svg'; // Import the image
-import linkedinIcon from './img/linkedin.svg'; // Import the image
+import Project from './pages/Project';
+import githubIcon from './img/github.svg';
+import emailIcon from './img/email.svg';
+import linkedinIcon from './img/linkedin.svg';
 
 function App() {
   const location = useLocation(); // Get the current location

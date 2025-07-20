@@ -14,7 +14,6 @@ body {
 
 .header {
   text-align: center;
-  /* background-color: rgba(32, 33, 36, 0); */
   background-color: rgb(238, 238, 238);
   color: black;
   padding: 20px; /* Add padding for more breathing room */
@@ -67,14 +66,11 @@ body {
   margin-right: 150px;
 }
 
-
-/* Links */
 a {
   text-decoration: none;
   color: black;
 }
 
-/* Headings */
 h1, h2, h3, h4 {
   color: black;
 }
@@ -84,13 +80,13 @@ h1, h2, h3, h4 {
 }
 
 h1 {
-  font-size: 45px; /* Reduce size for better spacing */
-  margin-bottom: 15px; /* Space under the heading */
+  font-size: 45px;
+  margin-bottom: 15px;
 }
 
 h2 {
   font-size: 30px;
-  margin-bottom: 10px; /* Add space between heading and content */
+  margin-bottom: 10px;
 }
 
 h3 {
@@ -103,7 +99,6 @@ h4 {
   margin-bottom: 10px;
 }
 
-/* Paragraphs */
 p {
   margin-bottom: 20px;
 }
@@ -141,7 +136,8 @@ p {
   transform: scale(1.2);
 }
 
-/* Responsive adjustments */
+
+/* Responsive adjustments for different screen sizes*/
 @media (max-width: 768px) {
   .page-wrapper {
     flex-direction: column;
@@ -160,7 +156,7 @@ p {
   }
 
   .footer {
-    position: relative; /* Adjust footer position for smaller screens */
+    position: relative;
   }
 }
 
@@ -178,9 +174,9 @@ p {
 }
 
 .about-image {
-  flex: 0 0 300px; /* You can adjust the width of the image */
+  flex: 0 0 300px;
   position: relative;
-  top: 108px; /* Move the image up by 10px */
+  top: 108px;
 }
 
 .profile-image {

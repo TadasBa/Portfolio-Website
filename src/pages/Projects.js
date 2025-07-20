@@ -1,10 +1,8 @@
-// src/pages/Projects.js
 import React from 'react';
 import { Link } from 'react-router-dom';
 import 'C:\\Univerity\\Portfolio\\my-blog\\src\\projects.css';
 import backIcon from 'C:\\Univerity\\Portfolio\\my-blog\\src\\img\\back.svg';
 
-// Define all your projects here with custom content for each
 const projectList = [
   {
     id: 1,

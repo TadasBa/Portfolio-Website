@@ -1,7 +1,6 @@
-// src/pages/Blog.js
 import React from 'react';
 import { Link } from 'react-router-dom';
-import backIcon from 'C:\\Univerity\\Portfolio\\my-blog\\src\\img\\back.svg'; // Import the image
+import backIcon from 'C:\\Univerity\\Portfolio\\my-blog\\src\\img\\back.svg';
 import 'C:\\Univerity\\Portfolio\\my-blog\\src\\blog.css';
 
 function Blog() {
