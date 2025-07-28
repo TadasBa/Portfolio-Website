@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import backIcon from 'C:\\Univerity\\Portfolio\\my-blog\\src\\img\\back.svg';
-import profileImage from 'C:\\Univerity\\Portfolio\\my-blog\\src\\img\\foto.jpg'; // Your image path
+import profileImage from 'C:\\Univerity\\Portfolio\\my-blog\\src\\img\\foto1.jpg'; // Your image path
 
 function About() {
   return (

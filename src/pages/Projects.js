@@ -45,16 +45,45 @@ const projectList = [
   },
   {
     id: 4,
-    title: 'Blog Creation using GitHub Pages',
-    date: 'August 2024',
-    tags: ['React', 'GitHub Pages'],
+    title: 'Portfolio Blog Website on GitHub Pages',
+    date: 'September 2024',
+    tags: ['React', 'GitHub Pages', 'CSS'],
     content: (
       <>
-        <p>This project involves creating a blog using React and hosting it on GitHub Pages.</p>
-        <img src="path/to/blog_image.jpg" alt="Blog project" className="custom-image" />
+      <h3>The Idea</h3>
+        <p>
+          This project began with a simple goal: to create a space where I could present and reflect on my projects,
+          and also challenge my frontend development skills by creating a website without relying on templates or no-code tools.
+          Rather than using portfolio generators or blog platforms, I wanted to build something from scratch to learn and gain full control.
+        </p>
+  
+        <h3>Technologies Used</h3>
+        <ul>
+          <li><strong>React:</strong> I used React for its flexibility and component-driven architecture. I built everything from scratch — no UI libraries or generators.</li>
+          <li><strong>Pure CSS:</strong> To challenge myself, I avoided frameworks like Tailwind or Bootstrap. This helped me solidify my layout and styling fundamentals.</li>
+          <li><strong>React Router:</strong> Navigation between sections (like projects, about, and home) is handled through route definitions.</li>
+          <li><strong>GitHub Pages:</strong> I deployed the project using GitHub Pages for simple and free static hosting.</li>
+        </ul>
+  
+        <h3>What I Learned</h3>
+        <p>
+        This was my first time working with React, so I had to learn its fundamentals.
+        I also discovered GitHub Pages during this project, which was completely new to me, and I had to learn how to configure it for static site deployment.
+        Another key area of growth was CSS: until now, I had only used it in university assignments and small experiments, 
+        but this project pushed me to apply my knowledge in a real-world context.
+        </p>
+  
+        <h3>Looking Ahead</h3>
+        <ul>
+          <li>Add dark mode for better user experience</li>
+          <li>Implement project and blog post sorting, filtering, or categorization to improve navigation</li>
+          <li>Redesign the post and project management system to make it more scalable easy to use</li>
+          <li>Experiment with connecting the blog to a simple API (e.g., mock backend or headless CMS) to practice full-stack concepts</li>
+        </ul>
+
       </>
     ),
-  },
+  },  
   {
     id: 5,
     title: 'Mobile App Wireframing with Figma',
