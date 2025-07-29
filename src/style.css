@@ -21,30 +21,35 @@ body {
 }
 
 .header ul {
-  text-align: center;
-  margin-left: 480px;
-  padding: 3px;
-  width: 250px;
+  display: flex;
+  justify-content: center; /* Center items inside */
+  gap: 10px; /* Space between buttons */
+  margin: 0 auto; /* Center the box itself */
+  padding: 5px 10px;
+  max-width: 237px;
   background-color: rgb(228, 228, 228);
   border-radius: 10px;
+  position: relative;
+  top: 10px;
 }
 
 .header li {
   list-style: none;
-  padding: 8px;
+  padding: 6px 12px;
   transition: transform 0.3s ease;
   display: inline-block;
   transform: translateY(0px) scale(1.02);
-  margin: 5px; 
   border: 1px solid rgba(241, 240, 240, 0.938);
-  border-radius: 10px;
+  border-radius: 8px;
+  font-size: 0.90rem;
+  cursor: pointer;
 }
 
 .header li:hover {
-  transform: translateY(-2px) scale(1.05); /* Smooth hover effect */
+  transform: translateY(-2px) scale(1.05);
   background-color: rgba(255, 255, 255, 0.4);
-  text-decoration: bold;
 }
+
 
 .footer {
   /* background-color: rgba(32, 33, 36, 0); */

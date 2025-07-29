@@ -79,6 +79,7 @@ const projectList = [
           <li>Implement project and blog post sorting, filtering, or categorization to improve navigation</li>
           <li>Redesign the post and project management system to make it more scalable easy to use</li>
           <li>Experiment with connecting the blog to a simple API (e.g., mock backend or headless CMS) to practice full-stack concepts</li>
+          <li>Redesign layout into a single-page scrollable structure to improve UX and reduce navigation friction</li>
         </ul>
 
       </>

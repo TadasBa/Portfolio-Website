@@ -25,6 +25,7 @@ function App() {
             <h4>SOFTWARE DEVELOPER PASSIONATE ABOUT CONTINUOUS LEARNING IN TECH</h4>
             <nav className="navigation-panel">
               <ul>
+                {/* <li><Link to="/">HOME</Link></li> */}
                 <li><Link to="/about">ABOUT</Link></li>
                 <li><Link to="/blog-page">BLOG</Link></li>
                 <li><Link to="/projects">PROJECTS</Link></li>
