@@ -198,3 +198,57 @@ p {
   border-radius: 2px; /* Optional: adds rounded corners */
 }
 
+
+@media (max-width: 768px) {
+  .page-wrapper {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .header {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .header ul {
+    flex-wrap: wrap;
+    max-width: 90%;
+    gap: 8px;
+    padding: 10px;
+  }
+
+  .header li {
+    padding: 8px 10px;
+    font-size: 0.85rem;
+  }
+
+  .header h1 {
+    font-size: 32px;
+    letter-spacing: 5px;
+  }
+
+  .content-container {
+    margin-left: 0;
+    padding: 20px;
+  }
+
+  .content {
+    margin: 0 20px;
+    text-align: left;
+  }
+
+  .about-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .about-image {
+    top: 0;
+    margin-top: 20px;
+  }
+
+  .footer {
+    position: relative;
+  }
+}
