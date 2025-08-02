@@ -207,24 +207,8 @@ p {
 
   .header {
     width: 100%;
+    position: relative;
     margin-bottom: 20px;
-  }
-
-  .header ul {
-    flex-wrap: wrap;
-    max-width: 90%;
-    gap: 8px;
-    padding: 10px;
-  }
-
-  .header li {
-    padding: 8px 10px;
-    font-size: 0.85rem;
-  }
-
-  .header h1 {
-    font-size: 32px;
-    letter-spacing: 5px;
   }
 
   .content-container {
@@ -233,22 +217,27 @@ p {
   }
 
   .content {
-    margin: 0 20px;
-    text-align: left;
+    margin: 0 20px !important; /* Smaller margins on mobile */
   }
 
   .about-container {
-    flex-direction: column;
+    flex-direction: column; /* Stack items vertically */
     align-items: center;
-    text-align: center;
+    gap: 20px;
   }
 
   .about-image {
+    flex: none;
     top: 0;
-    margin-top: 20px;
+    width: 80%; /* Optional: resize image on small screens */
+  }
+
+  .profile-image {
+    width: 100%;
   }
 
   .footer {
     position: relative;
   }
 }
+
