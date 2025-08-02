@@ -85,12 +85,3 @@ npm run deploy
 
 - Modify `Project.js` and `Projects.js` in `src/pages/`.
 
-## 🪪 License
-
-This project is open-source. You may reuse or modify it for personal use.
-
-## 🙋 About Me
-
-I'm **Tadas Baltrūnas**, a software developer passionate about learning and building.  
-Let’s connect on [GitHub](https://github.com/TadasBa) | [LinkedIn](https://www.linkedin.com/in/tadasbaltrunas)
-
