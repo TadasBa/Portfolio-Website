@@ -9,6 +9,7 @@ import powerUpGif from 'C:\\Univerity\\Portfolio\\my-blog\\src\\img\\powerUp.gif
 import enemyGif from 'C:\\Univerity\\Portfolio\\my-blog\\src\\img\\enemy.gif'
 import portalGif from 'C:\\Univerity\\Portfolio\\my-blog\\src\\img\\portal.gif'
 import LLMexperiment from 'C:\\Univerity\\Portfolio\\my-blog\\src\\img\\Experiment.png'
+import thesis from 'C:\\Univerity\\Portfolio\\my-blog\\src\\img\\CodeQualityAssesmentUsingLLM2025.pdf'
 
 const projectList = [
   {
@@ -256,6 +257,11 @@ const projectList = [
           This project marks the conclusion of my bachelor's studies, but it also opened a new line of interest I’m eager to explore further.
           While the current experiment is complete and self-contained, I’m considering continuing research in this area during my master’s degree — possibly 
           investigating deeper LLM behavior and model fine-tuning.
+        </p>
+      
+        <h3>Explore the Project</h3>
+        <p>
+          Full thesis PDF: <a href={thesis} target="_blank" rel="noopener noreferrer"><strong>Download here</strong></a><br/>      
         </p>
       </>
     )
