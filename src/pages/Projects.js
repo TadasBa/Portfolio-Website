@@ -8,6 +8,7 @@ import movementGif from 'C:\\Univerity\\Portfolio\\my-blog\\src\\img\\movement.g
 import powerUpGif from 'C:\\Univerity\\Portfolio\\my-blog\\src\\img\\powerUp.gif'
 import enemyGif from 'C:\\Univerity\\Portfolio\\my-blog\\src\\img\\enemy.gif'
 import portalGif from 'C:\\Univerity\\Portfolio\\my-blog\\src\\img\\portal.gif'
+import LLMexperiment from 'C:\\Univerity\\Portfolio\\my-blog\\src\\img\\Experiment.png'
 
 const projectList = [
   {
@@ -134,30 +135,6 @@ const projectList = [
   },
   {
     id: 2,
-    title: 'POP3 Server with SQLite Database',
-    date: 'March 2024',
-    tags: ['JavaScript', 'SQLite'],
-    content: (
-      <>
-        <p>In this project, I built a POP3 server integrated with an SQLite database...</p>
-        <img src="path/to/pop3_image.jpg" alt="POP3 Server" className="custom-image" />
-      </>
-    ),
-  },
-  {
-    id: 3,
-    title: 'Mobile App PANTRY',
-    date: 'June 2024',
-    tags: ['React', 'Node.js'],
-    content: (
-      <>
-        <p>PANTRY is a mobile app built with React and Node.js to help users manage their pantry items.</p>
-        <img src="path/to/pantry_image.jpg" alt="PANTRY App" className="custom-image" />
-      </>
-    ),
-  },
-  {
-    id: 4,
     title: 'Portfolio Blog Website on GitHub Pages',
     date: 'September 2024',
     tags: ['React', 'GitHub Pages', 'CSS'],
@@ -199,17 +176,127 @@ const projectList = [
     ),
   },  
   {
-    id: 5,
-    title: 'Mobile App Wireframing with Figma',
-    date: 'October 2024',
-    tags: ['Figma', 'UX/UI'],
+    id: 3,
+    title: 'Code Quality Assessment Using Large Language Models',
+    date: 'June 2025',
+    tags: ['LLM', 'Code Analysis', 'C#'],
     content: (
       <>
-        <p>I created wireframes for a mobile app using Figma, focusing on UX/UI design principles.</p>
-        <img src="path/to/wireframe_image.jpg" alt="Figma project" className="custom-image" />
+        <h3>The Idea</h3>
+        <p>
+          This was my bachelor's thesis project at Vilnius University, in which I explored how well can large language models (LLMs) assess the quality of source code.
+          Traditionally, developers rely on static analyzers like SonarQube or manual code reviews. But with the rise of large language models 
+          there's an opportunity to rethink how we approach automated code evaluation.
+        </p>
+        <p>
+          My goal was to explore whether LLMs could approximate expert judgment or tool-based metrics.
+          The project combined code scraping, prompt engineering, model evaluation, and statistical analysis into a single experimental framework.
+        </p>
+        <img src={LLMexperiment} alt="Thesis experiment" className="custom-image" width="80%"/>
+  
+        <h3>Dataset and Tools</h3>
+        <p>
+          The dataset consisted of <strong>510 C# methods</strong> collected from GitHub, filtered down to <strong>310 clean samples</strong> after removing ones with compilation issues and external dependencies.
+          Methods were evaluated in three independent ways:
+        </p>
+        <ul>
+          <li><strong>Static analysis tools:</strong> SonarQube and SciTools Understand provided metrics like cyclomatic complexity, cognitive complexity, line count, and more.</li>
+          <li><strong>Large Language Models:</strong> Three open-source models were tested using a local setup: CodeLlama 7B, CodeGemma 7B, and Qwen2.5-Coder 7B.</li>
+          <li><strong>Human experts:</strong> Four C# developers (2 juniors, 2 seniors) rated 10 representative methods on four subjective quality dimensions.</li>
+        </ul>
+  
+        <h3>Prompting and Evaluation</h3>
+        <p>
+          Each LLM was prompted as if it were a senior C# developer and asked to evaluate 10 static metrics and 4 ISO-based maintainability scores
+          (reusability, modifiability, analysability, and testability). The model’s response format was strict JSON.
+        </p>
+        <p>
+          To measure model consistency, two generation strategies were used: one with default parameters and one tuned (temperature 0.1, top_k 20, top_p 0.5).
+          I used Ollama to serve the models locally and collected predictions using Python automation. All outputs were parsed into spreadsheets for comparison and statistical analysis.
+        </p>
+  
+        <h3>Key Results</h3>
+        <ul>
+          <li>
+            <strong>Qwen2.5-Coder outperformed others</strong> — it had the lowest average error in 9 of 10 static metrics and the best correlation with static tools and human judgments.
+          </li>
+          <li>
+            <strong>CodeLlama performed worst</strong> — especially on size-related metrics like line counts and comment lines, where accuracy dropped below 1% in some cases.
+          </li>
+          <li>
+            All models struggled more with volume-based metrics (like total lines), while complexity metrics (like cyclomatic complexity) were more accurate.
+          </li>
+          <li>
+            On subjective ISO maintainability ratings, <strong>LLMs aligned more closely with senior developers</strong> than junior ones.
+          </li>
+        </ul>
+
+        <h3>Conclusion</h3>
+        <p>
+          LLMs show real potential as a supplementary tool for code quality assessment, especially when paired with traditional analysis.
+          Models like Qwen2.5 are capable of capturing high-level structural and architectural insights that static tools might miss.
+          However, they're not yet a drop-in replacement — especially for more objective, quantifiable metrics.
+        </p>
+
+
+        <h3>What I Learned</h3>
+        <p>
+          This project taught me how to design large-scale experiments involving AI and I learned various skills including:
+        </p>
+        <ul>
+          <li>Prompt engineering and controlling model outputs</li>
+          <li>Working with static code analysis tools</li>
+          <li>Setting up and managing LLMs locally using Ollama</li>
+          <li>Collecting and cleaning large code datasets</li>
+          <li>Performing quantitative analysis using Python, including MAE, RMSE, and correlation coefficients</li>
+        </ul>
+  
+        <h3>Future Directions</h3>
+        <p>
+          This project marks the conclusion of my bachelor's studies, but it also opened a new line of interest I’m eager to explore further.
+          While the current experiment is complete and self-contained, I’m considering continuing research in this area during my master’s degree — possibly 
+          investigating deeper LLM behavior and model fine-tuning.
+        </p>
       </>
-    ),
-  },
+    )
+  },  
+  // {
+  //   id: 3,
+  //   title: 'POP3 Server with SQLite Database',
+  //   date: 'March 2024',
+  //   tags: ['JavaScript', 'SQLite'],
+  //   content: (
+  //     <>
+  //       <p>In this project, I built a POP3 server integrated with an SQLite database...</p>
+  //       <img src="path/to/pop3_image.jpg" alt="POP3 Server" className="custom-image" />
+  //     </>
+  //   ),
+  // },
+  // {
+  //   id: 4,
+  //   title: 'Mobile App PANTRY',
+  //   date: 'June 2024',
+  //   tags: ['React', 'Node.js'],
+  //   content: (
+  //     <>
+  //       <p>PANTRY is a mobile app built with React and Node.js to help users manage their pantry items.</p>
+  //       <img src="path/to/pantry_image.jpg" alt="PANTRY App" className="custom-image" />
+  //     </>
+  //   ),
+  // },
+  
+  // {
+  //   id: 5,
+  //   title: 'Mobile App Wireframing with Figma',
+  //   date: 'October 2024',
+  //   tags: ['Figma', 'UX/UI'],
+  //   content: (
+  //     <>
+  //       <p>I created wireframes for a mobile app using Figma, focusing on UX/UI design principles.</p>
+  //       <img src="path/to/wireframe_image.jpg" alt="Figma project" className="custom-image" />
+  //     </>
+  //   ),
+  // },
 ];
 
 const Projects = () => {

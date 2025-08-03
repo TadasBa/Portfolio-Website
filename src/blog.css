@@ -54,6 +54,8 @@
   
   .blog-details h1 {
     color: #333;
+    text-align: left;
+    padding: 0;
   }
   
   .blog-details p {

@@ -15,16 +15,10 @@ function About() {
         <div className="about-text">
           <h1>About Me</h1>
           <p>
-            Hi, I'm Tadas, a software developer with a passion for computer science and technology. <br /><br />
-            Back in 2017, when I was in 9th grade, I decided to explore the field of informatics and enrolled
-            in my first programming course. It completely changed my perspective — computer science turned out to
-            be far more fascinating than anything I had experienced before.
-            As the course ended, I realized there was so much more to learn, which fueled my curiosity, 
-            and I began diving deeper into one topic after another.<br /><br />
-            Fast forward to today, I’ve worked with programming languages such as C/C++, C#, JavaScript, Python, 
-            explored different programming paradigms, and learned to use various technologies.
-            I've also applied this knowledge to numerous web, desktop, and mobile projects along the way. <br /><br />
-            These days I am mainly focusing on my Software Engineering studies in Vilnius University.
+          Hey, I’m Tadas — a software developer with a deep curiosity for all things tech (and an occasionally unhealthy relationship with debugging at 2 AM). <br></br>
+          It all started back in 9th grade (2017), when I took my first programming course and instantly got hooked. What began as a curiosity quickly became a passion — the more I learned, the more I wanted to know.<br></br>
+          Fast forward to today: I’ve worked with languages like C/C++, C#, JavaScript, and Python, built projects across web, desktop, and mobile, and explored everything from computer architecture to UI/UX design. I recently graduated from Vilnius University with a degree in Software Engineering, and yes, I even survived writing a bachelor’s thesis on AI and code quality — surprisingly, with all my sanity intact (or at least I hope so). <br></br>
+          When I’m not coding, you’ll probably find me learning something new, doing sports, or just enjoying some time offline <br></br>
           </p>
         </div>
         <div className="about-image">
@@ -33,12 +27,9 @@ function About() {
       </div>
       <h1>About This Blog</h1>
           <p>
-            I started this blog to capture and share what I’ve learned, both in tech and life in general. 
-            It’s a space where I will be trying to express my ideas, talk about the things I’m exploring, 
-            and hopefully connect with others who are on similar paths.<br /><br />
-            I aim to write about the technical aspects I work on, offering tutorials and insights, 
-            while also touching on personal experiences and thoughts that might resonate beyond the screen. <br /><br />
-            If you find something useful or interesting here, I truly appreciate it. <br /><br />
+          This blog is my digital notebook — a place to share what I’m building, learning, and occasionally overthinking. You’ll find a mix of tech tutorials, personal experiences, and thoughts from my journey as a developer.<br></br>
+          If something here makes you think, helps you solve a bug, or just gives you a chuckle — that’s a win in my book.<br></br>
+          Thanks for stopping by!<br></br>
           </p>
     </div>
   );

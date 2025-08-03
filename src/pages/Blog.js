@@ -5,8 +5,8 @@ import 'C:\\Univerity\\Portfolio\\my-blog\\src\\blog.css';
 
 function Blog() {
   const posts = [
-    { id: 1, title: 'My First Blog Post', date: 'September 2024' },
-    { id: 2, title: 'Learning React Basics', date: 'October 2024' },
+    { id: 1, title: 'Software Engineering at Vilnius University', date: 'June 2025' },
+    //{ id: 2, title: 'Learning React Basics', date: 'October 2024' },
     // Add more posts as needed
   ];
 
