@@ -1,0 +1,68 @@
+@use "../styles/tokens" as *;
+
+.page {
+  min-height: 34rem;
+  padding: clamp(3rem, 7vw, 5.6rem) clamp(1.25rem, 7vw, 6rem);
+}
+
+.grid {
+  display: grid;
+  gap: 1.35rem;
+  margin-top: clamp(2rem, 5vw, 3.2rem);
+}
+
+.group {
+  display: grid;
+  grid-template-columns: 3.6rem minmax(8rem, 0.35fr) minmax(0, 1fr);
+  gap: 1.25rem;
+  align-items: center;
+  border-bottom: 1px solid rgb(16 32 42 / 9%);
+  padding: 0 0 1.35rem;
+}
+
+.icon {
+  display: grid;
+  width: 3.25rem;
+  height: 3.25rem;
+  place-items: center;
+  border-radius: 999px;
+  background: rgb(207 231 238 / 62%);
+  color: $color-text;
+}
+
+.icon svg {
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
+.group h2 {
+  color: $color-text;
+  font-family: $font-display;
+  font-size: 1.2rem;
+  letter-spacing: -0.03em;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
+.tags span {
+  border: 1px solid rgb(16 32 42 / 8%);
+  border-radius: 999px;
+  background: rgb(207 231 238 / 40%);
+  color: #425d68;
+  font-size: 0.86rem;
+  padding: 0.48rem 0.72rem;
+}
+
+@media (max-width: 64rem) {
+  .group {
+    grid-template-columns: 3.6rem minmax(0, 1fr);
+  }
+
+  .tags {
+    grid-column: 2;
+  }
+}

@@ -1,0 +1,13 @@
+@use "../../styles/tokens" as *;
+
+.container {
+  width: min(100% - 2rem, $container);
+  margin-inline: auto;
+  scroll-margin-top: 7rem;
+}
+
+@media (min-width: 48rem) {
+  .container {
+    width: min(100% - 3rem, $container);
+  }
+}

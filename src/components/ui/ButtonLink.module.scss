@@ -1,0 +1,52 @@
+@use "../../styles/mixins" as *;
+@use "../../styles/tokens" as *;
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 3rem;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  padding: 0.78rem 1.35rem;
+  font-size: 0.95rem;
+  font-weight: 650;
+  transition:
+    border-color 180ms ease,
+    background 180ms ease,
+    color 180ms ease,
+    transform 180ms ease;
+
+  &:focus-visible {
+    @include focus-ring;
+  }
+}
+
+.primary {
+  border-color: rgb(0 129 167 / 72%);
+  background: linear-gradient(180deg, $color-accent-strong, $color-accent);
+  color: $color-accent-dark;
+  box-shadow: 0 14px 28px rgb(0 129 167 / 18%);
+
+  &:hover {
+    transform: translateY(-0.08rem);
+  }
+}
+
+.secondary {
+  min-height: auto;
+  border-color: transparent;
+  border-radius: 0;
+  border-bottom-color: rgb(0 129 167 / 55%);
+  background: transparent;
+  color: $color-accent;
+  box-shadow: none;
+  padding-inline: 0;
+
+  &:hover {
+    border-bottom-color: $color-accent;
+    background: transparent;
+    color: #006f91;
+  }
+}

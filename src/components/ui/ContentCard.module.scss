@@ -1,0 +1,13 @@
+@use "../../styles/mixins" as *;
+
+.card {
+  @include panel;
+
+  padding: 1.5rem;
+}
+
+@media (min-width: 40rem) {
+  .card {
+    padding: 1.75rem;
+  }
+}

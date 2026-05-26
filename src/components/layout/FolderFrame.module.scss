@@ -1,0 +1,279 @@
+@use "../../styles/mixins" as *;
+@use "../../styles/tokens" as *;
+
+.frame {
+  position: relative;
+  width: min(100% - clamp(5.5rem, 8vw, 8rem), 92rem);
+  margin: 0 auto;
+  padding-top: clamp(1.8rem, 4vw, 4.4rem);
+  padding-bottom: clamp(1.25rem, 3vw, 2.5rem);
+}
+
+.frame::before {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 0;
+  height: clamp(11rem, 20vw, 18rem);
+  background:
+    radial-gradient(circle at 58% 0%, rgb(255 255 255 / 92%), transparent 34%),
+    linear-gradient(180deg, rgb(207 231 238 / 62%), transparent 92%);
+  content: "";
+  pointer-events: none;
+}
+
+.tabs {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: end;
+  gap: 0.05rem;
+  margin-left: clamp(5rem, 12vw, 8.25rem);
+  padding-left: clamp(0rem, 1vw, 0.4rem);
+  overflow-x: auto;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.tab {
+  position: relative;
+  display: inline-flex;
+  min-width: clamp(7.6rem, 11.4vw, 11.9rem);
+  height: clamp(3.9rem, 5.4vw, 4.75rem);
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.65rem;
+  border: 1px solid rgb(16 32 42 / 5%);
+  border-bottom: 0;
+  border-radius: 1.05rem 1.05rem 0 0;
+  background: linear-gradient(
+    180deg,
+    rgb(207 231 238 / 88%),
+    rgb(186 220 230 / 80%)
+  );
+  box-shadow: 0 -8px 24px rgb(16 32 42 / 5%);
+  color: #476774;
+  font-weight: 600;
+  padding: 0 1.6rem;
+  transition:
+    background 180ms ease,
+    color 180ms ease,
+    box-shadow 180ms ease;
+
+  &::after {
+    position: absolute;
+    right: -1.65rem;
+    bottom: 0;
+    width: 2.75rem;
+    height: 100%;
+    border-radius: 0 1.05rem 0 0;
+    background: inherit;
+    content: "";
+    opacity: 0.9;
+    transform: skewX(24deg);
+    transform-origin: bottom left;
+  }
+
+  svg {
+    position: relative;
+    z-index: 1;
+    width: 1.05rem;
+    height: 1.05rem;
+  }
+
+  span {
+    position: relative;
+    z-index: 1;
+  }
+
+  &:focus-visible {
+    @include focus-ring;
+  }
+
+  &:hover {
+    color: $color-accent;
+  }
+}
+
+.active {
+  z-index: 3;
+  background: $color-panel;
+  color: $color-accent;
+  box-shadow: 0 -12px 34px rgb(16 32 42 / 7%);
+}
+
+.folder {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: clamp(5.1rem, 6.3vw, 6.15rem) minmax(0, 1fr);
+  min-height: clamp(38rem, 74vh, 54rem);
+  margin-top: -0.02rem;
+}
+
+.spine {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  border-radius: 2rem 0 0 2rem;
+  background:
+    linear-gradient(90deg, rgb(173 219 231 / 82%), rgb(207 231 238 / 94%)),
+    $color-bg-soft;
+  box-shadow:
+    0 22px 50px rgb(16 32 42 / 12%),
+    inset -1px 0 0 rgb(255 255 255 / 52%);
+  overflow: visible;
+}
+
+.spine::before {
+  position: absolute;
+  top: 4.45rem;
+  bottom: 3.1rem;
+  left: -3.1rem;
+  width: 4rem;
+  border-radius: 1.15rem 0 0 1.15rem;
+  background: linear-gradient(
+    90deg,
+    rgb(191 228 237 / 82%),
+    rgb(205 235 242 / 82%)
+  );
+  box-shadow: -1.15rem 1.4rem 2.6rem rgb(16 32 42 / 8%);
+  content: "";
+}
+
+.spine::after {
+  position: absolute;
+  top: 0.4rem;
+  right: -1.4rem;
+  bottom: 0.4rem;
+  z-index: 1;
+  width: 1.45rem;
+  background: linear-gradient(
+    90deg,
+    rgb(163 209 222 / 72%),
+    rgb(207 231 238 / 18%)
+  );
+  clip-path: polygon(0 0, 100% 4%, 100% 96%, 0 100%);
+  content: "";
+}
+
+.marker {
+  position: absolute;
+  top: 5.4rem;
+  z-index: 2;
+  width: 1.05rem;
+  height: 1.05rem;
+  border: 3px solid rgb(255 255 255 / 78%);
+  border-radius: 999px;
+  background: $color-accent;
+  box-shadow: 0 8px 18px rgb(0 129 167 / 22%);
+}
+
+.spineText {
+  writing-mode: vertical-rl;
+  position: relative;
+  z-index: 2;
+  color: $color-accent;
+  font-size: 0.78rem;
+  font-weight: 750;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  transform: rotate(180deg);
+}
+
+.spineMenu {
+  position: absolute;
+  bottom: 4rem;
+  z-index: 2;
+  display: flex;
+  width: 2rem;
+  height: 2rem;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgb(0 129 167 / 30%);
+  border-radius: 999px;
+  color: $color-accent;
+  background: rgb(255 255 255 / 30%);
+}
+
+.spineMenu svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.surface {
+  position: relative;
+  z-index: 2;
+  min-width: 0;
+  min-height: 100%;
+  border: 1px solid rgb(16 32 42 / 5%);
+  border-radius: 0 1.45rem 1.45rem 0;
+  background: $color-panel;
+  box-shadow: $shadow-panel;
+  overflow: hidden;
+}
+
+.surfaceInner {
+  min-height: 100%;
+}
+
+@media (max-width: 58rem) {
+  .frame {
+    width: min(100% - 1rem, $container);
+    padding-top: 1rem;
+  }
+
+  .tabs {
+    align-items: stretch;
+    margin-left: 0;
+    padding: 0.35rem;
+    border: 1px solid rgb(16 32 42 / 8%);
+    border-radius: 1.25rem;
+    background: rgb(255 255 255 / 48%);
+    backdrop-filter: blur(12px);
+  }
+
+  .tab {
+    min-width: auto;
+    height: auto;
+    border: 1px solid rgb(16 32 42 / 8%);
+    border-radius: 999px;
+    padding: 0.75rem 1rem;
+    transform: none;
+
+    &::after {
+      display: none;
+    }
+  }
+
+  .active {
+    box-shadow: 0 10px 24px rgb(16 32 42 / 8%);
+  }
+
+  .folder {
+    grid-template-columns: 1fr;
+    margin-top: 0.75rem;
+    min-height: auto;
+  }
+
+  .spine {
+    display: none;
+  }
+
+  .surface {
+    border-radius: 1.45rem;
+  }
+}
+
+@media (max-width: 34rem) {
+  .tab span {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+  }
+}

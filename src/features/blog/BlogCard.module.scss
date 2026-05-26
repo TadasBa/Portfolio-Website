@@ -1,0 +1,75 @@
+@use "../../styles/mixins" as *;
+@use "../../styles/tokens" as *;
+
+.link {
+  display: block;
+
+  &:focus-visible {
+    @include focus-ring;
+  }
+}
+
+.card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 1.5rem;
+  align-items: center;
+  border-bottom: 1px solid rgb(16 32 42 / 10%);
+  padding: 1.15rem 0;
+  transition:
+    border-color 180ms ease,
+    transform 180ms ease;
+
+  .link:hover & {
+    border-color: rgb(0 129 167 / 26%);
+    transform: translateX(0.25rem);
+  }
+}
+
+.title {
+  color: $color-text;
+  font-family: $font-display;
+  font-size: clamp(1.05rem, 1.8vw, 1.22rem);
+  font-weight: 700;
+  letter-spacing: -0.035em;
+}
+
+.summary {
+  max-width: 40rem;
+  margin-top: 0.4rem;
+  color: $color-muted;
+  font-size: 0.94rem;
+  line-height: 1.55;
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+  color: $color-subtle;
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+.meta svg {
+  width: 1rem;
+  height: 1rem;
+  color: $color-accent;
+  transition: transform 180ms ease;
+
+  .link:hover & {
+    transform: translateX(0.15rem);
+  }
+}
+
+@media (max-width: 42rem) {
+  .card {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .meta {
+    justify-content: space-between;
+    white-space: normal;
+  }
+}

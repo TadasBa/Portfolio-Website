@@ -1,0 +1,96 @@
+@use "../../styles/mixins" as *;
+@use "../../styles/tokens" as *;
+
+.link {
+  display: block;
+
+  &:focus-visible {
+    @include focus-ring;
+  }
+}
+
+.card {
+  height: 100%;
+  overflow: hidden;
+  padding: 0;
+  transition:
+    border-color 220ms ease,
+    box-shadow 220ms ease,
+    transform 220ms ease;
+
+  .link:hover & {
+    border-color: rgb(0 129 167 / 22%);
+    box-shadow: 0 22px 46px rgb(16 32 42 / 10%);
+    transform: translateY(-0.25rem);
+  }
+}
+
+.card::before {
+  display: block;
+  height: 7.8rem;
+  border-bottom: 1px solid rgb(16 32 42 / 7%);
+  background:
+    linear-gradient(
+      90deg,
+      transparent 1.5rem,
+      rgb(255 255 255 / 72%) 1.5rem 6.5rem,
+      transparent 6.5rem
+    ),
+    radial-gradient(
+      circle at 2.2rem 2rem,
+      rgb(0 129 167 / 16%) 0 0.75rem,
+      transparent 0.8rem
+    ),
+    linear-gradient(135deg, rgb(207 231 238 / 76%), rgb(247 252 253));
+  content: "";
+}
+
+.top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.3rem 1.3rem 0;
+}
+
+.date {
+  color: $color-subtle;
+  font-size: 0.82rem;
+}
+
+.title {
+  margin-top: 0.45rem;
+  color: $color-text;
+  font-family: $font-display;
+  font-size: 1.08rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+}
+
+.icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  color: $color-accent-strong;
+  transition: transform 180ms ease;
+
+  .link:hover & {
+    transform: translate(0.12rem, -0.12rem);
+  }
+}
+
+.summary {
+  margin-top: 0.85rem;
+  color: $color-subtle;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  padding: 0 1.3rem;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1.2rem;
+  padding: 0 1.3rem 1.35rem;
+}

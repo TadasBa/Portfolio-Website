@@ -1,0 +1,6 @@
+@use "../styles/tokens" as *;
+
+.shell {
+  min-height: 100vh;
+  color: $color-text;
+}
