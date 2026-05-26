@@ -1,1 +1,9 @@
 node_modules
+dist
+build
+coverage
+playwright-report
+test-results
+.DS_Store
+debug.log
+npm-debug.log*
