@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tadas Baltrunas | Frontend, Automation, Systems</title>
+    <meta
+      name="description"
+      content="Portfolio and blog for Tadas Baltrunas, a developer focused on frontend, automation, and practical systems."
+    />
+    <meta name="theme-color" content="#07110d" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <script>
+      (function restoreGithubPagesRoute() {
+        const redirectPath = new URLSearchParams(window.location.search).get(
+          "p",
+        );
+
+        if (!redirectPath) {
+          return;
+        }
+
+        window.history.replaceState(
+          null,
+          "",
+          `${window.location.pathname}${redirectPath}`,
+        );
+      })();
+    </script>
+  </head>
+  <body class="bg-neutral-950">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Redirecting…</title>
+    <script>
+      (function redirectToSpa() {
+        const baseUrl = "%BASE_URL%";
+        const normalizedBase = baseUrl.endsWith("/") ? baseUrl : `${baseUrl}/`;
+        const locationPath = window.location.pathname;
+        const pathWithoutBase = locationPath.startsWith(normalizedBase)
+          ? locationPath.slice(normalizedBase.length - 1)
+          : locationPath;
+        const redirectTarget = `${window.location.origin}${normalizedBase}?p=${encodeURIComponent(
+          `${pathWithoutBase}${window.location.search}${window.location.hash}`,
+        )}`;
+
+        window.location.replace(redirectTarget);
+      })();
+    </script>
+    <style>
+      :root {
+        color-scheme: dark;
+        font-family: Arial, sans-serif;
+      }
+
+      body {
+        background: #07110d;
+        color: #e7f7ee;
+        display: grid;
+        margin: 0;
+        min-height: 100vh;
+        place-items: center;
+      }
+
+      a {
+        color: #7bf1b2;
+      }
+    </style>
+  </head>
+  <body>
+    <p>
+      Redirecting… If nothing happens, <a href="%BASE_URL%">return home</a>.
+    </p>
+  </body>
+</html>
