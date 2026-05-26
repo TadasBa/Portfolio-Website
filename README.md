@@ -1,87 +1,145 @@
+# Tadas Baltrunas Portfolio
 
-# Portfolio & Blog
+Static personal portfolio and blog site for Tadas Baltrunas.
 
-A personal portfolio and blog website built with **React** and **CSS**, deployed using **GitHub Pages**. This project showcases my skills and projects I have already worked on.
+The project is frontend-only. It has no CMS, backend, API integration, auth, admin panel, or database.
 
-🌐 **Live Site:** [https://tadasba.github.io/Blog/](https://tadasba.github.io/Blog/)
+Live site today: [https://tadasba.github.io/Blog/](https://tadasba.github.io/Blog/)
 
-## 📌 Features
+## Stack
 
-- Custom built with React, without templates or UI frameworks
-- Responsive layout
-- Separate sections: Home, About, Blog, Projects
-- Blog post viewer
-- Social/contact icons (GitHub, email, LinkedIn)
-  
-## ⚙️ Tech Stack
+- Vite
+- React
+- TypeScript
+- React Router
+- SCSS Modules
+- Framer Motion
+- Vitest
+- React Testing Library
+- Playwright
+- ESLint
+- Stylelint
+- Prettier
 
-| Technology | Purpose                         |
-|------------|----------------------------------|
-| React      | Frontend framework               |
-| CSS        | Styling                          |
-| GitHub Pages | Static deployment              |
-| npm        | Dependency and build management  |
-
-## 🚀 Running the Project Locally
-
-1. **Clone the repo:**
-
-   ```bash
-   git clone https://github.com/TadasBa/Blog.git
-   cd Blog
-   ```
-
-2. **Install dependencies:**
-
-   ```bash
-   npm install
-   ```
-
-3. **Start the development server:**
-
-   ```bash
-   npm start
-   ```
-
-   This will run the app at `http://localhost:3000`.
-
----
-
-## 🌍 Deployment — GitHub Pages
-
-This project uses `gh-pages` to deploy.
-
-### 🛠 Initial Setup (if not already done):
+## Scripts
 
 ```bash
-npm install gh-pages --save-dev
+npm install
+npm run dev
+npm run build
+npm run preview
+npm run test
+npm run test:watch
+npm run typecheck
+npm run lint
+npm run lint:fix
+npm run style:lint
+npm run style:lint:fix
+npm run format
+npm run format:check
+npm run clean
+npm run check
+npm run deploy
 ```
 
-Add these lines to `package.json`:
+`npm run check` runs type checking, ESLint, Stylelint, tests, and a production build.
 
-```json
-"homepage": "https://TadasBa.github.io/Blog",
-"scripts": {
-  "predeploy": "npm run build",
-  "deploy": "gh-pages -d build"
-}
+## Development
+
+```bash
+npm run dev
 ```
 
-### 🚀 Deploy to GitHub Pages:
+The local Vite server uses `/` as the base path.
+
+## Build
+
+```bash
+npm run build
+npm run preview
+```
+
+Production output is written to `dist/`.
+
+## Deployment
+
+Deploy to GitHub Pages:
 
 ```bash
 npm run deploy
 ```
 
-> It will build the app and push the contents of the `build/` folder to the `gh-pages` branch.
+The production base path is controlled by [.env.production](./.env.production):
 
-## ✍️ Editing Content
+```env
+VITE_SITE_BASE=/Blog/
+```
 
-### ➕ Adding Blog Posts
+That matches the current deployment under `https://tadasba.github.io/Blog/`.
 
-- Add new entries in `src/pages/BlogPost.js`
+To move this project to the root GitHub Pages site at `https://tadasba.github.io/`, change it to:
 
-### ➕ Adding Projects
+```env
+VITE_SITE_BASE=/
+```
 
-- Modify `Project.js` and `Projects.js` in `src/pages/`.
+## Routing
 
+The app uses `BrowserRouter` with a GitHub Pages SPA fallback.
+
+Supported routes:
+
+- `/`
+- `/projects`
+- `/projects/:slug`
+- `/blog`
+- `/blog/:slug`
+- `/stack`
+- `/about`
+- `*` 404 route
+
+`HashRouter` would avoid the fallback file, but it would produce less clean URLs. `BrowserRouter` is a better fit for a professional static portfolio as long as `404.html` is kept in place for GitHub Pages refresh/direct-link behavior.
+
+## Content
+
+Projects live in [src/content/projects/projects.ts](./src/content/projects/projects.ts).
+
+Blog metadata lives in [src/content/blog/posts.ts](./src/content/blog/posts.ts). Markdown bodies live in [src/content/blog](./src/content/blog).
+
+Content uses stable slugs and typed entries. A future CMS can map remote content into the same types without changing page components.
+
+## Structure
+
+```text
+src/
+  app/
+  assets/
+  components/
+    layout/
+    ui/
+  content/
+    blog/
+    projects/
+  features/
+    blog/
+    projects/
+  hooks/
+  pages/
+  routes/
+  styles/
+  test/
+  types/
+  utils/
+e2e/
+scripts/
+```
+
+## Styling
+
+Styles use SCSS Modules. Global styles are limited to fonts, reset, body background, base typography, and reduced-motion behavior.
+
+Shared SCSS tokens and mixins live in [src/styles](./src/styles).
+
+## Future Notes
+
+Keep this phase static. Do not add a CMS, API client, backend, auth, or database until there is a clear content workflow that needs it.
