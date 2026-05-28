@@ -2,157 +2,152 @@
 @use "../styles/tokens" as *;
 
 .home {
-  min-height: min(70vh, 46rem);
-  padding: clamp(2.4rem, 5vw, 4.8rem) clamp(1.25rem, 7vw, 6.8rem)
-    clamp(2rem, 4vw, 3.6rem);
+  height: 100%;
+  padding: 4rem;
 }
 
 .hero {
   display: grid;
-  grid-template-columns: minmax(0, 0.92fr) minmax(20rem, 1fr);
+  grid-template-columns: minmax(0, 28rem) 31.25rem;
   align-items: center;
-  gap: clamp(2rem, 7vw, 5rem);
-  min-height: 22rem;
+  justify-content: space-between;
+  gap: 3rem;
+  min-height: 26.9rem;
 }
 
 .copy {
-  max-width: 32rem;
+  max-width: 28rem;
 }
 
 .eyebrow {
   color: $color-accent;
-  font-family: $font-mono;
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   font-weight: 700;
-  letter-spacing: 0.38em;
+  letter-spacing: 0.1em;
+  line-height: 1.35;
   text-transform: uppercase;
 }
 
 .name {
   margin-top: 1rem;
   color: $color-text;
-  font-family: $font-display;
-  font-size: clamp(2.45rem, 4.6vw, 3.15rem);
+  font-size: clamp(2.5rem, 4vw, 3rem);
   font-weight: 700;
-  letter-spacing: -0.055em;
-  line-height: 1.02;
+  letter-spacing: -0.075rem;
+  line-height: 1;
 }
 
 .rule {
   display: block;
   width: 3rem;
-  height: 0.18rem;
-  margin-top: 1.25rem;
-  border-radius: 999px;
+  height: 0.25rem;
+  margin-top: 1rem;
   background: $color-coral;
 }
 
 .mainLine {
-  margin-top: 1.45rem;
+  max-width: 28rem;
+  margin-top: 1.95rem;
   color: $color-text;
-  font-size: clamp(1.65rem, 2.75vw, 2.15rem);
-  letter-spacing: -0.04em;
-  line-height: 1.35;
+  font-size: clamp(1.75rem, 2.5vw, 1.875rem);
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  line-height: 1.375;
 }
 
 .shortText {
-  max-width: 31rem;
-  margin-top: 1.1rem;
-  color: #45606c;
-  font-size: 1.04rem;
-  line-height: 1.8;
+  max-width: 27rem;
+  margin-top: 1rem;
+  color: $color-muted;
+  font-size: 1.125rem;
+  line-height: 1.625;
 }
 
 .actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 1.15rem;
-  margin-top: 2.1rem;
+  gap: 2rem;
+  align-items: center;
+  margin-top: 2rem;
 }
 
 .actions svg {
-  width: 1rem;
-  height: 1rem;
+  width: 1.25rem;
+  height: 0.625rem;
 }
 
 .visual {
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
 }
 
 .object {
   position: relative;
-  width: min(100%, 34rem);
-  min-height: 24rem;
+  width: 31.25rem;
+  min-height: 25rem;
 }
 
 .outline {
   position: absolute;
   top: 0;
-  right: 4.4rem;
-  width: 17rem;
-  height: 15rem;
-  border: 2px solid rgb(0 129 167 / 24%);
-  border-radius: 0.72rem;
+  right: 2.45rem;
+  width: 17.625rem;
+  height: 19rem;
+  border: 1px solid rgb(0 132 180 / 18%);
+  border-radius: 0.75rem;
 }
 
 .backPanel {
   position: absolute;
-  top: 5.5rem;
-  left: 4.5rem;
-  width: 14.5rem;
-  height: 17rem;
-  border-radius: 0.85rem;
-  background: linear-gradient(
-    145deg,
-    rgb(207 231 238 / 96%),
-    rgb(232 246 250 / 84%)
-  );
-  box-shadow: 0 22px 42px rgb(16 32 42 / 8%);
+  top: 3rem;
+  right: 13.45rem;
+  width: 12rem;
+  height: 18.3rem;
+  border-radius: 0.75rem;
+  background: #d6eaf5;
 }
 
 .dotGrid {
   position: absolute;
-  bottom: 2.15rem;
-  left: 6.15rem;
-  width: 12rem;
-  height: 7.5rem;
+  bottom: 2.5rem;
+  left: 2.5rem;
+  width: 6rem;
+  height: 6rem;
   background-image: radial-gradient(
-    rgb(0 129 167 / 16%) 1.2px,
-    transparent 1.2px
+    rgb(174 205 224 / 60%) 1px,
+    transparent 1px
   );
-  background-size: 0.72rem 0.72rem;
+  background-size: 0.62rem 0.62rem;
 }
 
 .window {
   position: absolute;
-  top: 9.7rem;
-  right: 1.1rem;
-  width: 20.5rem;
-  height: 13.5rem;
-  border-radius: 0.8rem;
-  background: linear-gradient(
-    120deg,
-    rgb(240 249 251 / 92%),
-    rgb(207 231 238 / 90%)
-  );
-  box-shadow: 0 24px 54px rgb(16 32 42 / 10%);
-  padding: 2.35rem 3rem;
+  top: 6rem;
+  right: 0;
+  width: 21.25rem;
+  height: 13.75rem;
+  border: 1px solid #fff;
+  border-radius: 0.75rem;
+  background: #eaf3f9;
+  box-shadow:
+    0 10px 15px -3px rgb(0 0 0 / 10%),
+    0 4px 6px -4px rgb(0 0 0 / 10%);
+  padding: 2.05rem;
 }
 
 .windowDots {
   display: flex;
-  gap: 1.35rem;
+  gap: 0.5rem;
 }
 
 .windowDots span {
-  width: 0.82rem;
-  height: 0.82rem;
+  width: 0.75rem;
+  height: 0.75rem;
   border-radius: 999px;
 }
 
 .windowDots span:nth-child(1) {
-  background: #38aeca;
+  background: $color-accent;
 }
 
 .windowDots span:nth-child(2) {
@@ -168,120 +163,117 @@
 .lineMedium,
 .lineFaint {
   display: block;
-  height: 0.34rem;
+  height: 0.5rem;
   border-radius: 999px;
-  background: rgb(255 255 255 / 78%);
+  background: #fff;
 }
 
 .lineWide {
-  width: 12rem;
-  margin-top: 1.9rem;
+  width: 100%;
+  margin-top: 1.5rem;
 }
 
 .lineShort {
-  width: 5.5rem;
-  margin-top: 0.82rem;
+  width: 12.85rem;
+  margin-top: 0.75rem;
 }
 
 .lineMedium {
-  width: 10rem;
-  margin-top: 0.82rem;
+  width: 8.56rem;
+  margin-top: 0.75rem;
 }
 
 .lineFaint {
-  width: 7.4rem;
-  margin-top: 0.82rem;
-  opacity: 0.46;
+  display: none;
 }
 
 .coral {
   position: absolute;
-  bottom: 4.7rem;
-  left: 2.25rem;
-  width: 5rem;
-  height: 5rem;
+  bottom: 2.73rem;
+  left: 3.72rem;
+  width: 4rem;
+  height: 4rem;
   border-radius: 999px;
-  background: radial-gradient(circle at 35% 25%, #ff8c83, $color-coral 70%);
-  box-shadow: 0 18px 32px rgb(240 113 103 / 28%);
+  background: $color-coral;
 }
 
 .codeTile {
   position: absolute;
-  right: 7.4rem;
+  right: 4rem;
   bottom: 1rem;
   display: flex;
-  width: 6.4rem;
-  height: 6.4rem;
+  width: 6rem;
+  height: 6rem;
   align-items: center;
   justify-content: center;
-  border-radius: 0.75rem;
-  background: linear-gradient(
-    150deg,
-    rgb(207 231 238 / 94%),
-    rgb(227 244 248 / 88%)
-  );
+  border-radius: 1rem;
+  background: rgb(214 234 245 / 90%);
   color: $color-accent;
   font-family: $font-mono;
-  font-size: 1.75rem;
+  font-size: 1.7rem;
   font-weight: 700;
-  box-shadow: 0 18px 38px rgb(16 32 42 / 9%);
+  box-shadow:
+    0 4px 6px -1px rgb(0 0 0 / 10%),
+    0 2px 4px -2px rgb(0 0 0 / 10%);
 }
 
 .featureRow {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 0;
-  margin-top: clamp(0.4rem, 1.5vw, 1.25rem);
-  padding-top: 0.75rem;
+  gap: 2rem;
+  margin-top: 3rem;
+  border-top: 1px solid #d6eaf5;
+  padding-top: 2.55rem;
 }
 
 .feature {
-  display: grid;
-  grid-template-columns: 4.5rem minmax(0, 1fr);
+  display: flex;
   gap: 1rem;
-  align-items: center;
-  min-height: 5.2rem;
-  padding: 0.4rem 1.4rem;
-  border-left: 1px solid rgb(16 32 42 / 9%);
+  min-height: 3.95rem;
+  border-left: 1px solid #d6eaf5;
+  padding-left: 2rem;
 }
 
 .feature:first-child {
   border-left: 0;
+  padding-left: 0;
 }
 
 .featureIcon {
   display: flex;
-  width: 4rem;
-  height: 4rem;
+  width: 3rem;
+  height: 3rem;
+  flex: 0 0 auto;
   align-items: center;
   justify-content: center;
   border-radius: 999px;
-  background: rgb(207 231 238 / 64%);
+  background: #eaf3f9;
   color: $color-text;
 }
 
 .featureIcon svg {
-  width: 1.35rem;
-  height: 1.35rem;
+  width: 1rem;
+  height: 1rem;
 }
 
 .feature h2 {
   color: $color-text;
-  font-size: 1rem;
-  font-weight: 700;
+  font-size: 0.875rem;
+  font-weight: 650;
+  line-height: 1.4;
 }
 
 .feature p {
-  max-width: 12rem;
-  margin-top: 0.35rem;
+  max-width: 8.6rem;
+  margin-top: 0.25rem;
   color: $color-muted;
-  font-size: 0.86rem;
-  line-height: 1.55;
+  font-size: 0.75rem;
+  line-height: 1.625;
 }
 
-@media (max-width: 68rem) {
+@media (max-width: 72rem) {
   .home {
-    padding: 3rem 1.5rem;
+    padding: clamp(2rem, 6vw, 4rem);
   }
 
   .hero {
@@ -289,21 +281,17 @@
     min-height: auto;
   }
 
-  .copy {
-    max-width: 42rem;
-  }
-
   .visual {
-    min-height: 23rem;
+    justify-content: center;
   }
 
   .featureRow {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1rem 0;
   }
 
   .feature:nth-child(odd) {
     border-left: 0;
+    padding-left: 0;
   }
 }
 
@@ -312,14 +300,22 @@
     padding: 2.2rem 1.1rem;
   }
 
+  .name {
+    font-size: 2.35rem;
+  }
+
   .mainLine {
-    font-size: 1.65rem;
+    font-size: 1.55rem;
+  }
+
+  .shortText {
+    font-size: 1rem;
   }
 
   .object {
     width: 100%;
-    min-height: 19rem;
-    transform: scale(0.82);
+    min-height: 20rem;
+    transform: scale(0.78);
     transform-origin: top center;
   }
 
@@ -329,8 +325,8 @@
 
   .feature {
     border-left: 0;
-    border-top: 1px solid rgb(16 32 42 / 8%);
-    padding-inline: 0;
+    border-top: 1px solid #d6eaf5;
+    padding: 1rem 0 0;
   }
 
   .feature:first-child {

@@ -61,6 +61,7 @@ export function FolderFrame({ children }: FolderFrameProps) {
             <Menu />
           </span>
         </aside>
+        <span aria-hidden="true" className={styles.shadowStrip} />
         <main className={styles.surface}>
           <div className={styles.surfaceInner}>{children}</div>
         </main>

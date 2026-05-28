@@ -1,14 +1,14 @@
 @use "../styles/tokens" as *;
 
 .page {
-  min-height: 34rem;
-  padding-block: clamp(3rem, 7vw, 5.6rem);
+  height: 100%;
+  padding-block: 4rem;
 }
 
 .grid {
   display: grid;
   gap: 1.25rem;
-  margin-top: clamp(2rem, 5vw, 3.4rem);
+  margin-top: 3.6rem;
 }
 
 @media (min-width: 64rem) {
@@ -20,5 +20,13 @@
 @media (min-width: 72rem) {
   .projectGrid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 42rem) {
+  .page {
+    height: auto;
+    min-height: auto;
+    padding-block: 2.2rem;
   }
 }

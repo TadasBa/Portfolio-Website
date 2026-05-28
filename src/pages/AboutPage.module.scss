@@ -1,79 +1,289 @@
-@use "../styles/mixins" as *;
 @use "../styles/tokens" as *;
 
 .page {
-  min-height: 34rem;
-  padding-block: clamp(3rem, 7vw, 5.6rem);
-}
-
-.intro {
-  display: grid;
-  gap: clamp(2rem, 6vw, 5rem);
-  align-items: center;
-}
-
-.copy {
-  margin-top: 2rem;
-  color: $color-muted;
-  font-size: 1.08rem;
-  line-height: 1.75;
-}
-
-.copy p + p {
-  margin-top: 1rem;
-}
-
-.links {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.8rem;
-  margin-top: 2.2rem;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-block: 3.4rem 2.65rem;
 }
 
-.links a {
-  display: inline-flex;
+.top {
+  display: grid;
+  grid-template-columns: minmax(0, 35rem) minmax(24rem, 1fr);
+  gap: 3.5rem;
   align-items: center;
-  gap: 0.55rem;
-  border: 1px solid rgb(16 32 42 / 10%);
+}
+
+.copyArea {
+  min-width: 0;
+}
+
+.lead {
+  max-width: 35rem;
+  margin-top: 1.35rem;
+  color: $color-text;
+  font-size: clamp(1.35rem, 1.8vw, 1.62rem);
+  line-height: 1.4;
+}
+
+.facts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-top: 2.35rem;
+  border-bottom: 1px solid #d6eaf5;
+}
+
+.fact {
+  display: grid;
+  grid-template-columns: 3.6rem minmax(0, 1fr);
+  gap: 1rem;
+  min-height: 5.4rem;
+  align-items: center;
+  border-top: 1px solid #d6eaf5;
+  padding: 0.85rem 1.4rem 0.85rem 0;
+}
+
+.fact:nth-child(even) {
+  border-left: 1px solid #d6eaf5;
+  padding-left: 1.4rem;
+}
+
+.factIcon,
+.contactIcon {
+  display: grid;
+  width: 3rem;
+  height: 3rem;
+  place-items: center;
   border-radius: 999px;
-  background: rgb(255 255 255 / 70%);
+  background: #eaf3f9;
+  color: $color-text;
+}
+
+.factIcon svg,
+.contactIcon svg {
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
+.fact h2 {
+  color: $color-text;
+  font-size: 0.98rem;
+  font-weight: 700;
+}
+
+.fact p {
+  margin-top: 0.4rem;
   color: $color-muted;
-  font-size: 0.94rem;
-  padding: 0.72rem 0.95rem;
-  transition:
-    border-color 180ms ease,
-    color 180ms ease,
-    transform 180ms ease;
+  font-size: 0.9rem;
+  line-height: 1.45;
 }
 
-.links a:hover {
-  border-color: rgb(0 129 167 / 28%);
+.object {
+  position: relative;
+  justify-self: end;
+  width: 31.25rem;
+  min-height: 25rem;
+}
+
+.outline {
+  position: absolute;
+  top: 0;
+  right: 2.45rem;
+  width: 17.625rem;
+  height: 19rem;
+  border: 1px solid rgb(0 132 180 / 26%);
+  border-radius: 0.75rem;
+}
+
+.backPanel {
+  position: absolute;
+  top: 4.35rem;
+  right: 13.45rem;
+  width: 12rem;
+  height: 18.3rem;
+  border-radius: 0.75rem;
+  background: #d6eaf5;
+}
+
+.dotGrid {
+  position: absolute;
+  bottom: 2.65rem;
+  left: 2.5rem;
+  width: 9rem;
+  height: 8rem;
+  background-image: radial-gradient(
+    rgb(174 205 224 / 65%) 1px,
+    transparent 1px
+  );
+  background-size: 0.62rem 0.62rem;
+}
+
+.window {
+  position: absolute;
+  top: 8.4rem;
+  right: 0;
+  width: 21.25rem;
+  height: 13.75rem;
+  border: 1px solid #fff;
+  border-radius: 0.75rem;
+  background: #eaf3f9;
+  box-shadow:
+    0 10px 15px -3px rgb(0 0 0 / 10%),
+    0 4px 6px -4px rgb(0 0 0 / 10%);
+  padding: 2.05rem;
+}
+
+.windowDots {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.windowDots span {
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 999px;
+}
+
+.windowDots span:nth-child(1) {
+  background: $color-accent;
+}
+
+.windowDots span:nth-child(2) {
+  background: $color-coral;
+}
+
+.windowDots span:nth-child(3) {
+  background: $color-text;
+}
+
+.lineWide,
+.lineShort,
+.lineMedium,
+.lineTiny {
+  display: block;
+  height: 0.5rem;
+  border-radius: 999px;
+  background: #fff;
+}
+
+.lineWide {
+  width: 100%;
+  margin-top: 1.5rem;
+}
+
+.lineShort {
+  width: 12.85rem;
+  margin-top: 0.75rem;
+}
+
+.lineMedium {
+  width: 9.7rem;
+  margin-top: 0.75rem;
+}
+
+.lineTiny {
+  width: 4.8rem;
+  margin-top: 0.75rem;
+}
+
+.coral {
+  position: absolute;
+  bottom: 2.73rem;
+  left: 3.72rem;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 999px;
+  background: radial-gradient(circle at 35% 25%, #ff776d, $color-coral 70%);
+}
+
+.codeTile {
+  position: absolute;
+  right: 4rem;
+  bottom: 1rem;
+  display: flex;
+  width: 6rem;
+  height: 6rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 1rem;
+  background: rgb(214 234 245 / 90%);
   color: $color-accent;
-  transform: translateY(-0.1rem);
+  font-family: $font-mono;
+  font-size: 1.7rem;
+  font-weight: 700;
+  box-shadow:
+    0 4px 6px -1px rgb(0 0 0 / 10%),
+    0 2px 4px -2px rgb(0 0 0 / 10%);
 }
 
-.links svg {
+.contactRow {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 3rem;
+  border-top: 1px solid #d6eaf5;
+  padding-top: 1.75rem;
+}
+
+.contactRow a {
+  display: grid;
+  grid-template-columns: 3rem minmax(0, 1fr) 1rem;
+  gap: 1.1rem;
+  align-items: center;
+  color: $color-text;
+}
+
+.contactRow strong,
+.contactRow small {
+  display: block;
+}
+
+.contactRow strong {
+  font-size: 1rem;
+}
+
+.contactRow small {
+  margin-top: 0.35rem;
+  color: $color-accent;
+  font-size: 0.9rem;
+}
+
+.external {
   width: 1rem;
   height: 1rem;
+  color: $color-accent;
 }
 
-.portraitCard {
-  width: min(100%, 17rem);
-  margin-inline: auto;
-  overflow: hidden;
-  padding: 0;
-  border-radius: 1.2rem;
+@media (max-width: 72rem) {
+  .page {
+    height: auto;
+  }
+
+  .top {
+    grid-template-columns: 1fr;
+  }
+
+  .object {
+    justify-self: center;
+  }
 }
 
-.portrait {
-  width: 100%;
-  height: 18rem;
-  object-fit: cover;
-  object-position: center 18%;
-}
+@media (max-width: 42rem) {
+  .page {
+    padding-block: 2.2rem;
+  }
 
-@media (min-width: 64rem) {
-  .intro {
-    grid-template-columns: minmax(0, 1.15fr) minmax(16rem, 0.55fr);
+  .facts,
+  .contactRow {
+    grid-template-columns: 1fr;
+  }
+
+  .fact:nth-child(even) {
+    border-left: 0;
+    padding-left: 0;
+  }
+
+  .object {
+    display: none;
   }
 }

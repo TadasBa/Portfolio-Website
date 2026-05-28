@@ -26,13 +26,7 @@ body {
   min-width: 320px;
   min-height: 100vh;
   margin: 0;
-  background-color: $color-bg;
-  background-image:
-    radial-gradient(circle at 20% 0%, rgb(255 255 255 / 75%), transparent 32%),
-    radial-gradient(circle at 86% 8%, rgb(207 231 238 / 80%), transparent 30%),
-    linear-gradient(135deg, rgb(255 255 255 / 45%), transparent 44%);
-  background-position: center top;
-  background-size: 100% 100%;
+  background: $color-bg;
   color: $color-text;
   font-family: $font-body;
   -webkit-font-smoothing: antialiased;

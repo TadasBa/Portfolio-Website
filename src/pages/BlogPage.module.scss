@@ -3,10 +3,10 @@
 .page {
   display: grid;
   grid-template-columns: minmax(16rem, 0.7fr) minmax(0, 1.3fr);
-  gap: clamp(2rem, 7vw, 6rem);
+  gap: clamp(2rem, 7vw, 5rem);
   align-items: start;
-  min-height: 34rem;
-  padding: clamp(3rem, 7vw, 5.6rem) clamp(1.25rem, 7vw, 6rem);
+  height: 100%;
+  padding: 4rem;
 }
 
 .intro {
@@ -79,6 +79,8 @@
 
 @media (max-width: 42rem) {
   .page {
-    padding: 2.4rem 1.1rem;
+    height: auto;
+    min-height: auto;
+    padding: 2.2rem 1.1rem;
   }
 }

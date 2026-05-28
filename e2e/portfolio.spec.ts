@@ -21,7 +21,7 @@ test("navigation works", async ({ page }) => {
   await expect(page).toHaveURL(/\/stack$/);
   await expect(
     page.getByRole("heading", {
-      name: /Tools I use/i,
+      name: /^Stack$/i,
     }),
   ).toBeVisible();
 });

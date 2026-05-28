@@ -1,19 +1,71 @@
-import { Github, Linkedin, Mail } from "lucide-react";
+import {
+  Briefcase,
+  Code2,
+  ExternalLink,
+  Github,
+  GraduationCap,
+  Linkedin,
+  Mail,
+  Sparkles,
+} from "lucide-react";
 import type { LucideIcon } from "lucide-react";
-import portraitImage from "../assets/media/profile/tadas-baltrunas.jpg";
 import { SectionContainer } from "../components/layout/SectionContainer";
-import { ContentCard } from "../components/ui/ContentCard";
-import { Reveal } from "../components/ui/Reveal";
 import { SectionHeading } from "../components/ui/SectionHeading";
-import { siteConfig, socialLinks } from "../content/site";
+import { socialLinks } from "../content/site";
 import { useDocumentMeta } from "../hooks/useDocumentMeta";
 import styles from "./AboutPage.module.scss";
+
+const facts = [
+  {
+    icon: Briefcase,
+    title: "Current work",
+    text: "Developer in fintech.",
+  },
+  {
+    icon: GraduationCap,
+    title: "Education",
+    text: "Software Engineering MSc at Vilnius University.",
+  },
+  {
+    icon: Code2,
+    title: "Focus",
+    text: "Frontend systems and workflow automation.",
+  },
+  {
+    icon: Sparkles,
+    title: "Working style",
+    text: "Simple, maintainable solutions.",
+  },
+];
 
 const linkIcons: Record<string, LucideIcon> = {
   Email: Mail,
   GitHub: Github,
   LinkedIn: Linkedin,
 };
+
+function AbstractObject() {
+  return (
+    <div aria-hidden="true" className={styles.object}>
+      <div className={styles.outline} />
+      <div className={styles.backPanel} />
+      <div className={styles.dotGrid} />
+      <div className={styles.window}>
+        <div className={styles.windowDots}>
+          <span />
+          <span />
+          <span />
+        </div>
+        <span className={styles.lineWide} />
+        <span className={styles.lineShort} />
+        <span className={styles.lineMedium} />
+        <span className={styles.lineTiny} />
+      </div>
+      <div className={styles.coral} />
+      <div className={styles.codeTile}>{"</>"}</div>
+    </div>
+  );
+}
 
 export function AboutPage() {
   useDocumentMeta({
@@ -24,52 +76,55 @@ export function AboutPage() {
 
   return (
     <SectionContainer className={styles.page}>
-      <div className={styles.intro}>
-        <Reveal>
-          <div>
-            <SectionHeading
-              eyebrow="About"
-              title="I build web interfaces and practical internal tools."
-              description={siteConfig.summary}
-            />
+      <div className={styles.top}>
+        <div className={styles.copyArea}>
+          <SectionHeading eyebrow="About" title="About" />
 
-            <div className={styles.copy}>
-              <p>
-                I study software engineering at Vilnius University and work as a
-                developer in fintech. My work is mostly frontend, but I also
-                deal with APIs, automation, deployment flows, and system
-                maintenance when the task requires it.
-              </p>
-              <p>
-                I prefer simple systems that are easy to understand, test, and
-                maintain.
-              </p>
-            </div>
+          <p className={styles.lead}>
+            I’m a developer focused on frontend, automation, and practical
+            systems. I enjoy building clean interfaces, streamlining workflows,
+            and turning ideas into reliable products.
+          </p>
 
-            <div className={styles.links} aria-label="Profile links">
-              {socialLinks.map((link) => {
-                const Icon = linkIcons[link.label] ?? Mail;
+          <div className={styles.facts}>
+            {facts.map((fact) => {
+              const Icon = fact.icon;
 
-                return (
-                  <a href={link.href} key={link.label}>
+              return (
+                <article className={styles.fact} key={fact.title}>
+                  <div className={styles.factIcon}>
                     <Icon aria-hidden="true" />
-                    {link.label}
-                  </a>
-                );
-              })}
-            </div>
+                  </div>
+                  <div>
+                    <h2>{fact.title}</h2>
+                    <p>{fact.text}</p>
+                  </div>
+                </article>
+              );
+            })}
           </div>
-        </Reveal>
+        </div>
 
-        <Reveal delay={0.08}>
-          <ContentCard className={styles.portraitCard}>
-            <img
-              alt="Portrait of me"
-              className={styles.portrait}
-              src={portraitImage}
-            />
-          </ContentCard>
-        </Reveal>
+        <AbstractObject />
+      </div>
+
+      <div className={styles.contactRow}>
+        {socialLinks.map((link) => {
+          const Icon = linkIcons[link.label] ?? Mail;
+
+          return (
+            <a href={link.href} key={link.label}>
+              <span className={styles.contactIcon}>
+                <Icon aria-hidden="true" />
+              </span>
+              <span>
+                <strong>{link.label}</strong>
+                <small>{link.value}</small>
+              </span>
+              <ExternalLink aria-hidden="true" className={styles.external} />
+            </a>
+          );
+        })}
       </div>
     </SectionContainer>
   );
