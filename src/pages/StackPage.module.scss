@@ -2,22 +2,22 @@
 
 .page {
   height: 100%;
-  padding: 68px 76px;
+  padding: clamp(44px, 5vw, 68px) clamp(48px, 5vw, 76px);
 }
 
 .grid {
   display: grid;
   gap: 0;
-  margin-top: 44px;
+  margin-top: clamp(30px, 4vw, 44px);
 }
 
 .group {
   display: grid;
-  grid-template-columns: 84px 230px minmax(0, 1fr);
-  gap: 22px;
+  grid-template-columns: 78px 210px minmax(0, 1fr);
+  gap: 20px;
   align-items: center;
   border-bottom: 1px solid #d6eaf5;
-  padding: 22px 0;
+  padding: clamp(16px, 2.2vw, 22px) 0;
 }
 
 .group:first-child {

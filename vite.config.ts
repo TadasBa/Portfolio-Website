@@ -4,7 +4,7 @@ import react from "@vitejs/plugin-react";
 
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), "");
-  const productionBase = env.VITE_SITE_BASE?.trim() || "/Blog/";
+  const productionBase = env.VITE_SITE_BASE?.trim() || "/";
 
   return {
     base: mode === "production" ? productionBase : "/",
@@ -12,7 +12,6 @@ export default defineConfig(({ mode }) => {
       rollupOptions: {
         input: {
           main: resolve(__dirname, "index.html"),
-          notFound: resolve(__dirname, "404.html"),
         },
       },
     },

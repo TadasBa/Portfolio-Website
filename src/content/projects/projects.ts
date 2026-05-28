@@ -64,24 +64,24 @@ export const projects: ProjectEntry[] = [
       "A personal website built to publish projects, blog posts, and software engineering notes.",
     publishedAt: "2024-09-15",
     dateLabel: "September 2024",
-    tags: ["React", "GitHub Pages", "Portfolio", "Frontend"],
+    tags: ["React", "Cloudflare Pages", "Portfolio", "Frontend"],
     problem:
       "Create a personal site for publishing projects and writing without relying on templates, no-code tools, or a hosted blog platform.",
     solution:
-      "Built a React site from scratch, handled navigation with React Router, styled the interface with CSS, and deployed it as a static site on GitHub Pages.",
-    technologies: ["React", "GitHub Pages", "CSS", "React Router"],
+      "Built a React site from scratch, handled navigation with React Router, styled the interface with CSS, and prepared it as a static site for Cloudflare Pages.",
+    technologies: ["React", "Cloudflare Pages", "CSS", "React Router"],
     outcome:
-      "The first version helped me learn React, CSS layout, routing, and GitHub Pages deployment before later rebuilding the project with a cleaner typed content structure.",
+      "The first version helped me learn React, CSS layout, routing, and static deployment before later rebuilding the project with a cleaner typed content structure.",
     highlights: [
       "First end-to-end React project built without a UI template or component library.",
       "Used React Router for separate home, about, blog, and project pages.",
-      "Deployed the site to GitHub Pages and learned the routing trade-offs of static hosting.",
+      "Prepared the site for static hosting and learned the routing trade-offs of frontend-only deployment.",
       "Identified later improvements: dark mode, filtering, better content structure, and a cleaner single-page flow.",
     ],
     links: [
       {
         label: "Live Site",
-        href: "https://tadasba.github.io/Blog/",
+        href: "https://tadas.baltrunas.lt/",
       },
       {
         label: "Repository",
@@ -141,7 +141,8 @@ export const projects: ProjectEntry[] = [
       {
         src: unityCameraGif,
         alt: "Third-person camera orbit from the Unity platformer.",
-        caption: "Custom camera orbit with mouse input and clamped vertical rotation.",
+        caption:
+          "Custom camera orbit with mouse input and clamped vertical rotation.",
       },
       {
         src: unityMovementGif,
@@ -151,7 +152,8 @@ export const projects: ProjectEntry[] = [
       {
         src: unityPowerUpGif,
         alt: "Jump boost power-up from the Unity platformer.",
-        caption: "Temporary jump boost handled through coroutine-based gameplay logic.",
+        caption:
+          "Temporary jump boost handled through coroutine-based gameplay logic.",
       },
       {
         src: unityEnemyGif,

@@ -2,11 +2,11 @@
 @use "../../styles/tokens" as *;
 
 .frame {
-  --folder-height: clamp(760px, calc(100svh - 44px), 940px);
+  --folder-height: clamp(620px, calc(100svh - 92px), 860px);
 
   position: relative;
-  width: min(1760px, calc(100vw - 20px));
-  max-width: calc(100vw - 20px);
+  width: min(1640px, calc(100vw - 56px));
+  max-width: calc(100vw - 56px);
   margin: 0 auto;
 }
 
@@ -206,11 +206,35 @@
 
 @media (max-width: 1248px) {
   .frame {
-    max-width: calc(100vw - 16px);
+    --folder-height: clamp(600px, calc(100svh - 72px), 760px);
+
+    width: min(1180px, calc(100vw - 28px));
+    max-width: calc(100vw - 28px);
   }
 
   .tab {
     flex-basis: 168px;
+    height: 60px;
+    font-size: 16px;
+    padding-top: 15px;
+  }
+
+  .tabs {
+    height: 50px;
+  }
+
+  .folder {
+    grid-template-columns: 42px 28px minmax(0, 1fr);
+  }
+
+  .spine {
+    width: 54px;
+    transform: translate(-20px, -5px);
+  }
+
+  .shadowStrip {
+    width: 44px;
+    transform: translate(-10px, -5px);
   }
 }
 
