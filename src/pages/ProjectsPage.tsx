@@ -16,9 +16,9 @@ export function ProjectsPage() {
   return (
     <SectionContainer className={styles.page}>
       <SectionHeading
-        description="A small archive of projects from frontend development, software engineering studies, and technical experiments."
+        description="Projects from web development, university work and practical engineering"
         eyebrow="Projects"
-        title="Engineering work and experiments."
+        title="Personal work"
       />
 
       <div className={`${styles.grid} ${styles.projectGrid}`}>

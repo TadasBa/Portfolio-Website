@@ -2,18 +2,20 @@
 @use "../../styles/tokens" as *;
 
 .heading {
-  max-width: 48rem;
+  max-width: 768px;
 }
 
 .eyebrow {
   @include kicker;
+
+  font-size: 18px;
 }
 
 .title {
-  margin-top: 0.75rem;
+  margin-top: 12px;
   color: $color-text;
   font-family: $font-display;
-  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-size: clamp(42px, 4vw, 58px);
   font-weight: 650;
   letter-spacing: -0.04em;
   line-height: 1.05;
@@ -24,9 +26,9 @@
 }
 
 .description {
-  max-width: 42rem;
-  margin-top: 1rem;
+  max-width: 760px;
+  margin-top: 16px;
   color: $color-muted;
-  font-size: 1.08rem;
-  line-height: 1.75;
+  font-size: 22px;
+  line-height: 1.65;
 }

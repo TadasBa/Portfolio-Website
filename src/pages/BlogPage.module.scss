@@ -2,61 +2,61 @@
 
 .page {
   display: grid;
-  grid-template-columns: minmax(16rem, 0.7fr) minmax(0, 1.3fr);
-  gap: clamp(2rem, 7vw, 5rem);
+  grid-template-columns: minmax(256px, 0.7fr) minmax(0, 1.3fr);
+  gap: clamp(36px, 6vw, 76px);
   align-items: start;
-  height: 100%;
-  padding: 4rem;
+  min-height: 100%;
+  padding: 68px 76px;
 }
 
 .intro {
   display: grid;
-  gap: clamp(2rem, 6vw, 4.5rem);
+  gap: clamp(32px, 6vw, 72px);
 }
 
 .books {
   position: relative;
-  width: 14rem;
-  height: 10rem;
+  width: 224px;
+  height: 160px;
 }
 
 .books span {
   position: absolute;
   bottom: 0;
-  width: 2.25rem;
-  border-radius: 0.35rem 0.35rem 0 0;
+  width: 36px;
+  border-radius: 6px 6px 0 0;
   background: linear-gradient(180deg, rgb(207 231 238 / 92%), rgb(235 248 251));
   box-shadow: 0 18px 36px rgb(16 32 42 / 8%);
 }
 
 .books span:nth-child(1) {
-  left: 1rem;
-  height: 7.2rem;
+  left: 16px;
+  height: 115px;
 }
 
 .books span:nth-child(2) {
-  left: 3.7rem;
-  height: 8.5rem;
+  left: 59px;
+  height: 136px;
 }
 
 .books span:nth-child(3) {
-  left: 6.4rem;
-  height: 6.9rem;
+  left: 102px;
+  height: 110px;
 }
 
 .books span:nth-child(4) {
-  left: 9.1rem;
-  height: 9.4rem;
+  left: 146px;
+  height: 150px;
   transform: rotate(-12deg);
   transform-origin: bottom center;
 }
 
 .books i {
   position: absolute;
-  bottom: -0.6rem;
-  left: 0.3rem;
-  width: 2rem;
-  height: 2rem;
+  bottom: -10px;
+  left: 5px;
+  width: 32px;
+  height: 32px;
   border-radius: 999px;
   background: $color-coral;
   box-shadow: 0 14px 30px rgb(240 113 103 / 24%);
@@ -67,9 +67,10 @@
   gap: 0;
 }
 
-@media (max-width: 64rem) {
+@media (max-width: 1024px) {
   .page {
     grid-template-columns: 1fr;
+    padding: 52px 46px;
   }
 
   .books {
@@ -77,10 +78,10 @@
   }
 }
 
-@media (max-width: 42rem) {
+@media (max-width: 672px) {
   .page {
     height: auto;
     min-height: auto;
-    padding: 2.2rem 1.1rem;
+    padding: 35px 18px;
   }
 }

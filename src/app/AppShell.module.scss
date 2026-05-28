@@ -1,6 +1,17 @@
 @use "../styles/tokens" as *;
 
 .shell {
+  display: grid;
   min-height: 100vh;
+  min-height: 100svh;
+  align-items: center;
   color: $color-text;
+  padding: 10px;
+}
+
+@media (max-width: 1152px) {
+  .shell {
+    display: block;
+    padding: 0;
+  }
 }

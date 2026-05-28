@@ -31,7 +31,7 @@ describe("Blog", () => {
       screen.getByRole("heading", { name: post.title }),
     ).toBeInTheDocument();
     expect(
-      screen.getByText(/First year: learning how to study/i),
+      screen.getByText(/learning how to learn all over again/i),
     ).toBeInTheDocument();
   });
 });

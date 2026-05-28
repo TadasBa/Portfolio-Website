@@ -6,19 +6,24 @@ $color-bg: #eaf3f9;
 $color-bg-soft: #d1e6f3;
 $color-panel: #fff;
 $color-panel-strong: #f8fcfd;
+$color-blue-wash: #d9edf5;
+$color-coral-wash: #ffe4df;
 $color-border: rgb(16 32 42 / 10%);
 $color-border-strong: rgb(0 129 167 / 34%);
 $color-text: #123;
-$color-muted: #6b889c;
-$color-subtle: #627688;
+$color-muted: #557386;
+$color-subtle: #506b7c;
 $color-accent: #0084b4;
 $color-accent-strong: #0084b4;
 $color-accent-dark: #fff;
 $color-coral: #fa5a4b;
 
-$radius-sm: 1rem;
-$radius-md: 1.35rem;
-$radius-lg: 1.5rem;
-$shadow-panel: 0 10px 40px -10px rgb(0 0 0 / 8%);
+$radius-sm: 16px;
+$radius-md: 22px;
+$radius-lg: 24px;
+$shadow-panel:
+  0 35px 72px -40px rgb(16 32 42 / 30%),
+  0 16px 36px -28px rgb(16 32 42 / 24%),
+  0 1px 0 rgb(255 255 255 / 90%) inset;
 
-$container: 75rem;
+$container: 1480px;

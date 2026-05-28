@@ -5,14 +5,16 @@
   height: 100%;
   flex-direction: column;
   justify-content: space-between;
-  padding-block: 3.4rem 2.65rem;
+  gap: 48px;
+  padding: 68px 76px;
 }
 
 .top {
   display: grid;
-  grid-template-columns: minmax(0, 35rem) minmax(24rem, 1fr);
-  gap: 3.5rem;
+  grid-template-columns: minmax(0, 660px) minmax(320px, 420px);
+  gap: 84px;
   align-items: center;
+  justify-content: space-between;
 }
 
 .copyArea {
@@ -20,217 +22,67 @@
 }
 
 .lead {
-  max-width: 35rem;
-  margin-top: 1.35rem;
+  max-width: 660px;
+  margin-top: 22px;
   color: $color-text;
-  font-size: clamp(1.35rem, 1.8vw, 1.62rem);
-  line-height: 1.4;
+  font-size: clamp(21px, 1.55vw, 23px);
+  line-height: 1.52;
+  padding-bottom: 170px;
 }
 
-.facts {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  margin-top: 2.35rem;
-  border-bottom: 1px solid #d6eaf5;
+.portraitFrame {
+  position: relative;
+  justify-self: end;
+  width: clamp(300px, 25vw, 390px);
+  margin: 0;
+  padding-bottom: 150px;
 }
 
-.fact {
+.portrait {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 0.86;
+  border: 1px solid rgb(0 132 180 / 12%);
+  border-radius: 26px;
+  box-shadow:
+    0 34px 68px -42px rgb(16 32 42 / 50%),
+    0 18px 42px -34px rgb(16 32 42 / 45%),
+    inset 0 1px 0 rgb(255 255 255 / 70%);
+  object-fit: cover;
+  object-position: center top;
+}
+
+.contactRow {
   display: grid;
-  grid-template-columns: 3.6rem minmax(0, 1fr);
-  gap: 1rem;
-  min-height: 5.4rem;
-  align-items: center;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 34px;
   border-top: 1px solid #d6eaf5;
-  padding: 0.85rem 1.4rem 0.85rem 0;
+  padding-top: 34px;
 }
 
-.fact:nth-child(even) {
-  border-left: 1px solid #d6eaf5;
-  padding-left: 1.4rem;
+.contactRow a {
+  display: grid;
+  grid-template-columns: 48px minmax(0, 1fr) 18px;
+  gap: 16px;
+  align-items: center;
+  min-width: 0;
+  color: $color-text;
 }
 
-.factIcon,
 .contactIcon {
   display: grid;
-  width: 3rem;
-  height: 3rem;
+  width: 48px;
+  height: 48px;
   place-items: center;
   border-radius: 999px;
   background: #eaf3f9;
   color: $color-text;
 }
 
-.factIcon svg,
 .contactIcon svg {
-  width: 1.2rem;
-  height: 1.2rem;
-}
-
-.fact h2 {
-  color: $color-text;
-  font-size: 0.98rem;
-  font-weight: 700;
-}
-
-.fact p {
-  margin-top: 0.4rem;
-  color: $color-muted;
-  font-size: 0.9rem;
-  line-height: 1.45;
-}
-
-.object {
-  position: relative;
-  justify-self: end;
-  width: 31.25rem;
-  min-height: 25rem;
-}
-
-.outline {
-  position: absolute;
-  top: 0;
-  right: 2.45rem;
-  width: 17.625rem;
-  height: 19rem;
-  border: 1px solid rgb(0 132 180 / 26%);
-  border-radius: 0.75rem;
-}
-
-.backPanel {
-  position: absolute;
-  top: 4.35rem;
-  right: 13.45rem;
-  width: 12rem;
-  height: 18.3rem;
-  border-radius: 0.75rem;
-  background: #d6eaf5;
-}
-
-.dotGrid {
-  position: absolute;
-  bottom: 2.65rem;
-  left: 2.5rem;
-  width: 9rem;
-  height: 8rem;
-  background-image: radial-gradient(
-    rgb(174 205 224 / 65%) 1px,
-    transparent 1px
-  );
-  background-size: 0.62rem 0.62rem;
-}
-
-.window {
-  position: absolute;
-  top: 8.4rem;
-  right: 0;
-  width: 21.25rem;
-  height: 13.75rem;
-  border: 1px solid #fff;
-  border-radius: 0.75rem;
-  background: #eaf3f9;
-  box-shadow:
-    0 10px 15px -3px rgb(0 0 0 / 10%),
-    0 4px 6px -4px rgb(0 0 0 / 10%);
-  padding: 2.05rem;
-}
-
-.windowDots {
-  display: flex;
-  gap: 0.5rem;
-}
-
-.windowDots span {
-  width: 0.75rem;
-  height: 0.75rem;
-  border-radius: 999px;
-}
-
-.windowDots span:nth-child(1) {
-  background: $color-accent;
-}
-
-.windowDots span:nth-child(2) {
-  background: $color-coral;
-}
-
-.windowDots span:nth-child(3) {
-  background: $color-text;
-}
-
-.lineWide,
-.lineShort,
-.lineMedium,
-.lineTiny {
-  display: block;
-  height: 0.5rem;
-  border-radius: 999px;
-  background: #fff;
-}
-
-.lineWide {
-  width: 100%;
-  margin-top: 1.5rem;
-}
-
-.lineShort {
-  width: 12.85rem;
-  margin-top: 0.75rem;
-}
-
-.lineMedium {
-  width: 9.7rem;
-  margin-top: 0.75rem;
-}
-
-.lineTiny {
-  width: 4.8rem;
-  margin-top: 0.75rem;
-}
-
-.coral {
-  position: absolute;
-  bottom: 2.73rem;
-  left: 3.72rem;
-  width: 4rem;
-  height: 4rem;
-  border-radius: 999px;
-  background: radial-gradient(circle at 35% 25%, #ff776d, $color-coral 70%);
-}
-
-.codeTile {
-  position: absolute;
-  right: 4rem;
-  bottom: 1rem;
-  display: flex;
-  width: 6rem;
-  height: 6rem;
-  align-items: center;
-  justify-content: center;
-  border-radius: 1rem;
-  background: rgb(214 234 245 / 90%);
-  color: $color-accent;
-  font-family: $font-mono;
-  font-size: 1.7rem;
-  font-weight: 700;
-  box-shadow:
-    0 4px 6px -1px rgb(0 0 0 / 10%),
-    0 2px 4px -2px rgb(0 0 0 / 10%);
-}
-
-.contactRow {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 3rem;
-  border-top: 1px solid #d6eaf5;
-  padding-top: 1.75rem;
-}
-
-.contactRow a {
-  display: grid;
-  grid-template-columns: 3rem minmax(0, 1fr) 1rem;
-  gap: 1.1rem;
-  align-items: center;
-  color: $color-text;
+  width: 22px;
+  height: 22px;
 }
 
 .contactRow strong,
@@ -239,51 +91,51 @@
 }
 
 .contactRow strong {
-  font-size: 1rem;
+  font-size: 19px;
 }
 
 .contactRow small {
-  margin-top: 0.35rem;
+  margin-top: 6px;
   color: $color-accent;
-  font-size: 0.9rem;
+  font-size: 16px;
+  overflow-wrap: anywhere;
 }
 
 .external {
-  width: 1rem;
-  height: 1rem;
+  width: 16px;
+  height: 16px;
   color: $color-accent;
 }
 
-@media (max-width: 72rem) {
+@media (max-width: 1152px) {
   .page {
     height: auto;
+    justify-content: flex-start;
+    padding: 52px 46px;
   }
 
   .top {
     grid-template-columns: 1fr;
+    gap: 32px;
   }
 
-  .object {
+  .portraitFrame {
     justify-self: center;
+    width: min(100%, 340px);
   }
 }
 
-@media (max-width: 42rem) {
+@media (max-width: 672px) {
   .page {
-    padding-block: 2.2rem;
+    padding-block: 35px;
+    padding-inline: 18px;
   }
 
-  .facts,
   .contactRow {
     grid-template-columns: 1fr;
   }
 
-  .fact:nth-child(even) {
-    border-left: 0;
-    padding-left: 0;
-  }
-
-  .object {
-    display: none;
+  .portraitFrame {
+    width: min(100%, 300px);
   }
 }

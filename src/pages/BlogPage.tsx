@@ -18,9 +18,9 @@ export function BlogPage() {
     <section className={styles.page}>
       <div className={styles.intro}>
         <SectionHeading
-          description="Practical notes on software engineering, frontend development, studies, and project work."
+          description="Personal thoughts about work, studies, projects and things I learn on the way"
           eyebrow="Blog"
-          title="Notes that stay close to the work."
+          title="Learning log"
         />
         <div aria-hidden="true" className={styles.books}>
           <span />

@@ -33,6 +33,7 @@ function isActiveTab(pathname: string, to: string) {
 
 export function FolderFrame({ children }: FolderFrameProps) {
   const location = useLocation();
+  const isStaticPage = location.pathname === "/" || location.pathname === "/about";
 
   return (
     <div className={styles.frame}>
@@ -56,14 +57,16 @@ export function FolderFrame({ children }: FolderFrameProps) {
       <div className={styles.folder}>
         <aside aria-hidden="true" className={styles.spine}>
           <span className={styles.marker} />
-          <span className={styles.spineText}>Tadas Baltrūnas · Developer</span>
+          <span className={styles.spineText}> ~/tadas/portfolio </span>
           <span className={styles.spineMenu}>
             <Menu />
           </span>
         </aside>
         <span aria-hidden="true" className={styles.shadowStrip} />
         <main className={styles.surface}>
-          <div className={styles.surfaceInner}>{children}</div>
+        <div className={cx(styles.surfaceInner, isStaticPage && styles.noScroll)}>
+            {children}
+          </div>
         </main>
       </div>
     </div>

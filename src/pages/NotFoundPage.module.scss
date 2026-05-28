@@ -1,5 +1,5 @@
 @use "../styles/tokens" as *;
 
 .page {
-  padding-block: clamp(4rem, 8vw, 5rem);
+  padding-block: clamp(64px, 8vw, 80px);
 }

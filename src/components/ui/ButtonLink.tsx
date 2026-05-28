@@ -6,7 +6,7 @@ import styles from "./ButtonLink.module.scss";
 type SharedProps = {
   children: ReactNode;
   className?: string;
-  variant?: "primary" | "secondary";
+  variant?: "blog" | "primary" | "secondary";
 };
 
 type RouterButtonLinkProps = SharedProps & {
@@ -22,9 +22,16 @@ type AnchorButtonLinkProps = SharedProps & {
 type ButtonLinkProps = RouterButtonLinkProps | AnchorButtonLinkProps;
 
 export function ButtonLink(props: ButtonLinkProps) {
+  const variantClass =
+    props.variant === "secondary"
+      ? styles.secondary
+      : props.variant === "blog"
+        ? styles.blogButton
+        : styles.primary;
+
   const classes = cx(
     styles.button,
-    props.variant === "secondary" ? styles.secondary : styles.primary,
+    variantClass,
     props.className,
   );
 

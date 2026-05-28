@@ -1,7 +1,11 @@
 import portfolioScreenshot from "../../assets/media/projects/portfolio/portfolio-dashboard.png";
 import llmExperimentImage from "../../assets/media/projects/research/llm-experiment.png";
 import thesisPdf from "../../assets/media/projects/research/code-quality-assessment-using-llm-2025.pdf";
+import unityCameraGif from "../../assets/media/projects/unity/camera.gif";
+import unityEnemyGif from "../../assets/media/projects/unity/enemy.gif";
 import unityMenuImage from "../../assets/media/projects/unity/menu.png";
+import unityMovementGif from "../../assets/media/projects/unity/movement.gif";
+import unityPowerUpGif from "../../assets/media/projects/unity/power-up.gif";
 import unityPortalGif from "../../assets/media/projects/unity/portal.gif";
 import type { ProjectEntry } from "../../types/content";
 
@@ -15,9 +19,9 @@ export const projects: ProjectEntry[] = [
     dateLabel: "June 2025",
     tags: ["LLM", "Code quality", "Research", "Python", "C#"],
     problem:
-      "Compare LLM-based code quality assessment with traditional static analysis for C# methods.",
+      "This was my bachelor’s thesis project at Vilnius University. I explored how well large language models can assess source-code quality compared with static analyzers and expert review.",
     solution:
-      "Built an experimental pipeline to collect C# methods, run model-based assessments, compare results with static metrics, and analyze the output.",
+      "The project combined code scraping, prompt engineering, model evaluation, and statistical analysis. I collected C# methods from GitHub, filtered the dataset, prompted local LLMs as senior C# developers, compared results with SonarQube and SciTools Understand, and analyzed the output with Python.",
     technologies: [
       "Python",
       "C#",
@@ -27,11 +31,15 @@ export const projects: ProjectEntry[] = [
       "Spreadsheets and statistical analysis",
     ],
     outcome:
-      "The project gave me practical experience with model evaluation, data preparation, and measurable software quality research.",
+      "LLMs showed real potential as supplementary code-quality tools, especially when paired with traditional analysis. Qwen2.5-Coder produced the strongest results, but the experiment also showed that LLMs are not yet direct replacements for objective static metrics.",
     highlights: [
-      "Collected and filtered 510 GitHub C# methods into a clean evaluation set.",
-      "Compared model outputs with both static analyzers and human reviewers.",
-      "Used strict JSON prompting to keep results measurable and automatable.",
+      "The dataset contained 510 C# methods collected from GitHub and was filtered down to 310 clean samples after removing methods with compilation issues and external dependencies.",
+      "Methods were evaluated with SonarQube, SciTools Understand, three local open-source LLMs, and four C# developers.",
+      "The tested models were CodeLlama 7B, CodeGemma 7B, and Qwen2.5-Coder 7B served locally with Ollama.",
+      "Each model evaluated 10 static metrics and four ISO-based maintainability scores: reusability, modifiability, analysability, and testability.",
+      "Qwen2.5-Coder had the lowest average error in 9 of 10 static metrics and the best correlation with static tools and human judgments.",
+      "CodeLlama struggled most, especially with size-related metrics such as line counts and comment lines.",
+      "The work gave me practical experience with prompt engineering, static analysis tools, local LLM setup, dataset cleaning, and quantitative analysis with MAE, RMSE, and correlation coefficients.",
     ],
     links: [
       {
@@ -58,16 +66,17 @@ export const projects: ProjectEntry[] = [
     dateLabel: "September 2024",
     tags: ["React", "GitHub Pages", "Portfolio", "Frontend"],
     problem:
-      "Create a personal site for projects and blog posts without relying on a template.",
+      "Create a personal site for publishing projects and writing without relying on templates, no-code tools, or a hosted blog platform.",
     solution:
-      "Built a React site with static deployment, typed content, project pages, and blog pages.",
+      "Built a React site from scratch, handled navigation with React Router, styled the interface with CSS, and deployed it as a static site on GitHub Pages.",
     technologies: ["React", "GitHub Pages", "CSS", "React Router"],
     outcome:
-      "The project helped clarify how routing, content structure, and static hosting affect a small frontend site.",
+      "The first version helped me learn React, CSS layout, routing, and GitHub Pages deployment before later rebuilding the project with a cleaner typed content structure.",
     highlights: [
-      "First end-to-end React project built without a UI template.",
-      "Learned how BrowserRouter, basenames, and static hosting interact.",
-      "Moved project and blog content out of page components.",
+      "First end-to-end React project built without a UI template or component library.",
+      "Used React Router for separate home, about, blog, and project pages.",
+      "Deployed the site to GitHub Pages and learned the routing trade-offs of static hosting.",
+      "Identified later improvements: dark mode, filtering, better content structure, and a cleaner single-page flow.",
     ],
     links: [
       {
@@ -97,9 +106,9 @@ export const projects: ProjectEntry[] = [
     dateLabel: "January 2024",
     tags: ["Unity", "C#", "Game development", "3D"],
     problem:
-      "Build a small 3D platformer prototype with movement, progression, and basic interaction.",
+      "Build a small 3D platformer prototype with movement, camera control, progression, power-ups, and enemy interaction.",
     solution:
-      "Implemented player controls, menu flow, scene transitions, reusable power-up logic, and enemy interaction in Unity.",
+      "Implemented a Unity prototype with a main menu, third-person camera, CharacterController-based movement, scene transitions, reusable power-up logic, and simple enemy knockback.",
     technologies: [
       "Unity",
       "C#",
@@ -108,11 +117,14 @@ export const projects: ProjectEntry[] = [
       "Coroutine-based gameplay logic",
     ],
     outcome:
-      "The project improved my understanding of Unity scripting, scene management, and reusable gameplay logic.",
+      "The project improved my understanding of Unity scene management, third-person camera control, physics-style movement, trigger interactions, coroutine timing, and C# gameplay scripting.",
     highlights: [
-      "Built camera and player controls instead of relying entirely on stock behavior.",
-      "Used a central power-up manager to keep gameplay extensions modular.",
-      "Shipped a complete loop with menu, two levels, progression, and enemy feedback.",
+      "Built a main-menu flow with scene loading through Unity SceneManager.",
+      "Created a third-person orbit camera with clamped pitch and horizontal player rotation.",
+      "Implemented WASD movement, gravity, jumping, and a temporary jump boost power-up.",
+      "Used a PowerUpManager singleton to reactivate power-ups after respawn.",
+      "Added enemy collision feedback with directional knockback and temporary movement interruption.",
+      "Shipped a basic two-level loop with portal-based progression.",
     ],
     links: [
       {
@@ -125,6 +137,26 @@ export const projects: ProjectEntry[] = [
         src: unityMenuImage,
         alt: "Main menu screen from the Unity platformer project.",
         caption: "Main-menu and interface layer for the Unity project.",
+      },
+      {
+        src: unityCameraGif,
+        alt: "Third-person camera orbit from the Unity platformer.",
+        caption: "Custom camera orbit with mouse input and clamped vertical rotation.",
+      },
+      {
+        src: unityMovementGif,
+        alt: "Player movement and jump mechanic from the Unity platformer.",
+        caption: "CharacterController movement with gravity and jump behavior.",
+      },
+      {
+        src: unityPowerUpGif,
+        alt: "Jump boost power-up from the Unity platformer.",
+        caption: "Temporary jump boost handled through coroutine-based gameplay logic.",
+      },
+      {
+        src: unityEnemyGif,
+        alt: "Enemy knockback interaction from the Unity platformer.",
+        caption: "Enemy collision feedback using directional knockback.",
       },
       {
         src: unityPortalGif,

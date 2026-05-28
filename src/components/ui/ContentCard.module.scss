@@ -3,11 +3,11 @@
 .card {
   @include panel;
 
-  padding: 1.5rem;
+  padding: 24px;
 }
 
-@media (min-width: 40rem) {
+@media (min-width: 640px) {
   .card {
-    padding: 1.75rem;
+    padding: 28px;
   }
 }

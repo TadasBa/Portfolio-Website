@@ -1,17 +1,21 @@
 import { ArrowLeft, ExternalLink, FolderKanban } from "lucide-react";
+import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { SectionContainer } from "../components/layout/SectionContainer";
 import { ButtonLink } from "../components/ui/ButtonLink";
 import { ContentCard } from "../components/ui/ContentCard";
 import { EmptyState } from "../components/ui/EmptyState";
+import { ImageLightbox } from "../components/ui/ImageLightbox";
 import { Tag } from "../components/ui/Tag";
 import { getProjectBySlug } from "../content/projects/projects";
 import { useDocumentMeta } from "../hooks/useDocumentMeta";
+import type { ProjectMedia } from "../types/content";
 import styles from "./DetailPage.module.scss";
 
 export function ProjectDetailPage() {
   const { slug } = useParams();
   const project = slug ? getProjectBySlug(slug) : undefined;
+  const [preview, setPreview] = useState<ProjectMedia | null>(null);
 
   useDocumentMeta({
     title: project?.title ?? "Project not found",
@@ -116,17 +120,33 @@ export function ProjectDetailPage() {
           <div className={styles.gallery}>
             {project.gallery.map((item) => (
               <ContentCard className={styles.galleryCard} key={item.src}>
-                <img
-                  alt={item.alt}
-                  className={styles.galleryImage}
-                  src={item.src}
-                />
+                <button
+                  aria-label={`Open larger preview: ${item.caption}`}
+                  className={styles.galleryButton}
+                  onClick={() => setPreview(item)}
+                  type="button"
+                >
+                  <img
+                    alt={item.alt}
+                    className={styles.galleryImage}
+                    src={item.src}
+                  />
+                </button>
                 <p className={styles.caption}>{item.caption}</p>
               </ContentCard>
             ))}
           </div>
         ) : null}
       </article>
+
+      {preview ? (
+        <ImageLightbox
+          alt={preview.alt}
+          caption={preview.caption}
+          onClose={() => setPreview(null)}
+          src={preview.src}
+        />
+      ) : null}
     </SectionContainer>
   );
 }

@@ -3,6 +3,7 @@
 
 .link {
   display: block;
+  height: 100%;
 
   &:focus-visible {
     @include focus-ring;
@@ -10,7 +11,10 @@
 }
 
 .card {
+  display: flex;
   height: 100%;
+  min-height: 440px;
+  flex-direction: column;
   overflow: hidden;
   padding: 0;
   transition:
@@ -21,27 +25,28 @@
   .link:hover & {
     border-color: rgb(0 129 167 / 22%);
     box-shadow: 0 22px 46px rgb(16 32 42 / 10%);
-    transform: translateY(-0.25rem);
+    transform: translateY(-4px);
   }
 }
 
 .card::before {
   display: block;
-  height: 7.8rem;
+  height: 125px;
   border-bottom: 1px solid rgb(16 32 42 / 7%);
   background:
     linear-gradient(
       90deg,
-      transparent 1.5rem,
-      rgb(255 255 255 / 72%) 1.5rem 6.5rem,
-      transparent 6.5rem
+      transparent 24px,
+      rgb(255 255 255 / 72%) 24px 104px,
+      transparent 104px
     ),
     radial-gradient(
-      circle at 2.2rem 2rem,
-      rgb(0 129 167 / 16%) 0 0.75rem,
-      transparent 0.8rem
+      circle at 35px 32px,
+      rgb(0 129 167 / 16%) 0 12px,
+      transparent 13px
     ),
-    linear-gradient(135deg, rgb(207 231 238 / 76%), rgb(247 252 253));
+    radial-gradient(circle at 88% 28%, rgb(250 90 75 / 20%) 0 24px, transparent 25px),
+    linear-gradient(135deg, rgb(207 231 238 / 78%), rgb(247 252 253));
   content: "";
 }
 
@@ -49,48 +54,50 @@
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  gap: 1rem;
-  padding: 1.3rem 1.3rem 0;
+  gap: 16px;
+  padding: 21px 21px 0;
 }
 
 .date {
   color: $color-subtle;
-  font-size: 0.82rem;
+  font-size: 16px;
 }
 
 .title {
-  margin-top: 0.45rem;
+  margin-top: 7px;
   color: $color-text;
   font-family: $font-display;
-  font-size: 1.08rem;
+  font-size: 22px;
   font-weight: 700;
   letter-spacing: -0.03em;
   line-height: 1.2;
 }
 
 .icon {
-  width: 1.25rem;
-  height: 1.25rem;
+  width: 20px;
+  height: 20px;
   color: $color-accent-strong;
   transition: transform 180ms ease;
 
   .link:hover & {
-    transform: translate(0.12rem, -0.12rem);
+    transform: translate(2px, -2px);
   }
 }
 
 .summary {
-  margin-top: 0.85rem;
+  flex: 1;
+  margin-top: 14px;
   color: $color-subtle;
-  font-size: 0.92rem;
-  line-height: 1.6;
-  padding: 0 1.3rem;
+  font-size: 19px;
+  line-height: 1.55;
+  padding: 0 21px;
 }
 
 .tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-top: 1.2rem;
-  padding: 0 1.3rem 1.35rem;
+  gap: 8px;
+  align-items: flex-end;
+  margin-top: 19px;
+  padding: 0 21px 22px;
 }

@@ -4,12 +4,12 @@
   width: 100%;
   max-width: none;
   margin-inline: 0;
-  padding-inline: clamp(1.25rem, 5vw, 4rem);
-  scroll-margin-top: 7rem;
+  padding-inline: clamp(20px, 5vw, 64px);
+  scroll-margin-top: 112px;
 }
 
-@media (min-width: 48rem) {
+@media (min-width: 768px) {
   .container {
-    padding-inline: 4rem;
+    padding-inline: 64px;
   }
 }

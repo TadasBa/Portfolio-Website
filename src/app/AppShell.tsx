@@ -24,6 +24,12 @@ function RouteScrollManager() {
       return;
     }
 
+    const folderViewport = document.querySelector<HTMLElement>("main > div");
+
+    if (folderViewport) {
+      folderViewport.scrollTop = 0;
+    }
+
     window.scrollTo({ top: 0, behavior: "auto" });
   }, [location.hash, location.pathname]);
 

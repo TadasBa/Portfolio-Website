@@ -1,71 +1,22 @@
 import {
-  Briefcase,
-  Code2,
   ExternalLink,
   Github,
-  GraduationCap,
   Linkedin,
   Mail,
-  Sparkles,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
+import profileImage from "../assets/media/profile/tadas-baltrunas.jpg";
 import { SectionContainer } from "../components/layout/SectionContainer";
 import { SectionHeading } from "../components/ui/SectionHeading";
 import { socialLinks } from "../content/site";
 import { useDocumentMeta } from "../hooks/useDocumentMeta";
 import styles from "./AboutPage.module.scss";
 
-const facts = [
-  {
-    icon: Briefcase,
-    title: "Current work",
-    text: "Developer in fintech.",
-  },
-  {
-    icon: GraduationCap,
-    title: "Education",
-    text: "Software Engineering MSc at Vilnius University.",
-  },
-  {
-    icon: Code2,
-    title: "Focus",
-    text: "Frontend systems and workflow automation.",
-  },
-  {
-    icon: Sparkles,
-    title: "Working style",
-    text: "Simple, maintainable solutions.",
-  },
-];
-
 const linkIcons: Record<string, LucideIcon> = {
   Email: Mail,
   GitHub: Github,
   LinkedIn: Linkedin,
 };
-
-function AbstractObject() {
-  return (
-    <div aria-hidden="true" className={styles.object}>
-      <div className={styles.outline} />
-      <div className={styles.backPanel} />
-      <div className={styles.dotGrid} />
-      <div className={styles.window}>
-        <div className={styles.windowDots}>
-          <span />
-          <span />
-          <span />
-        </div>
-        <span className={styles.lineWide} />
-        <span className={styles.lineShort} />
-        <span className={styles.lineMedium} />
-        <span className={styles.lineTiny} />
-      </div>
-      <div className={styles.coral} />
-      <div className={styles.codeTile}>{"</>"}</div>
-    </div>
-  );
-}
 
 export function AboutPage() {
   useDocumentMeta({
@@ -78,34 +29,30 @@ export function AboutPage() {
     <SectionContainer className={styles.page}>
       <div className={styles.top}>
         <div className={styles.copyArea}>
-          <SectionHeading eyebrow="About" title="About" />
+          <SectionHeading eyebrow="About" title="What I am up to" />
 
           <p className={styles.lead}>
-            I’m a developer focused on frontend, automation, and practical
-            systems. I enjoy building clean interfaces, streamlining workflows,
-            and turning ideas into reliable products.
+            My life is fairly quiet these days. I work, study, go to the gym,
+            read when my attention span behaves and usually end the evening
+            with a show or some podcast.
+            <br />
+            <br />
+            I spend a lot of time in my own head, which is useful until it is
+            not. I am learning to be more present, more open and a little better
+            at not letting small habits decide the whole day for me.
+            <br />
+            <br />
+            This page mostly shows the built things but this is closer to the person behind them.
           </p>
-
-          <div className={styles.facts}>
-            {facts.map((fact) => {
-              const Icon = fact.icon;
-
-              return (
-                <article className={styles.fact} key={fact.title}>
-                  <div className={styles.factIcon}>
-                    <Icon aria-hidden="true" />
-                  </div>
-                  <div>
-                    <h2>{fact.title}</h2>
-                    <p>{fact.text}</p>
-                  </div>
-                </article>
-              );
-            })}
-          </div>
         </div>
 
-        <AbstractObject />
+        <figure className={styles.portraitFrame}>
+          <img
+            alt="Portrait of Tadas Baltrūnas"
+            className={styles.portrait}
+            src={profileImage}
+          />
+        </figure>
       </div>
 
       <div className={styles.contactRow}>

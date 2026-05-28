@@ -4,12 +4,6 @@ export type SocialLink = {
   value: string;
 };
 
-export type SkillGroup = {
-  description?: string;
-  skills: string[];
-  title: string;
-};
-
 export type ProjectLink = {
   href: string;
   label: string;

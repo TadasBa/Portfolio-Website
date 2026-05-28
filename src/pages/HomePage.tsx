@@ -7,23 +7,23 @@ import styles from "./HomePage.module.scss";
 const features = [
   {
     icon: Code2,
-    title: "Frontend",
-    text: "Clean UI, structure, performance.",
-  },
-  {
-    icon: Zap,
-    title: "Automation",
-    text: "Workflows, scripts, and integrations.",
-  },
-  {
-    icon: Box,
-    title: "Systems",
-    text: "Tools and processes that scale.",
+    title: "Build",
+    text: "Websites, landing pages and portfolio sites",
   },
   {
     icon: BookOpen,
-    title: "Blog",
-    text: "Notes on building and shipping software.",
+    title: "Improve",
+    text: "Frontend fixes, responsive layouts and UI cleanup",
+  },
+  {
+    icon: Zap,
+    title: "Integrate",
+    text: "APIs, forms and automations",
+  },
+  {
+    icon: Box,
+    title: "Ship",
+    text: "Deployment setup, CI/CD and release support",
   },
 ];
 
@@ -54,7 +54,7 @@ export function HomePage() {
   useDocumentMeta({
     title: "Home",
     description:
-      "Portfolio of Tadas Baltrunas, a developer focused on frontend, automation, and practical systems.",
+      "Portfolio of Tadas Baltrunas, a developer focused on frontend and practical systems.",
   });
 
   return (
@@ -65,18 +65,17 @@ export function HomePage() {
           <h1 className={styles.name}>Tadas Baltrūnas</h1>
           <span className={styles.rule} />
           <p className={styles.mainLine}>
-            Developer focused on frontend, automation, and practical systems.
+            Web developer
           </p>
           <p className={styles.shortText}>
-            I build clean interfaces, automate the repetitive, and design
-            systems that stay practical over time.
+            I work on practical web projects — from clean frontend pages and responsive layouts to API-connected features, deployment setup and automations that make work easier
           </p>
           <div className={styles.actions}>
             <ButtonLink to="/projects">
               View Projects
               <MoveRight />
             </ButtonLink>
-            <ButtonLink to="/blog" variant="secondary">
+            <ButtonLink to="/blog" variant="blog">
               Read Blog
               <MoveRight />
             </ButtonLink>

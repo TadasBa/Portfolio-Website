@@ -15,11 +15,7 @@ describe("App", () => {
     expect(
       screen.getByRole("heading", { name: /Tadas Baltrūnas/i }),
     ).toBeInTheDocument();
-    expect(
-      screen.getByText(
-        /Developer focused on frontend, automation, and practical systems/i,
-      ),
-    ).toBeInTheDocument();
+    expect(screen.getByText(/Web developer/i)).toBeInTheDocument();
   });
 
   it("renders the 404 page", () => {
