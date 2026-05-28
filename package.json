@@ -9,7 +9,7 @@
     "local": "vite --host 127.0.0.1",
     "build": "vite build",
     "build:production": "vite build --mode production",
-    "preview": "vite preview",
+    "preview": "npm run build && wrangler dev",
     "serve": "vite preview",
     "clean": "node ./scripts/clean.mjs",
     "test": "vitest run",
@@ -24,7 +24,7 @@
     "format:check": "prettier --check .",
     "typecheck": "tsc --noEmit",
     "check": "npm run typecheck && npm run lint && npm run style:lint && npm run test && npm run build",
-    "deploy": "npm run build && gh-pages -d dist"
+    "deploy": "npm run build && wrangler deploy"
   },
   "dependencies": {
     "@fontsource/ibm-plex-mono": "^5.1.0",
@@ -41,6 +41,7 @@
     "remark-gfm": "^4.0.1"
   },
   "devDependencies": {
+    "@cloudflare/vite-plugin": "^1.39.0",
     "@eslint/js": "^9.34.0",
     "@playwright/test": "^1.55.0",
     "@testing-library/jest-dom": "^6.8.0",
@@ -67,6 +68,7 @@
     "typescript": "^5.9.2",
     "typescript-eslint": "^8.41.0",
     "vite": "^7.1.3",
-    "vitest": "^3.2.4"
+    "vitest": "^3.2.4",
+    "wrangler": "^4.95.0"
   }
 }
