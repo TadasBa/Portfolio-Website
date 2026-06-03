@@ -20,6 +20,7 @@ import {
 } from "react-icons/si";
 import { TbApi, TbDatabase, TbWebhook } from "react-icons/tb";
 import { SectionHeading } from "../components/ui/SectionHeading";
+import { requireRouteMetadata } from "../content/routeMetadata";
 import { useDocumentMeta } from "../hooks/useDocumentMeta";
 import styles from "./StackPage.module.scss";
 
@@ -84,10 +85,7 @@ const stackRows: StackRow[] = [
 ];
 
 export function StackPage() {
-  useDocumentMeta({
-    title: "Stack",
-    description: "Technologies and tools used by Tadas Baltrunas.",
-  });
+  useDocumentMeta(requireRouteMetadata("/stack"));
 
   return (
     <section className={styles.page}>

@@ -1,14 +1,12 @@
 import { Compass } from "lucide-react";
 import { SectionContainer } from "../components/layout/SectionContainer";
 import { EmptyState } from "../components/ui/EmptyState";
+import { notFoundMetadata } from "../content/routeMetadata";
 import { useDocumentMeta } from "../hooks/useDocumentMeta";
 import styles from "./NotFoundPage.module.scss";
 
 export function NotFoundPage() {
-  useDocumentMeta({
-    title: "Page not found",
-    description: "The requested page could not be found.",
-  });
+  useDocumentMeta(notFoundMetadata);
 
   return (
     <SectionContainer className={styles.page}>

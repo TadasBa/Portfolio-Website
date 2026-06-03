@@ -1,20 +1,15 @@
 import type { BlogPostEntry } from "../../types/content";
+import { blogPostContent } from "./postContent";
 import softwareEngineeringAtVuContent from "./software-engineering-at-vilnius-university.md?raw";
 
-export const blogPosts: BlogPostEntry[] = [
-  {
-    title: "Software Engineering at Vilnius University",
-    slug: "software-engineering-at-vilnius-university",
-    summary:
-      "A reflection on software engineering studies, early mistakes, thesis work, and what transferred into real development.",
-    publishedAt: "2025-06-01",
-    dateLabel: "June 2025",
-    readTime: "6 min read",
-    tags: ["Studies", "Software engineering", "Vilnius University"],
-    featured: true,
-    content: softwareEngineeringAtVuContent,
-  },
-];
+const postBodyBySlug: Record<string, string> = {
+  "software-engineering-at-vilnius-university": softwareEngineeringAtVuContent,
+};
+
+export const blogPosts: BlogPostEntry[] = blogPostContent.map((post) => ({
+  ...post,
+  content: postBodyBySlug[post.slug],
+}));
 
 export const blogPostsByDate = [...blogPosts].sort((left, right) =>
   right.publishedAt.localeCompare(left.publishedAt),

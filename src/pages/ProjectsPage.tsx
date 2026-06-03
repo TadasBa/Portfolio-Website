@@ -2,16 +2,13 @@ import { SectionContainer } from "../components/layout/SectionContainer";
 import { Reveal } from "../components/ui/Reveal";
 import { SectionHeading } from "../components/ui/SectionHeading";
 import { projectsByDate } from "../content/projects/projects";
+import { requireRouteMetadata } from "../content/routeMetadata";
 import { ProjectCard } from "../features/projects/ProjectCard";
 import { useDocumentMeta } from "../hooks/useDocumentMeta";
 import styles from "./ListPage.module.scss";
 
 export function ProjectsPage() {
-  useDocumentMeta({
-    title: "Projects",
-    description:
-      "Projects from frontend development, software engineering studies, and technical experiments.",
-  });
+  useDocumentMeta(requireRouteMetadata("/projects"));
 
   return (
     <SectionContainer className={styles.page}>

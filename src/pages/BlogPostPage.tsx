@@ -8,6 +8,10 @@ import { ContentCard } from "../components/ui/ContentCard";
 import { EmptyState } from "../components/ui/EmptyState";
 import { Tag } from "../components/ui/Tag";
 import { getBlogPostBySlug } from "../content/blog/posts";
+import {
+  getBlogPostRouteMetadata,
+  notFoundMetadata,
+} from "../content/routeMetadata";
 import { useDocumentMeta } from "../hooks/useDocumentMeta";
 import styles from "./DetailPage.module.scss";
 
@@ -15,10 +19,9 @@ export function BlogPostPage() {
   const { slug } = useParams();
   const post = slug ? getBlogPostBySlug(slug) : undefined;
 
-  useDocumentMeta({
-    title: post?.title ?? "Blog post not found",
-    description: post?.summary ?? "Requested blog post could not be found.",
-  });
+  useDocumentMeta(
+    post ? getBlogPostRouteMetadata(post.slug) : notFoundMetadata,
+  );
 
   if (!post) {
     return (

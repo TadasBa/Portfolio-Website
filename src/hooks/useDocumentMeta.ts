@@ -1,23 +1,61 @@
 import { useEffect } from "react";
-import { siteConfig } from "../content/site";
+import { getCanonicalUrl, type RouteMetadata } from "../content/routeMetadata";
 
-type DocumentMeta = {
-  description?: string;
-  title: string;
+type MetaSelector = {
+  attribute: "name" | "property";
+  key: string;
 };
 
-export function useDocumentMeta({ description, title }: DocumentMeta) {
+function setMetaContent({ attribute, key }: MetaSelector, content: string) {
+  let element = document.head.querySelector<HTMLMetaElement>(
+    `meta[${attribute}="${key}"]`,
+  );
+
+  if (!element) {
+    element = document.createElement("meta");
+    element.setAttribute(attribute, key);
+    document.head.append(element);
+  }
+
+  element.setAttribute("content", content);
+}
+
+function setCanonicalUrl(url: string) {
+  let element = document.head.querySelector<HTMLLinkElement>(
+    'link[rel="canonical"]',
+  );
+
+  if (!element) {
+    element = document.createElement("link");
+    element.setAttribute("rel", "canonical");
+    document.head.append(element);
+  }
+
+  element.setAttribute("href", url);
+}
+
+export function useDocumentMeta(metadata: RouteMetadata) {
   useEffect(() => {
-    document.title = `${title} | ${siteConfig.name}`;
+    const canonicalUrl = getCanonicalUrl(metadata.canonicalPathname);
 
-    if (!description) {
-      return;
-    }
-
-    const metaDescription = document.querySelector('meta[name="description"]');
-
-    if (metaDescription) {
-      metaDescription.setAttribute("content", description);
-    }
-  }, [description, title]);
+    document.title = metadata.title;
+    setCanonicalUrl(canonicalUrl);
+    setMetaContent(
+      { attribute: "name", key: "description" },
+      metadata.description,
+    );
+    setMetaContent({ attribute: "property", key: "og:type" }, metadata.ogType);
+    setMetaContent({ attribute: "property", key: "og:url" }, canonicalUrl);
+    setMetaContent({ attribute: "property", key: "og:title" }, metadata.title);
+    setMetaContent(
+      { attribute: "property", key: "og:description" },
+      metadata.description,
+    );
+    setMetaContent({ attribute: "name", key: "twitter:card" }, "summary");
+    setMetaContent({ attribute: "name", key: "twitter:title" }, metadata.title);
+    setMetaContent(
+      { attribute: "name", key: "twitter:description" },
+      metadata.description,
+    );
+  }, [metadata]);
 }

@@ -8,6 +8,10 @@ import { EmptyState } from "../components/ui/EmptyState";
 import { MediaLightbox } from "../components/ui/MediaLightbox";
 import { Tag } from "../components/ui/Tag";
 import { getProjectBySlug } from "../content/projects/projects";
+import {
+  getProjectRouteMetadata,
+  notFoundMetadata,
+} from "../content/routeMetadata";
 import { useDocumentMeta } from "../hooks/useDocumentMeta";
 import { isProjectVideoMedia, type ProjectMedia } from "../types/content";
 import styles from "./DetailPage.module.scss";
@@ -41,10 +45,9 @@ export function ProjectDetailPage() {
   const project = slug ? getProjectBySlug(slug) : undefined;
   const [preview, setPreview] = useState<ProjectMedia | null>(null);
 
-  useDocumentMeta({
-    title: project?.title ?? "Project not found",
-    description: project?.summary ?? "Requested project could not be found.",
-  });
+  useDocumentMeta(
+    project ? getProjectRouteMetadata(project.slug) : notFoundMetadata,
+  );
 
   if (!project) {
     return (
