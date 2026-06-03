@@ -1,5 +1,6 @@
 import { ArrowLeft, ExternalLink, FolderKanban } from "lucide-react";
-import { useState } from "react";
+import type { MouseEvent } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
 import { SectionContainer } from "../components/layout/SectionContainer";
 import { ButtonLink } from "../components/ui/ButtonLink";
@@ -44,10 +45,33 @@ export function ProjectDetailPage() {
   const { slug } = useParams();
   const project = slug ? getProjectBySlug(slug) : undefined;
   const [preview, setPreview] = useState<ProjectMedia | null>(null);
+  const previewTriggerRef = useRef<HTMLButtonElement | null>(null);
+  const shouldRestorePreviewFocusRef = useRef(false);
 
   useDocumentMeta(
     project ? getProjectRouteMetadata(project.slug) : notFoundMetadata,
   );
+
+  useEffect(() => {
+    if (!preview && shouldRestorePreviewFocusRef.current) {
+      shouldRestorePreviewFocusRef.current = false;
+      previewTriggerRef.current?.focus();
+    }
+  }, [preview]);
+
+  function openPreview(
+    item: ProjectMedia,
+    event: MouseEvent<HTMLButtonElement>,
+  ) {
+    previewTriggerRef.current = event.currentTarget;
+    shouldRestorePreviewFocusRef.current = false;
+    setPreview(item);
+  }
+
+  function closePreview() {
+    shouldRestorePreviewFocusRef.current = true;
+    setPreview(null);
+  }
 
   if (!project) {
     return (
@@ -150,7 +174,7 @@ export function ProjectDetailPage() {
                 <button
                   aria-label={`Open larger preview: ${item.caption}`}
                   className={styles.galleryButton}
-                  onClick={() => setPreview(item)}
+                  onClick={(event) => openPreview(item, event)}
                   type="button"
                 >
                   <ProjectGalleryPreview item={item} />
@@ -163,7 +187,7 @@ export function ProjectDetailPage() {
       </article>
 
       {preview ? (
-        <MediaLightbox media={preview} onClose={() => setPreview(null)} />
+        <MediaLightbox media={preview} onClose={closePreview} />
       ) : null}
     </SectionContainer>
   );
