@@ -1,5 +1,3 @@
-import type { SocialLink } from "../types/content";
-
 export const siteConfig = {
   name: "Tadas Baltrūnas",
   shortName: "Tadas",
@@ -8,7 +6,7 @@ export const siteConfig = {
   email: "tadas@baltrunas.lt",
 };
 
-export const socialLinks: SocialLink[] = [
+export const socialLinks = [
   {
     label: "GitHub",
     href: "https://github.com/TadasBa",

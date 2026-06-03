@@ -1,6 +1,7 @@
 import { BookOpen, Box, Code2, MoveRight, Zap } from "lucide-react";
 import { ButtonLink } from "../components/ui/ButtonLink";
 import { Reveal } from "../components/ui/Reveal";
+import { requireRouteMetadata } from "../content/routeMetadata";
 import { useDocumentMeta } from "../hooks/useDocumentMeta";
 import styles from "./HomePage.module.scss";
 
@@ -51,11 +52,7 @@ function AbstractObject() {
 }
 
 export function HomePage() {
-  useDocumentMeta({
-    title: "Home",
-    description:
-      "Portfolio of Tadas Baltrunas, a developer focused on frontend and practical systems.",
-  });
+  useDocumentMeta(requireRouteMetadata("/"));
 
   return (
     <section className={styles.home} id="home">

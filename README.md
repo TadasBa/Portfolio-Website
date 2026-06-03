@@ -47,3 +47,5 @@ Cloudflare Pages:
 - Output directory: `dist`
 - Production branch: `main`
 - Root path: `/`
+
+The build generates route-specific HTML metadata for public routes so direct links and social previews use the correct canonical, Open Graph, and Twitter tags.

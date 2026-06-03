@@ -3,16 +3,13 @@ import { EmptyState } from "../components/ui/EmptyState";
 import { Reveal } from "../components/ui/Reveal";
 import { SectionHeading } from "../components/ui/SectionHeading";
 import { blogPostsByDate } from "../content/blog/posts";
+import { requireRouteMetadata } from "../content/routeMetadata";
 import { BlogCard } from "../features/blog/BlogCard";
 import { useDocumentMeta } from "../hooks/useDocumentMeta";
 import styles from "./BlogPage.module.scss";
 
 export function BlogPage() {
-  useDocumentMeta({
-    title: "Blog",
-    description:
-      "Blog posts from Tadas Baltrunas about software engineering, frontend development, studies, and project work.",
-  });
+  useDocumentMeta(requireRouteMetadata("/blog"));
 
   return (
     <section className={styles.page}>

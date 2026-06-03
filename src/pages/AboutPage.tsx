@@ -3,6 +3,7 @@ import type { LucideIcon } from "lucide-react";
 import profileImage from "../assets/media/profile/tadas-baltrunas.jpg";
 import { SectionContainer } from "../components/layout/SectionContainer";
 import { SectionHeading } from "../components/ui/SectionHeading";
+import { requireRouteMetadata } from "../content/routeMetadata";
 import { socialLinks } from "../content/site";
 import { useDocumentMeta } from "../hooks/useDocumentMeta";
 import styles from "./AboutPage.module.scss";
@@ -14,11 +15,7 @@ const linkIcons: Record<string, LucideIcon> = {
 };
 
 export function AboutPage() {
-  useDocumentMeta({
-    title: "About",
-    description:
-      "About Tadas Baltrunas, a developer focused on frontend, automation, and practical systems.",
-  });
+  useDocumentMeta(requireRouteMetadata("/about"));
 
   return (
     <SectionContainer className={styles.page}>
