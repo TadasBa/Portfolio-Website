@@ -1,12 +1,17 @@
 import portfolioScreenshot from "../../assets/media/projects/portfolio/portfolio-dashboard.png";
 import llmExperimentImage from "../../assets/media/projects/research/llm-experiment.png";
 import thesisPdf from "../../assets/media/projects/research/code-quality-assessment-using-llm-2025.pdf";
-import unityCameraGif from "../../assets/media/projects/unity/camera.gif";
-import unityEnemyGif from "../../assets/media/projects/unity/enemy.gif";
-import unityMenuImage from "../../assets/media/projects/unity/menu.png";
-import unityMovementGif from "../../assets/media/projects/unity/movement.gif";
-import unityPowerUpGif from "../../assets/media/projects/unity/power-up.gif";
-import unityPortalGif from "../../assets/media/projects/unity/portal.gif";
+import unityCameraPoster from "../../assets/media/projects/unity/camera-poster.webp";
+import unityCameraVideo from "../../assets/media/projects/unity/camera.webm";
+import unityEnemyPoster from "../../assets/media/projects/unity/enemy-poster.webp";
+import unityEnemyVideo from "../../assets/media/projects/unity/enemy.webm";
+import unityMenuImage from "../../assets/media/projects/unity/menu.webp";
+import unityMovementPoster from "../../assets/media/projects/unity/movement-poster.webp";
+import unityMovementVideo from "../../assets/media/projects/unity/movement.webm";
+import unityPowerUpPoster from "../../assets/media/projects/unity/power-up-poster.webp";
+import unityPowerUpVideo from "../../assets/media/projects/unity/power-up.webm";
+import unityPortalPoster from "../../assets/media/projects/unity/portal-poster.webp";
+import unityPortalVideo from "../../assets/media/projects/unity/portal.webm";
 import type { ProjectEntry } from "../../types/content";
 
 export const projects: ProjectEntry[] = [
@@ -139,29 +144,39 @@ export const projects: ProjectEntry[] = [
         caption: "Main-menu and interface layer for the Unity project.",
       },
       {
-        src: unityCameraGif,
+        type: "video",
+        poster: unityCameraPoster,
+        src: unityCameraVideo,
         alt: "Third-person camera orbit from the Unity platformer.",
         caption:
           "Custom camera orbit with mouse input and clamped vertical rotation.",
       },
       {
-        src: unityMovementGif,
+        type: "video",
+        poster: unityMovementPoster,
+        src: unityMovementVideo,
         alt: "Player movement and jump mechanic from the Unity platformer.",
         caption: "CharacterController movement with gravity and jump behavior.",
       },
       {
-        src: unityPowerUpGif,
+        type: "video",
+        poster: unityPowerUpPoster,
+        src: unityPowerUpVideo,
         alt: "Jump boost power-up from the Unity platformer.",
         caption:
           "Temporary jump boost handled through coroutine-based gameplay logic.",
       },
       {
-        src: unityEnemyGif,
+        type: "video",
+        poster: unityEnemyPoster,
+        src: unityEnemyVideo,
         alt: "Enemy knockback interaction from the Unity platformer.",
         caption: "Enemy collision feedback using directional knockback.",
       },
       {
-        src: unityPortalGif,
+        type: "video",
+        poster: unityPortalPoster,
+        src: unityPortalVideo,
         alt: "Portal transition animation from the Unity platformer.",
         caption: "Level transition sequence used to progress through scenes.",
       },

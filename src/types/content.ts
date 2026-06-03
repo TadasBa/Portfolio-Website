@@ -9,11 +9,29 @@ export type ProjectLink = {
   label: string;
 };
 
-export type ProjectMedia = {
+type ProjectMediaBase = {
   alt: string;
   caption: string;
-  src: string;
 };
+
+export type ProjectImageMedia = ProjectMediaBase & {
+  src: string;
+  type?: "image";
+};
+
+export type ProjectVideoMedia = ProjectMediaBase & {
+  poster: string;
+  src: string;
+  type: "video";
+};
+
+export type ProjectMedia = ProjectImageMedia | ProjectVideoMedia;
+
+export function isProjectVideoMedia(
+  media: ProjectMedia,
+): media is ProjectVideoMedia {
+  return media.type === "video";
+}
 
 export type ProjectEntry = {
   dateLabel: string;
