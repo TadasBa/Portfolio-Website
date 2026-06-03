@@ -1,4 +1,4 @@
-# Tadas Baltrūnas Portfolio
+# Portfolio website project
 
 Personal portfolio and blog built with Vite, React, TypeScript, and SCSS Modules.
 
