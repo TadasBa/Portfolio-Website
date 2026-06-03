@@ -29,11 +29,7 @@ export function ButtonLink(props: ButtonLinkProps) {
         ? styles.blogButton
         : styles.primary;
 
-  const classes = cx(
-    styles.button,
-    variantClass,
-    props.className,
-  );
+  const classes = cx(styles.button, variantClass, props.className);
 
   if (props.to !== undefined) {
     return (

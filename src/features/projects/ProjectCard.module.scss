@@ -45,7 +45,11 @@
       rgb(0 129 167 / 16%) 0 12px,
       transparent 13px
     ),
-    radial-gradient(circle at 88% 28%, rgb(250 90 75 / 20%) 0 24px, transparent 25px),
+    radial-gradient(
+      circle at 88% 28%,
+      rgb(250 90 75 / 20%) 0 24px,
+      transparent 25px
+    ),
     linear-gradient(135deg, rgb(207 231 238 / 78%), rgb(247 252 253));
   content: "";
 }

@@ -4,13 +4,13 @@ build
 coverage
 playwright-report
 test-results
+.vscode/
 .DS_Store
 debug.log
 npm-debug.log*
 
-# wrangler files
-.wrangler
 .dev.vars*
 !.dev.vars.example
 .env*
 !.env.example
+!.env.production

@@ -21,7 +21,7 @@ test("navigation works", async ({ page }) => {
   await expect(page).toHaveURL(/\/stack$/);
   await expect(
     page.getByRole("heading", {
-      name: /^Stack$/i,
+      name: /^Tech Stack$/i,
     }),
   ).toBeVisible();
 });
@@ -39,7 +39,7 @@ test("projects page and detail page work", async ({ page }) => {
     /\/projects\/code-quality-assessment-using-large-language-models$/,
   );
   await expect(
-    page.getByText(/Compare LLM-based code quality assessment/i),
+    page.getByText(/LLMs showed real potential as supplementary/i),
   ).toBeVisible();
 });
 
@@ -54,7 +54,7 @@ test("blog page and detail page work", async ({ page }) => {
     /\/blog\/software-engineering-at-vilnius-university$/,
   );
   await expect(
-    page.getByText(/First year: learning how to study/i),
+    page.getByRole("heading", { name: /^First year$/i }),
   ).toBeVisible();
 });
 
@@ -62,5 +62,7 @@ test("mobile viewport smoke test", async ({ page }) => {
   await page.goto("/");
 
   await expect(page.getByRole("link", { name: /^About$/i })).toBeVisible();
-  await expect(page.getByText(/Developer focused on frontend/i)).toBeVisible();
+  await expect(
+    page.getByText(/I work on practical web projects/i),
+  ).toBeVisible();
 });

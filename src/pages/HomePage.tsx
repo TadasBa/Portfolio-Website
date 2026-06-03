@@ -64,11 +64,11 @@ export function HomePage() {
           <p className={styles.eyebrow}>Hello, I’m</p>
           <h1 className={styles.name}>Tadas Baltrūnas</h1>
           <span className={styles.rule} />
-          <p className={styles.mainLine}>
-            Web developer
-          </p>
+          <p className={styles.mainLine}>Web developer</p>
           <p className={styles.shortText}>
-            I work on practical web projects — from clean frontend pages and responsive layouts to API-connected features, deployment setup and automations that make work easier
+            I work on practical web projects — from clean frontend pages and
+            responsive layouts to API-connected features, deployment setup and
+            automations that make work easier
           </p>
           <div className={styles.actions}>
             <ButtonLink to="/projects">

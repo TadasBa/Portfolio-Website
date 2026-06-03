@@ -1,9 +1,4 @@
-import {
-  ExternalLink,
-  Github,
-  Linkedin,
-  Mail,
-} from "lucide-react";
+import { ExternalLink, Github, Linkedin, Mail } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import profileImage from "../assets/media/profile/tadas-baltrunas.jpg";
 import { SectionContainer } from "../components/layout/SectionContainer";
@@ -33,8 +28,8 @@ export function AboutPage() {
 
           <p className={styles.lead}>
             My life is fairly quiet these days. I work, study, go to the gym,
-            read when my attention span behaves and usually end the evening
-            with a show or some podcast.
+            read when my attention span behaves and usually end the evening with
+            a show or some podcast.
             <br />
             <br />
             I spend a lot of time in my own head, which is useful until it is
@@ -42,7 +37,8 @@ export function AboutPage() {
             at not letting small habits decide the whole day for me.
             <br />
             <br />
-            This page mostly shows the built things but this is closer to the person behind them.
+            This page mostly shows the built things but this is closer to the
+            person behind them.
           </p>
         </div>
 
