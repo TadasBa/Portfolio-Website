@@ -18,10 +18,10 @@ describe("App", () => {
     expect(screen.getByText(/Web developer/i)).toBeInTheDocument();
   });
 
-  it("renders the 404 page", () => {
+  it("renders the 404 page", async () => {
     renderApp(["/missing-page"]);
 
-    expect(screen.getByText(/Page not found/i)).toBeInTheDocument();
+    expect(await screen.findByText(/Page not found/i)).toBeInTheDocument();
     expect(
       screen.getByRole("link", { name: /Back home/i }),
     ).toBeInTheDocument();

@@ -5,12 +5,36 @@ import { SectionContainer } from "../components/layout/SectionContainer";
 import { ButtonLink } from "../components/ui/ButtonLink";
 import { ContentCard } from "../components/ui/ContentCard";
 import { EmptyState } from "../components/ui/EmptyState";
-import { ImageLightbox } from "../components/ui/ImageLightbox";
+import { MediaLightbox } from "../components/ui/MediaLightbox";
 import { Tag } from "../components/ui/Tag";
 import { getProjectBySlug } from "../content/projects/projects";
 import { useDocumentMeta } from "../hooks/useDocumentMeta";
-import type { ProjectMedia } from "../types/content";
+import { isProjectVideoMedia, type ProjectMedia } from "../types/content";
 import styles from "./DetailPage.module.scss";
+
+function ProjectGalleryPreview({ item }: { item: ProjectMedia }) {
+  if (isProjectVideoMedia(item)) {
+    return (
+      <img
+        alt={item.alt}
+        className={styles.galleryImage}
+        decoding="async"
+        loading="lazy"
+        src={item.poster}
+      />
+    );
+  }
+
+  return (
+    <img
+      alt={item.alt}
+      className={styles.galleryImage}
+      decoding="async"
+      loading="lazy"
+      src={item.src}
+    />
+  );
+}
 
 export function ProjectDetailPage() {
   const { slug } = useParams();
@@ -126,11 +150,7 @@ export function ProjectDetailPage() {
                   onClick={() => setPreview(item)}
                   type="button"
                 >
-                  <img
-                    alt={item.alt}
-                    className={styles.galleryImage}
-                    src={item.src}
-                  />
+                  <ProjectGalleryPreview item={item} />
                 </button>
                 <p className={styles.caption}>{item.caption}</p>
               </ContentCard>
@@ -140,12 +160,7 @@ export function ProjectDetailPage() {
       </article>
 
       {preview ? (
-        <ImageLightbox
-          alt={preview.alt}
-          caption={preview.caption}
-          onClose={() => setPreview(null)}
-          src={preview.src}
-        />
+        <MediaLightbox media={preview} onClose={() => setPreview(null)} />
       ) : null}
     </SectionContainer>
   );
