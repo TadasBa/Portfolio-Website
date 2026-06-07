@@ -1,6 +1,6 @@
 import { ArrowLeft, ExternalLink, FolderKanban } from "lucide-react";
 import type { MouseEvent } from "react";
-import { useEffect, useRef, useState } from "react";
+import { lazy, Suspense, useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
 import { SectionContainer } from "../components/layout/SectionContainer";
 import { ButtonLink } from "../components/ui/ButtonLink";
@@ -16,6 +16,12 @@ import {
 import { useDocumentMeta } from "../hooks/useDocumentMeta";
 import { isProjectVideoMedia, type ProjectMedia } from "../types/content";
 import styles from "./DetailPage.module.scss";
+
+const ProjectMarkdownContent = lazy(() =>
+  import("../features/projects/ProjectMarkdownContent").then((module) => ({
+    default: module.ProjectMarkdownContent,
+  })),
+);
 
 function ProjectGalleryPreview({ item }: { item: ProjectMedia }) {
   if (isProjectVideoMedia(item)) {
@@ -166,6 +172,17 @@ export function ProjectDetailPage() {
             </div>
           </ContentCard>
         </div>
+
+        {project.content ? (
+          <ContentCard className={styles.markdownCard}>
+            <Suspense fallback={null}>
+              <ProjectMarkdownContent
+                className={styles.markdown}
+                content={project.content}
+              />
+            </Suspense>
+          </ContentCard>
+        ) : null}
 
         {project.gallery?.length ? (
           <div className={styles.gallery}>

@@ -53,9 +53,13 @@ describe("route metadata", () => {
 
     renderApp([metadata.canonicalPathname]);
 
-    await screen.findByRole("heading", {
-      name: /Code Quality Assessment Using Large Language Models/i,
-    });
+    await screen.findByRole(
+      "heading",
+      {
+        name: /Code Quality Assessment Using Large Language Models/i,
+      },
+      { timeout: 3000 },
+    );
 
     expectDocumentMetadata(metadata.canonicalPathname);
   });
@@ -67,9 +71,13 @@ describe("route metadata", () => {
 
     renderApp([metadata.canonicalPathname]);
 
-    await screen.findByRole("heading", {
-      name: /Software Engineering at Vilnius University/i,
-    });
+    await screen.findByRole(
+      "heading",
+      {
+        name: /Software Engineering at Vilnius University/i,
+      },
+      { timeout: 3000 },
+    );
 
     expectDocumentMetadata(metadata.canonicalPathname);
     expect(getMetaContent("property", "og:type")).toBe("article");

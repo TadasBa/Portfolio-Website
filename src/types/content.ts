@@ -34,6 +34,7 @@ export function isProjectVideoMedia(
 }
 
 export type ProjectEntry = {
+  content?: string;
   dateLabel: string;
   featured?: boolean;
   gallery?: ProjectMedia[];

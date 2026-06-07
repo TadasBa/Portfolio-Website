@@ -37,4 +37,24 @@ describe("Projects", () => {
     expect(screen.getByText(project.problem)).toBeInTheDocument();
     expect(screen.getByText(project.solution)).toBeInTheDocument();
   });
+
+  it("renders optional markdown project content when present", async () => {
+    renderApp(["/projects/hotpathtrace-dotnet"]);
+
+    expect(
+      await screen.findByRole("heading", { name: /HotPathTrace\.NET/i }),
+    ).toBeInTheDocument();
+    expect(
+      await screen.findByRole(
+        "heading",
+        { name: /File size results/i },
+        { timeout: 3000 },
+      ),
+    ).toBeInTheDocument();
+    expect(screen.getByText(/3\.10x smaller/i)).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: /Repository/i })).toHaveAttribute(
+      "href",
+      "https://github.com/TadasBa/hotpathtrace-dotnet",
+    );
+  });
 });

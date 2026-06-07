@@ -14,11 +14,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
     <Link className={styles.link} to={`/projects/${project.slug}`}>
       <ContentCard className={styles.card}>
         <div className={styles.top}>
-          <div>
-            <p className={styles.date}>{project.dateLabel}</p>
-            <h3 className={styles.title}>{project.title}</h3>
-          </div>
-          <ArrowUpRight className={styles.icon} />
+          <h3 className={styles.title}>{project.title}</h3>
         </div>
 
         <p className={styles.summary}>{project.summary}</p>
@@ -27,6 +23,14 @@ export function ProjectCard({ project }: ProjectCardProps) {
           {project.tags.map((tag) => (
             <Tag key={tag}>{tag}</Tag>
           ))}
+        </div>
+
+        <div className={styles.bottom}>
+          <span className={styles.date}>{project.dateLabel}</span>
+          <span className={styles.cta}>
+            View project
+            <ArrowUpRight className={styles.icon} />
+          </span>
         </div>
       </ContentCard>
     </Link>
