@@ -24,17 +24,16 @@ export function AboutPage() {
           <SectionHeading eyebrow="About" title="What I am up to" />
 
           <p className={styles.lead}>
-            My life is fairly quiet these days. I work, study, go to the gym,
-            read when my attention span behaves and usually end the evening with
-            a show or some podcast.
+            These days I spend most of my time working, studying, training, and
+            building things that help me understand software a bit better.
             <br />
             <br />
-            I spend a lot of time in my own head, which is useful until it is
-            not. I am learning to be more present, more open and a little better
-            at not letting small habits decide the whole day for me.
+            Outside of that, I read when my attention span cooperates, listen to
+            podcasts, and usually end the day with some show that was supposed
+            to be “just one episode”.
             <br />
             <br />
-            This page mostly shows the built things but this is closer to the
+            This page shows the projects, but this section is closer to the
             person behind them.
           </p>
         </div>
