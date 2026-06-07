@@ -1,4 +1,5 @@
 import "@testing-library/jest-dom/vitest";
+import { configure } from "@testing-library/react";
 import { vi } from "vitest";
 
 class IntersectionObserverMock implements IntersectionObserver {
@@ -34,3 +35,7 @@ Object.defineProperty(window, "matchMedia", {
 });
 
 window.scrollTo = vi.fn();
+
+configure({
+  asyncUtilTimeout: 3000,
+});

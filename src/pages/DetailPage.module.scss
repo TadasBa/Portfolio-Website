@@ -215,6 +215,44 @@
     margin: 16px 0 0 20px;
   }
 
+  :global(.projectMarkdownTableFrame) {
+    width: fit-content;
+    max-width: 100%;
+    margin-top: 20px;
+    border: 1px solid $color-border;
+    border-radius: $radius-sm;
+    overflow-x: auto;
+    background: rgb(255 255 255 / 42%);
+  }
+
+  :global(table) {
+    width: max-content;
+    border-collapse: collapse;
+  }
+
+  :global(th),
+  :global(td) {
+    border-bottom: 1px solid $color-border;
+    padding: 14px 16px;
+    text-align: left;
+  }
+
+  :global(th) {
+    color: $color-text;
+    font-size: 17px;
+    font-weight: 650;
+    white-space: nowrap;
+  }
+
+  :global(td) {
+    font-size: 18px;
+    white-space: nowrap;
+  }
+
+  :global(tr:last-child td) {
+    border-bottom: 0;
+  }
+
   :global(li::marker) {
     color: $color-accent-strong;
   }

@@ -16,6 +16,14 @@ import type { ProjectEntry } from "../../types/content";
 import { projectContent } from "./projectContent";
 
 const projectMedia: Record<string, Pick<ProjectEntry, "gallery" | "links">> = {
+  "hotpathtrace-dotnet": {
+    links: [
+      {
+        label: "Repository",
+        href: "https://github.com/TadasBa/hotpathtrace-dotnet",
+      },
+    ],
+  },
   "code-quality-assessment-using-large-language-models": {
     links: [
       {
