@@ -52,9 +52,7 @@ describe("Projects", () => {
       ),
     ).toBeInTheDocument();
     expect(screen.getByText(/3\.10x smaller/i)).toBeInTheDocument();
-    expect(
-      screen.getByRole("link", { name: /Repository/i }),
-    ).toHaveAttribute(
+    expect(screen.getByRole("link", { name: /Repository/i })).toHaveAttribute(
       "href",
       "https://github.com/TadasBa/hotpathtrace-dotnet",
     );
