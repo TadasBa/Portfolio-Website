@@ -8,16 +8,16 @@
 .eyebrow {
   @include kicker;
 
-  font-size: 18px;
+  font-size: clamp(14px, 0.9vw, 17px);
 }
 
 .title {
-  margin-top: 12px;
+  margin-top: 10px;
   color: $color-text;
   font-family: $font-display;
-  font-size: clamp(42px, 4vw, 58px);
+  font-size: var(--title-size, clamp(40px, 4vw, 56px));
   font-weight: 650;
-  letter-spacing: -0.04em;
+  letter-spacing: -0.025em;
   line-height: 1.05;
 }
 
@@ -27,8 +27,14 @@
 
 .description {
   max-width: 760px;
-  margin-top: 16px;
+  margin-top: 14px;
   color: $color-muted;
-  font-size: 22px;
-  line-height: 1.65;
+  font-size: var(--body-size, 18px);
+  line-height: 1.55;
+}
+
+@media (max-width: 767px) {
+  .title {
+    line-height: 1.1;
+  }
 }

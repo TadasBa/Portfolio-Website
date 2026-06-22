@@ -2,37 +2,36 @@
 
 .page {
   min-height: 100%;
-  padding: 68px 76px;
+  padding: var(--page-pad-y, 56px) var(--page-pad-x, 76px);
 }
 
 .grid {
   display: grid;
-  gap: 20px;
-  margin-top: 58px;
+  gap: 18px;
+  margin-top: clamp(28px, 3.4vw, 44px);
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
   .grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
-@media (min-width: 1152px) {
+@media (min-width: 1280px) {
   .projectGrid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1023px) {
   .page {
-    padding: 52px 46px;
+    min-height: auto;
   }
 }
 
-@media (max-width: 672px) {
-  .page {
-    height: auto;
-    min-height: auto;
-    padding: 35px 18px;
+@media (max-width: 767px) {
+  .grid {
+    gap: 14px;
+    margin-top: 26px;
   }
 }
