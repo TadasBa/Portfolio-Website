@@ -23,6 +23,7 @@ export function getRenderedRouteMetadata(metadata) {
     ogTitle: metadata.title,
     ogType: metadata.ogType,
     ogUrl: canonicalUrl,
+    robots: metadata.robots,
     title: metadata.title,
     twitterCard: "summary",
     twitterDescription: metadata.description,
@@ -52,6 +53,11 @@ export function applyRouteMetadata(html, metadata) {
     output,
     /<meta\s+name="description"\s+content="[^"]*"\s*\/?>/s,
     `<meta name="description" content="${escapeHtml(rendered.description)}" />`,
+  );
+  output = replaceOrInsert(
+    output,
+    /<meta\s+name="robots"\s+content="[^"]*"\s*\/?>/s,
+    `<meta name="robots" content="${escapeHtml(rendered.robots)}" />`,
   );
   output = replaceOrInsert(
     output,

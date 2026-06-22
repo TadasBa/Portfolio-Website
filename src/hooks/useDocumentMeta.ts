@@ -44,6 +44,7 @@ export function useDocumentMeta(metadata: RouteMetadata) {
       { attribute: "name", key: "description" },
       metadata.description,
     );
+    setMetaContent({ attribute: "name", key: "robots" }, metadata.robots);
     setMetaContent({ attribute: "property", key: "og:type" }, metadata.ogType);
     setMetaContent({ attribute: "property", key: "og:url" }, canonicalUrl);
     setMetaContent({ attribute: "property", key: "og:title" }, metadata.title);
