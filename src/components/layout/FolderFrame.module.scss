@@ -257,8 +257,10 @@
   .spine {
     height: calc(var(--folder-height) - 67px);
     border-radius: 19px 0 0 19px;
-     transform: translate(
-        calc(var(--spine-track) - var(--spine-width) - 7px), -5px);
+    transform: translate(
+      calc(var(--spine-track) - var(--spine-width) - 7px),
+      -5px
+    );
   }
 
   .marker {
