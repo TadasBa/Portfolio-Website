@@ -9,9 +9,21 @@
   padding: 24px 0;
 }
 
-@media (max-width: 1152px) {
+@media (max-width: 1279px) {
+  .shell {
+    padding: 18px 0;
+  }
+}
+
+@media (max-width: 1023px) {
   .shell {
     display: block;
-    padding: 0;
+    padding: 16px 0 28px;
+  }
+}
+
+@media (max-width: 767px) {
+  .shell {
+    padding: 10px 0 22px;
   }
 }

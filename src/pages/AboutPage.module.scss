@@ -4,17 +4,18 @@
   display: flex;
   height: 100%;
   flex-direction: column;
-  justify-content: space-between;
-  gap: 48px;
-  padding: clamp(48px, 5vw, 68px) clamp(52px, 5vw, 76px);
+  justify-content: center;
+  gap: clamp(26px, 3.4vw, 40px);
+  padding: var(--page-pad-y, 56px) var(--page-pad-x, 76px);
 }
 
 .top {
   display: grid;
-  grid-template-columns: minmax(0, 660px) minmax(320px, 420px);
-  gap: 84px;
+  grid-template-columns: minmax(0, 640px) minmax(240px, 360px);
+  gap: clamp(34px, 5vw, 68px);
   align-items: center;
   justify-content: space-between;
+  padding-top: 30px;
 }
 
 .copyArea {
@@ -22,20 +23,18 @@
 }
 
 .lead {
-  max-width: 660px;
-  margin-top: 22px;
+  max-width: 500px;
+  margin-top: 35px;
   color: $color-text;
-  font-size: clamp(21px, 1.55vw, 23px);
-  line-height: 1.52;
-  padding-bottom: clamp(70px, 11vw, 20px);
+  font-size: var(--body-size, 18px);
+  line-height: 1.48;
 }
 
 .portraitFrame {
   position: relative;
   justify-self: end;
-  width: clamp(300px, 25vw, 390px);
-  margin: 0;
-  padding-bottom: clamp(52px, 9vw, 150px);
+  width: clamp(240px, 23vw, 360px);
+  margin: 20px;
 }
 
 .portrait {
@@ -44,10 +43,10 @@
   width: 100%;
   aspect-ratio: 0.86;
   border: 1px solid rgb(0 132 180 / 12%);
-  border-radius: 26px;
+  border-radius: 22px;
   box-shadow:
-    0 34px 68px -42px rgb(16 32 42 / 50%),
-    0 18px 42px -34px rgb(16 32 42 / 45%),
+    0 28px 54px -38px rgb(16 32 42 / 44%),
+    0 14px 34px -30px rgb(16 32 42 / 38%),
     inset 0 1px 0 rgb(255 255 255 / 70%);
   object-fit: cover;
   object-position: center top;
@@ -56,15 +55,14 @@
 .contactRow {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 34px;
-  border-top: 1px solid #d6eaf5;
-  padding-top: 34px;
+  gap: clamp(16px, 2vw, 28px);
+  padding-top: clamp(130px, 2.5vw, 28px);
 }
 
 .contactRow a {
   display: grid;
-  grid-template-columns: 48px minmax(0, 1fr) 18px;
-  gap: 16px;
+  grid-template-columns: var(--icon-bubble, 52px) minmax(0, 1fr) 16px;
+  gap: 20px;
   align-items: center;
   min-width: 0;
   color: $color-text;
@@ -72,8 +70,8 @@
 
 .contactIcon {
   display: grid;
-  width: 48px;
-  height: 48px;
+  width: var(--icon-bubble, 52px);
+  height: var(--icon-bubble, 52px);
   place-items: center;
   border-radius: 999px;
   background: #eaf3f9;
@@ -81,8 +79,8 @@
 }
 
 .contactIcon svg {
-  width: 22px;
-  height: 22px;
+  width: 20px;
+  height: 20px;
 }
 
 .contactRow strong,
@@ -91,51 +89,81 @@
 }
 
 .contactRow strong {
-  font-size: 19px;
+  font-size: clamp(16px, 1.15vw, 18px);
 }
 
 .contactRow small {
-  margin-top: 6px;
+  margin-top: 5px;
   color: $color-accent;
-  font-size: 16px;
+  font-size: clamp(14px, 1vw, 15px);
   overflow-wrap: anywhere;
 }
 
 .external {
-  width: 16px;
-  height: 16px;
+  width: 15px;
+  height: 15px;
   color: $color-accent;
 }
 
-@media (max-width: 1152px) {
+@media (max-width: 1279px) {
+  .top {
+    grid-template-columns: minmax(0, 1fr) minmax(220px, 290px);
+    gap: 30px;
+  }
+
+  .lead {
+    margin-top: 40px;
+    line-height: 1.42;
+  }
+
+  .portraitFrame {
+    width: clamp(220px, 23vw, 290px);
+    margin: 20px;
+  }
+
+  .contactRow {
+    padding-top: clamp(110px, 2.5vw, 28px);
+  }
+
+  .contactRow a {
+    grid-template-columns: var(--icon-bubble, 44px) minmax(0, 1fr);
+  }
+
+  .external {
+    display: none;
+  }
+}
+
+@media (max-width: 1023px) {
   .page {
     height: auto;
     justify-content: flex-start;
-    padding: 52px 46px;
   }
 
   .top {
     grid-template-columns: 1fr;
-    gap: 32px;
   }
 
   .portraitFrame {
-    justify-self: center;
-    width: min(100%, 340px);
-  }
-}
-
-@media (max-width: 672px) {
-  .page {
-    padding-block: 35px;
-    padding-inline: 18px;
+    justify-self: start;
+    width: min(100%, 300px);
   }
 
   .contactRow {
     grid-template-columns: 1fr;
   }
+}
+
+@media (max-width: 767px) {
+  .page {
+    gap: 26px;
+  }
 
   .portraitFrame {
-    width: min(100%, 300px);
+    width: min(100%, 280px);
+  }
+
+  .contactRow {
+    gap: 14px;
   }
 }

@@ -1,6 +1,9 @@
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { dirname } from "node:path";
-import { publicRouteMetadata } from "../src/content/routeMetadata.js";
+import {
+  indexableRoutePaths,
+  publicRouteMetadata,
+} from "../src/content/routeMetadata.js";
 import {
   applyRouteMetadata,
   getRouteOutputPath,
@@ -19,7 +22,13 @@ function validateRouteMetadata() {
 
     seen.add(metadata.canonicalPathname);
 
-    for (const key of ["title", "description", "canonicalPathname", "ogType"]) {
+    for (const key of [
+      "title",
+      "description",
+      "canonicalPathname",
+      "ogType",
+      "robots",
+    ]) {
       if (!metadata[key]) {
         throw new Error(
           `Missing ${key} for route ${metadata.canonicalPathname}`,
@@ -31,23 +40,19 @@ function validateRouteMetadata() {
 
 async function validateSitemapConsistency() {
   const sitemapPaths = await readSitemapPaths();
-  const metadataPaths = publicRouteMetadata.map(
-    (metadata) => metadata.canonicalPathname,
-  );
-
-  const missingFromSitemap = metadataPaths.filter(
+  const missingFromSitemap = indexableRoutePaths.filter(
     (pathname) => !sitemapPaths.includes(pathname),
   );
   const missingFromMetadata = sitemapPaths.filter(
-    (pathname) => !metadataPaths.includes(pathname),
+    (pathname) => !indexableRoutePaths.includes(pathname),
   );
 
   if (missingFromSitemap.length || missingFromMetadata.length) {
     throw new Error(
       [
-        "Sitemap and route metadata paths do not match.",
+        "Sitemap and indexable route paths do not match.",
         `Missing from sitemap: ${missingFromSitemap.join(", ") || "none"}`,
-        `Missing from metadata: ${missingFromMetadata.join(", ") || "none"}`,
+        `Missing from indexable routes: ${missingFromMetadata.join(", ") || "none"}`,
       ].join("\n"),
     );
   }

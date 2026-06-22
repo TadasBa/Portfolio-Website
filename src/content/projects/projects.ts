@@ -48,7 +48,7 @@ const projectMedia: Record<string, Pick<ProjectEntry, "gallery" | "links">> = {
       },
       {
         label: "Repository",
-        href: "https://github.com/TadasBa/Blog",
+        href: "https://github.com/TadasBa/Portfolio-Website",
       },
     ],
     gallery: [

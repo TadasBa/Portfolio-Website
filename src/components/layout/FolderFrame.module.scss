@@ -2,11 +2,29 @@
 @use "../../styles/tokens" as *;
 
 .frame {
-  --folder-height: clamp(620px, calc(100svh - 92px), 860px);
+  --shell-gutter: 96px;
+  --shell-width: 1440px;
+  --folder-height: clamp(620px, calc(100svh - 88px), 820px);
+  --spine-track: 48px;
+  --shadow-track: 32px;
+  --content-offset: calc(var(--spine-track) + var(--shadow-track));
+  --spine-width: 60px;
+  --tab-height: 58px;
+  --tab-font-size: 17px;
+  --tab-radius: 17px;
+  --page-pad-x: clamp(48px, 5vw, 76px);
+  --page-pad-y: clamp(34px, 3.8vw, 54px);
+  --title-size: clamp(40px, 3.6vw, 56px);
+  --body-size: clamp(17px, 1.25vw, 19px);
+  --card-pad: 22px;
+  --chip-font-size: 13px;
+  --chip-pad-y: 6px;
+  --chip-pad-x: 10px;
+  --icon-bubble: 52px;
 
   position: relative;
-  width: min(1640px, calc(100vw - 56px));
-  max-width: calc(100vw - 56px);
+  width: min(var(--shell-width), calc(100vw - var(--shell-gutter)));
+  max-width: calc(100vw - var(--shell-gutter));
   margin: 0 auto;
 }
 
@@ -15,10 +33,10 @@
   z-index: 2;
   isolation: isolate;
   display: flex;
-  width: calc(100% - 80px);
-  height: 54px;
+  width: calc(100% - var(--content-offset));
+  height: calc(var(--tab-height) - 8px);
   align-items: flex-start;
-  margin-left: 80px;
+  margin-left: var(--content-offset);
   overflow: visible;
 }
 
@@ -27,17 +45,17 @@
   z-index: 2;
   display: inline-flex;
   flex: 1 1 0;
-  height: 66px;
+  height: var(--tab-height);
   align-items: flex-start;
   justify-content: center;
-  gap: 10px;
+  gap: 9px;
   border: 0;
+  border-radius: var(--tab-radius) var(--tab-radius) 0 0;
   background: transparent;
   color: $color-subtle;
-  font-size: 18px;
+  font-size: var(--tab-font-size);
   font-weight: 600;
-  padding-top: 17px;
-  border-radius: 17px 17px 0 0;
+  padding-top: calc((var(--tab-height) - 22px) / 2);
   overflow: visible;
   transition:
     color 180ms ease,
@@ -47,10 +65,9 @@
     position: absolute;
     inset: 0;
     z-index: -1;
-    border-radius: 17px 17px 0 0;
+    border-radius: var(--tab-radius) var(--tab-radius) 0 0;
     background:
       linear-gradient(135deg, rgb(255 255 255 / 22%), transparent 44%), #d4e4f0;
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
     content: "";
     transition:
       background 180ms ease,
@@ -58,9 +75,8 @@
   }
 
   svg {
-    width: 20px;
-    height: 20px;
-    margin-top: 0;
+    width: 19px;
+    height: 19px;
   }
 
   &:focus-visible {
@@ -82,7 +98,7 @@
       linear-gradient(135deg, rgb(255 228 223 / 34%), transparent 42%),
       $color-panel;
     box-shadow:
-      0 -10px 24px rgb(16 32 42 / 7%),
+      0 -8px 20px rgb(16 32 42 / 6%),
       inset 0 1px 0 rgb(255 255 255 / 90%);
   }
 
@@ -97,33 +113,36 @@
 
 .folder {
   position: relative;
-  margin-top: -1px;
   display: grid;
-  grid-template-columns: 48px 32px minmax(0, 1fr);
+  grid-template-columns: var(--spine-track) var(--shadow-track) minmax(0, 1fr);
   height: var(--folder-height);
   min-height: 0;
+  margin-top: -1px;
 }
 
 .spine {
   position: relative;
-  width: 60px;
   z-index: 1;
   align-self: center;
-  height: calc(var(--folder-height) - 67px);
-  transform: translate(-23px, -6px);
-  border-radius: 24px 0 0 24px;
+  width: var(--spine-width);
+  height: calc(var(--folder-height) - 64px);
+  border-radius: 22px 0 0 22px;
   background: rgb(209 230 243 / 92%);
   box-shadow:
-    -16px 28px 54px rgb(16 32 42 / 14%),
-    inset 10px 0 18px rgb(255 255 255 / 24%);
+    -14px 24px 46px rgb(16 32 42 / 12%),
+    inset 10px 0 18px rgb(255 255 255 / 22%);
+  transform: translate(
+    calc(var(--spine-track) - var(--spine-width) - 10px),
+    -5px
+  );
 }
 
 .marker {
   position: absolute;
-  top: 39px;
+  top: 36px;
   left: 50%;
-  width: 12px;
-  height: 12px;
+  width: 11px;
+  height: 11px;
   border-radius: 999px;
   background: $color-accent;
   box-shadow: 0 0 0 4px rgb(255 255 255 / 70%);
@@ -135,9 +154,9 @@
   top: 50%;
   left: 50%;
   color: $color-accent;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 700;
-  letter-spacing: 0.3em;
+  letter-spacing: 0.28em;
   line-height: 1.5;
   transform: translate(-50%, -45%) rotate(-90deg);
   white-space: nowrap;
@@ -149,13 +168,13 @@
 
 .shadowStrip {
   position: relative;
-  width: 50px;
   z-index: 0;
   align-self: center;
-  height: calc(var(--folder-height) - 5px);
-  transform: translate(-12px, -6px);
-  background: rgb(209 230 243 / 94.2%);
+  width: calc(var(--shadow-track) + 18px);
+  height: calc(var(--folder-height) - 4px);
+  background: rgb(209 230 243 / 88%);
   clip-path: polygon(0 32px, 100% 0, 100% 100%, 0 calc(100% - 32px));
+  transform: translate(-10px, -5px);
 }
 
 .surface {
@@ -166,14 +185,13 @@
   min-height: 0;
   border-radius: 0 24px 24px;
   background:
-    radial-gradient(circle at 90% 8%, rgb(255 228 223 / 42%), transparent 23%),
-    radial-gradient(circle at 8% 88%, rgb(217 237 245 / 58%), transparent 24%),
+    radial-gradient(circle at 90% 8%, rgb(255 228 223 / 34%), transparent 23%),
+    radial-gradient(circle at 8% 88%, rgb(217 237 245 / 42%), transparent 24%),
     $color-panel;
   box-shadow:
-    0 42px 70px -38px rgb(16 32 42 / 42%),
-    0 22px 48px -34px rgb(16 32 42 / 34%),
-    inset 0 1px 0 rgb(255 255 255 / 100%),
-    inset 0 -1px 0 rgb(16 32 42 / 4%);
+    0 32px 56px -38px rgb(16 32 42 / 34%),
+    0 16px 36px -30px rgb(16 32 42 / 26%),
+    inset 0 1px 0 rgb(255 255 255 / 100%);
   overflow: hidden;
 }
 
@@ -189,8 +207,8 @@
   mask-image: linear-gradient(
     to bottom,
     transparent 0,
-    #000 34px,
-    #000 calc(100% - 34px),
+    #000 28px,
+    #000 calc(100% - 28px),
     transparent 100%
   );
 }
@@ -199,78 +217,92 @@
   overflow: hidden;
 }
 
-.surfaceInner::-webkit-scrollbar {
+.surfaceInner::-webkit-scrollbar,
+.tabs::-webkit-scrollbar {
   display: none;
 }
 
-@media (max-width: 1248px) {
+@media (max-width: 1279px) {
   .frame {
-    --folder-height: clamp(600px, calc(100svh - 72px), 760px);
-
-    width: min(1180px, calc(100vw - 28px));
-    max-width: calc(100vw - 28px);
+    --shell-gutter: 64px;
+    --shell-width: 1120px;
+    --folder-height: clamp(560px, calc(100svh - 68px), 680px);
+    --spine-track: 38px;
+    --shadow-track: 24px;
+    --content-offset: calc(var(--spine-track) + var(--shadow-track));
+    --spine-width: 48px;
+    --tab-height: 50px;
+    --tab-font-size: 14px;
+    --tab-radius: 15px;
+    --page-pad-x: 34px;
+    --page-pad-y: 28px;
+    --title-size: clamp(34px, 3.4vw, 42px);
+    --body-size: 16px;
+    --card-pad: 18px;
+    --chip-font-size: 12px;
+    --chip-pad-y: 5px;
+    --chip-pad-x: 9px;
+    --icon-bubble: 44px;
   }
 
   .tab {
-    flex-basis: 168px;
-    height: 60px;
-    font-size: 16px;
-    padding-top: 15px;
-  }
+    gap: 7px;
 
-  .tabs {
-    height: 50px;
-  }
-
-  .folder {
-    grid-template-columns: 42px 28px minmax(0, 1fr);
+    svg {
+      width: 17px;
+      height: 17px;
+    }
   }
 
   .spine {
-    width: 54px;
-    transform: translate(-20px, -5px);
+    height: calc(var(--folder-height) - 67px);
+    border-radius: 19px 0 0 19px;
+    transform: translate(
+      calc(var(--spine-track) - var(--spine-width) - 7px),
+      -5px
+    );
+  }
+
+  .marker {
+    top: 32px;
+    width: 10px;
+    height: 10px;
+  }
+
+  .spineText {
+    font-size: 12px;
   }
 
   .shadowStrip {
-    width: 44px;
-    transform: translate(-10px, -5px);
+    width: calc(var(--shadow-track) + 14px);
+    transform: translate(-8px, -5px);
   }
 }
 
-@media (max-width: 1152px) {
+@media (max-width: 1023px) {
   .frame {
-    width: min(100% - 16px, $container);
-    padding-block: 16px;
+    --shell-gutter: 32px;
+    --shell-width: #{$container};
+    --folder-height: auto;
+    --content-offset: 0px;
+    --page-pad-x: 30px;
+    --page-pad-y: 34px;
+    --title-size: clamp(34px, 5vw, 40px);
+    --body-size: 16px;
+    --card-pad: 18px;
+    --chip-font-size: 12px;
+    --icon-bubble: 42px;
   }
 
   .tabs {
     width: 100%;
-    height: 52px;
-    align-items: flex-start;
-    gap: 0;
+    height: calc(var(--tab-height) - 6px);
     margin-left: 0;
-    overflow: auto visible;
-    scrollbar-width: none;
-  }
-
-  .tabs::-webkit-scrollbar {
-    display: none;
-  }
-
-  .tab {
-    min-width: 150px;
-    height: 58px;
-    flex: 1 0 150px;
-    border: 0;
-    border-radius: 16px 16px 0 0;
-    padding-top: 15px;
   }
 
   .folder {
     grid-template-columns: 1fr;
     height: auto;
-    margin-top: 12px;
-    filter: none;
   }
 
   .spine,
@@ -280,10 +312,14 @@
 
   .surface {
     height: auto;
-    border-radius: 0 22px 22px;
+    border-radius: 18px;
+    box-shadow:
+      0 22px 36px -32px rgb(16 32 42 / 34%),
+      inset 0 1px 0 rgb(255 255 255 / 100%);
   }
 
-  .surfaceInner {
+  .surfaceInner,
+  .surfaceInner.noScroll {
     height: auto;
     overflow: visible;
   }
@@ -291,38 +327,52 @@
   .surfaceInner:not(.noScroll) {
     mask-image: none;
   }
-
-  .surfaceInner.noScroll {
-    overflow: visible;
-  }
 }
 
-@media (max-width: 672px) {
+@media (max-width: 767px) {
   .frame {
-    width: min(100% - 8px, $container);
-    max-width: calc(100vw - 8px);
-    padding-block: 8px;
+    --shell-gutter: 20px;
+    --tab-height: 46px;
+    --tab-font-size: 13px;
+    --tab-radius: 14px;
+    --page-pad-x: 18px;
+    --page-pad-y: 30px;
+    --title-size: 34px;
+    --body-size: 16px;
+    --card-pad: 16px;
+    --chip-font-size: 11px;
+    --chip-pad-y: 4px;
+    --chip-pad-x: 8px;
+    --icon-bubble: 38px;
   }
 
   .tabs {
-    height: 48px;
+    gap: 6px;
+    overflow: auto visible;
+    padding-inline: 2px;
+    scroll-padding-inline: 2px;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
   }
 
   .tab {
-    min-width: 118px;
-    height: 54px;
-    flex-basis: 118px;
-    gap: 7px;
-    padding-top: 14px;
-    font-size: 15px;
+    min-width: 84px;
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+    gap: 4px;
+    padding-top: 11px;
+
+    svg {
+      width: 16px;
+      height: 16px;
+    }
   }
 
-  .tab svg {
-    width: 19px;
-    height: 19px;
+  .folder {
+    margin-top: 0;
   }
 
   .surface {
-    border-radius: 0 20px 20px;
+    border-radius: 16px;
   }
 }

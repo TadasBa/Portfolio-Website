@@ -2,64 +2,64 @@
 
 .page {
   display: grid;
-  grid-template-columns: minmax(256px, 0.7fr) minmax(0, 1.3fr);
-  gap: clamp(36px, 6vw, 76px);
+  grid-template-columns: minmax(230px, 0.62fr) minmax(0, 1.38fr);
+  gap: clamp(32px, 5vw, 64px);
   align-items: start;
   min-height: 100%;
-  padding: 68px 76px;
+  padding: var(--page-pad-y, 56px) var(--page-pad-x, 76px);
 }
 
 .intro {
   display: grid;
-  gap: clamp(32px, 6vw, 72px);
+  gap: clamp(28px, 4vw, 56px);
 }
 
 .books {
   position: relative;
-  width: 224px;
-  height: 160px;
+  width: 190px;
+  height: 136px;
 }
 
 .books span {
   position: absolute;
   bottom: 0;
-  width: 36px;
+  width: 31px;
   border-radius: 6px 6px 0 0;
   background: linear-gradient(180deg, rgb(207 231 238 / 92%), rgb(235 248 251));
-  box-shadow: 0 18px 36px rgb(16 32 42 / 8%);
+  box-shadow: 0 16px 30px rgb(16 32 42 / 7%);
 }
 
 .books span:nth-child(1) {
-  left: 16px;
-  height: 115px;
+  left: 14px;
+  height: 98px;
 }
 
 .books span:nth-child(2) {
-  left: 59px;
-  height: 136px;
+  left: 51px;
+  height: 116px;
 }
 
 .books span:nth-child(3) {
-  left: 102px;
-  height: 110px;
+  left: 88px;
+  height: 94px;
 }
 
 .books span:nth-child(4) {
-  left: 146px;
-  height: 150px;
+  left: 126px;
+  height: 128px;
   transform: rotate(-12deg);
   transform-origin: bottom center;
 }
 
 .books i {
   position: absolute;
-  bottom: -10px;
+  bottom: -8px;
   left: 5px;
-  width: 32px;
-  height: 32px;
+  width: 28px;
+  height: 28px;
   border-radius: 999px;
   background: $color-coral;
-  box-shadow: 0 14px 30px rgb(240 113 103 / 24%);
+  box-shadow: 0 12px 24px rgb(240 113 103 / 20%);
 }
 
 .list {
@@ -67,21 +67,25 @@
   gap: 0;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1279px) {
+  .page {
+    grid-template-columns: minmax(210px, 0.56fr) minmax(0, 1.44fr);
+    gap: 34px;
+  }
+
+  .books {
+    width: 156px;
+    height: 110px;
+  }
+}
+
+@media (max-width: 1023px) {
   .page {
     grid-template-columns: 1fr;
-    padding: 52px 46px;
+    min-height: auto;
   }
 
   .books {
     display: none;
-  }
-}
-
-@media (max-width: 672px) {
-  .page {
-    height: auto;
-    min-height: auto;
-    padding: 35px 18px;
   }
 }

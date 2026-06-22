@@ -7,10 +7,11 @@ export const productionSiteUrl = "https://tadas.baltrunas.lt";
 const staticRouteMetadata = [
   {
     canonicalPathname: "/",
-    title: "Tadas Baltrūnas | Frontend, Automation, Systems",
+    title: "Tadas Baltrūnas — Portfolio",
     description:
-      "Portfolio of Tadas Baltrunas, a developer focused on frontend and practical systems.",
+      "Portfolio of Tadas Baltrūnas, a software developer focused on practical web projects, frontend development, automation, and deployment.",
     ogType: "website",
+    robots: "index, follow",
   },
   {
     canonicalPathname: "/about",
@@ -18,6 +19,7 @@ const staticRouteMetadata = [
     description:
       "About Tadas Baltrunas, a developer focused on frontend, automation, and practical systems.",
     ogType: "website",
+    robots: "noindex, follow",
   },
   {
     canonicalPathname: "/projects",
@@ -25,6 +27,7 @@ const staticRouteMetadata = [
     description:
       "Projects from frontend development, software engineering studies, and technical experiments.",
     ogType: "website",
+    robots: "noindex, follow",
   },
   {
     canonicalPathname: "/blog",
@@ -32,12 +35,14 @@ const staticRouteMetadata = [
     description:
       "Blog posts from Tadas Baltrunas about software engineering, frontend development, studies, and project work.",
     ogType: "website",
+    robots: "noindex, follow",
   },
   {
     canonicalPathname: "/stack",
     title: `Stack | ${siteConfig.name}`,
     description: "Technologies and tools used by Tadas Baltrunas.",
     ogType: "website",
+    robots: "noindex, follow",
   },
 ];
 
@@ -46,6 +51,7 @@ const projectRouteMetadata = projectContent.map((project) => ({
   title: `${project.title} | ${siteConfig.name}`,
   description: project.summary,
   ogType: "website",
+  robots: "noindex, follow",
 }));
 
 const blogRouteMetadata = blogPostContent.map((post) => ({
@@ -53,6 +59,7 @@ const blogRouteMetadata = blogPostContent.map((post) => ({
   title: `${post.title} | ${siteConfig.name}`,
   description: post.summary,
   ogType: "article",
+  robots: "noindex, follow",
 }));
 
 export const publicRouteMetadata = [
@@ -67,11 +74,20 @@ export const publicRoutePaths = publicRouteMetadata.map(
   (metadata) => metadata.canonicalPathname,
 );
 
+export const indexableRouteMetadata = publicRouteMetadata.filter(
+  (metadata) => metadata.robots === "index, follow",
+);
+
+export const indexableRoutePaths = indexableRouteMetadata.map(
+  (metadata) => metadata.canonicalPathname,
+);
+
 export const notFoundMetadata = {
   canonicalPathname: "/",
   title: `Page not found | ${siteConfig.name}`,
   description: "The requested page could not be found.",
   ogType: "website",
+  robots: "noindex, follow",
 };
 
 export function getCanonicalUrl(pathname) {

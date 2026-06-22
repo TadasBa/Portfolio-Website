@@ -1,6 +1,7 @@
 import { access, readFile } from "node:fs/promises";
 import {
   getCanonicalUrl,
+  indexableRoutePaths,
   publicRouteMetadata,
 } from "../src/content/routeMetadata.js";
 import {
@@ -17,15 +18,13 @@ function includesHtml(html, expected, label) {
 
 async function validateSitemapConsistency() {
   const sitemapPaths = await readSitemapPaths();
-  const metadataPaths = publicRouteMetadata.map(
-    (metadata) => metadata.canonicalPathname,
-  );
-
   if (
-    sitemapPaths.length !== metadataPaths.length ||
-    sitemapPaths.some((pathname) => !metadataPaths.includes(pathname))
+    sitemapPaths.length !== indexableRoutePaths.length ||
+    sitemapPaths.some((pathname) => !indexableRoutePaths.includes(pathname))
   ) {
-    throw new Error("Sitemap route list does not match route metadata paths.");
+    throw new Error(
+      "Sitemap route list does not match indexable route metadata paths.",
+    );
   }
 }
 
@@ -51,6 +50,11 @@ for (const metadata of publicRouteMetadata) {
     html,
     `<meta property="og:title" content="${rendered.ogTitle}" />`,
     "Open Graph title",
+  );
+  includesHtml(
+    html,
+    `<meta name="robots" content="${rendered.robots}" />`,
+    "robots directive",
   );
 
   if (

@@ -57,4 +57,15 @@ describe("Projects", () => {
       "https://github.com/TadasBa/hotpathtrace-dotnet",
     );
   });
+
+  it("uses the correct repository link for the portfolio website project", async () => {
+    renderApp(["/projects/portfolio-website"]);
+
+    await screen.findByRole("heading", { name: /Portfolio Website/i });
+
+    expect(screen.getByRole("link", { name: /Repository/i })).toHaveAttribute(
+      "href",
+      "https://github.com/TadasBa/Portfolio-Website",
+    );
+  });
 });
