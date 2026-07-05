@@ -1,41 +1,21 @@
 import { screen } from "@testing-library/react";
-import { blogPostsByDate } from "../content/blog/posts";
 import { renderApp } from "./renderApp";
 
-describe("Blog", () => {
-  it("renders blog cards from content data", async () => {
-    renderApp(["/blog"]);
+describe("blog", () => {
+  it("renders a post page", async () => {
+    renderApp(["/blog/rebuilt-this-site-14-times"]);
 
     expect(
-      await screen.findByRole("heading", { name: blogPostsByDate[0].title }),
+      await screen.findByRole("heading", {
+        name: /rebuilt this site 14 times/i,
+      }),
     ).toBeInTheDocument();
-
-    blogPostsByDate.forEach((post) => {
-      expect(
-        screen.getByRole("heading", { name: post.title }),
-      ).toBeInTheDocument();
-    });
+    expect(screen.getByText(/stood still/i)).toBeInTheDocument();
   });
 
-  it("shows a not-found state for an invalid blog slug", async () => {
-    renderApp(["/blog/not-a-real-post"]);
+  it("shows a not-found state for an unknown slug", async () => {
+    renderApp(["/blog/does-not-exist"]);
 
-    expect(await screen.findByText(/Blog post not found/i)).toBeInTheDocument();
-    expect(
-      screen.getByRole("link", { name: /Back to blog/i }),
-    ).toBeInTheDocument();
-  });
-
-  it("renders a blog detail page from content data", async () => {
-    const [post] = blogPostsByDate;
-
-    renderApp([`/blog/${post.slug}`]);
-
-    expect(
-      await screen.findByRole("heading", { name: post.title }),
-    ).toBeInTheDocument();
-    expect(
-      screen.getByText(/learning how to learn all over again/i),
-    ).toBeInTheDocument();
+    expect(await screen.findByText(/Not written yet/i)).toBeInTheDocument();
   });
 });

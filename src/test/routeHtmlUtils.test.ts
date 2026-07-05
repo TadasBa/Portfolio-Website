@@ -1,6 +1,7 @@
 import { resolve } from "node:path";
 import { pathToFileURL } from "node:url";
 import {
+  getBlogPostRouteMetadata,
   indexableRoutePaths,
   requireRouteMetadata,
 } from "../content/routeMetadata";
@@ -20,20 +21,23 @@ const baseHtml = `<!doctype html>
 </html>`;
 
 describe("route HTML utilities", () => {
-  it("renders robots metadata for home and noindex routes", async () => {
+  it("renders metadata for home and writing routes", async () => {
     const { applyRouteMetadata } = await routeHtmlUtilsPromise;
     const homeHtml = applyRouteMetadata(baseHtml, requireRouteMetadata("/"));
-    const aboutHtml = applyRouteMetadata(
+    const postHtml = applyRouteMetadata(
       baseHtml,
-      requireRouteMetadata("/about"),
+      getBlogPostRouteMetadata("rebuilt-this-site-14-times"),
     );
 
-    expect(homeHtml).toContain("<title>Tadas Baltrūnas — Portfolio</title>");
+    expect(homeHtml).toContain(
+      "<title>Tadas Baltrūnas — Software engineer</title>",
+    );
     expect(homeHtml).toContain(
       '<meta name="robots" content="index, follow" />',
     );
-    expect(aboutHtml).toContain(
-      '<meta name="robots" content="noindex, follow" />',
+    expect(postHtml).toContain('<meta property="og:type" content="article" />');
+    expect(postHtml).toContain(
+      '<meta name="robots" content="index, follow" />',
     );
   });
 
@@ -62,9 +66,12 @@ describe("route HTML utilities", () => {
     expect(html).toContain("<title>Title &lt;Test&gt;</title>");
   });
 
-  it("keeps only indexable routes in the sitemap", async () => {
+  it("keeps the sitemap in sync with indexable routes", async () => {
     const { readSitemapPaths } = await routeHtmlUtilsPromise;
-    expect(indexableRoutePaths).toEqual(["/"]);
-    await expect(readSitemapPaths()).resolves.toEqual(["/"]);
+    const sitemap = await readSitemapPaths();
+
+    expect([...indexableRoutePaths].sort()).toEqual([...sitemap].sort());
+    expect(indexableRoutePaths).toContain("/");
+    expect(indexableRoutePaths).toContain("/blog/rebuilt-this-site-14-times");
   });
 });

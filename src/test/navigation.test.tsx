@@ -1,27 +1,19 @@
-import { screen, within } from "@testing-library/react";
+import { screen } from "@testing-library/react";
 import { renderApp } from "./renderApp";
 
-describe("Navigation", () => {
-  it("renders the main navigation links", () => {
+describe("navigation", () => {
+  it("renders the section nav", () => {
     renderApp();
 
-    const primaryNav = screen.getByRole("navigation", { name: /Primary/i });
+    for (const label of ["Intro", "Work", "Blog", "About", "Contact"]) {
+      expect(screen.getByRole("button", { name: label })).toBeInTheDocument();
+    }
+  });
 
-    expect(primaryNav).toBeInTheDocument();
-    expect(
-      within(primaryNav).getByRole("link", { name: /^Home$/i }),
-    ).toBeInTheDocument();
-    expect(
-      within(primaryNav).getByRole("link", { name: /^Projects$/i }),
-    ).toBeInTheDocument();
-    expect(
-      within(primaryNav).getByRole("link", { name: /^Blog$/i }),
-    ).toBeInTheDocument();
-    expect(
-      within(primaryNav).getByRole("link", { name: /^Stack$/i }),
-    ).toBeInTheDocument();
-    expect(
-      within(primaryNav).getByRole("link", { name: /^About$/i }),
-    ).toBeInTheDocument();
+  it("links blog entries to their post pages", () => {
+    renderApp();
+
+    const link = screen.getByRole("link", { name: /rebuilt this site/i });
+    expect(link).toHaveAttribute("href", "/blog/rebuilt-this-site-14-times");
   });
 });

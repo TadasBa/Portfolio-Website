@@ -4,51 +4,15 @@ export type SocialLink = {
   value: string;
 };
 
-export type ProjectLink = {
-  href: string;
-  label: string;
-};
-
-type ProjectMediaBase = {
-  alt: string;
-  caption: string;
-};
-
-export type ProjectImageMedia = ProjectMediaBase & {
-  src: string;
-  type?: "image";
-};
-
-export type ProjectVideoMedia = ProjectMediaBase & {
-  poster: string;
-  src: string;
-  type: "video";
-};
-
-export type ProjectMedia = ProjectImageMedia | ProjectVideoMedia;
-
-export function isProjectVideoMedia(
-  media: ProjectMedia,
-): media is ProjectVideoMedia {
-  return media.type === "video";
-}
-
-export type ProjectEntry = {
-  content?: string;
-  dateLabel: string;
-  featured?: boolean;
-  gallery?: ProjectMedia[];
-  highlights: string[];
-  links?: ProjectLink[];
-  outcome: string;
-  problem: string;
-  publishedAt: string;
+export type WorkEntry = {
+  domain: string;
+  shot: string;
   slug: string;
-  solution: string;
   summary: string;
-  tags: string[];
-  technologies: string[];
+  tag: string;
   title: string;
+  url: string;
+  year: string;
 };
 
 export type BlogPostEntry = {

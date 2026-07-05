@@ -36,6 +36,11 @@ Object.defineProperty(window, "matchMedia", {
 
 window.scrollTo = vi.fn();
 
+// jsdom has no canvas; the living frame simply no-ops in tests
+HTMLCanvasElement.prototype.getContext = vi.fn(
+  () => null,
+) as typeof HTMLCanvasElement.prototype.getContext;
+
 configure({
   asyncUtilTimeout: 3000,
 });

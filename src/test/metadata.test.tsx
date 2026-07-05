@@ -2,7 +2,6 @@ import { screen } from "@testing-library/react";
 import {
   getBlogPostRouteMetadata,
   getCanonicalUrl,
-  getProjectRouteMetadata,
   notFoundMetadata,
   publicRouteMetadata,
   requireRouteMetadata,
@@ -14,13 +13,6 @@ function getMetaContent(attribute: "name" | "property", key: string) {
     .querySelector<HTMLMetaElement>(`meta[${attribute}="${key}"]`)
     ?.getAttribute("content");
 }
-
-const routeLoadLabels: Record<string, RegExp> = {
-  "/about": /What I am up to/i,
-  "/blog": /Learning log/i,
-  "/projects": /Personal work/i,
-  "/stack": /Tech Stack/i,
-};
 
 function expectDocumentMetadata(pathname: string) {
   const metadata = requireRouteMetadata(pathname);
@@ -42,85 +34,49 @@ function expectDocumentMetadata(pathname: string) {
   );
   expect(getMetaContent("name", "twitter:card")).toBe("summary");
   expect(getMetaContent("name", "twitter:title")).toBe(metadata.title);
-  expect(getMetaContent("name", "twitter:description")).toBe(
-    metadata.description,
-  );
 }
 
 describe("route metadata", () => {
   it("sets home metadata", async () => {
     renderApp(["/"]);
 
-    await screen.findByRole("heading", { name: /Tadas Baltrūnas/i });
+    await screen.findByRole("heading", { name: /focused on the frontend/i });
 
     expectDocumentMetadata("/");
-    expect(requireRouteMetadata("/").title).toBe("Tadas Baltrūnas — Portfolio");
+    expect(requireRouteMetadata("/").title).toBe(
+      "Tadas Baltrūnas — Software engineer",
+    );
     expect(requireRouteMetadata("/").robots).toBe("index, follow");
   });
 
-  it.each(["/about", "/projects", "/blog", "/stack"])(
-    "marks %s as noindex",
-    async (pathname) => {
-      renderApp([pathname]);
-
-      await screen.findByRole("heading", { name: routeLoadLabels[pathname] });
-
-      expectDocumentMetadata(pathname);
-      expect(requireRouteMetadata(pathname).robots).toBe("noindex, follow");
-    },
-  );
-
-  it("marks every non-home route as noindex", () => {
+  it("marks every public route as indexable", () => {
     expect(
-      publicRouteMetadata
-        .filter((metadata) => metadata.canonicalPathname !== "/")
-        .every((metadata) => metadata.robots === "noindex, follow"),
+      publicRouteMetadata.every(
+        (metadata) => metadata.robots === "index, follow",
+      ),
     ).toBe(true);
   });
 
-  it("sets project detail metadata", async () => {
-    const metadata = getProjectRouteMetadata(
-      "code-quality-assessment-using-large-language-models",
-    );
+  it("sets blog post metadata as an indexable article", async () => {
+    const metadata = getBlogPostRouteMetadata("rebuilt-this-site-14-times");
 
     renderApp([metadata.canonicalPathname]);
 
     await screen.findByRole(
       "heading",
-      {
-        name: /Code Quality Assessment Using Large Language Models/i,
-      },
-      { timeout: 3000 },
-    );
-
-    expectDocumentMetadata(metadata.canonicalPathname);
-    expect(metadata.robots).toBe("noindex, follow");
-  });
-
-  it("sets blog post metadata", async () => {
-    const metadata = getBlogPostRouteMetadata(
-      "software-engineering-at-vilnius-university",
-    );
-
-    renderApp([metadata.canonicalPathname]);
-
-    await screen.findByRole(
-      "heading",
-      {
-        name: /Software Engineering at Vilnius University/i,
-      },
+      { name: /rebuilt this site/i },
       { timeout: 3000 },
     );
 
     expectDocumentMetadata(metadata.canonicalPathname);
     expect(getMetaContent("property", "og:type")).toBe("article");
-    expect(metadata.robots).toBe("noindex, follow");
+    expect(metadata.robots).toBe("index, follow");
   });
 
   it("marks not found routes as noindex", async () => {
     renderApp(["/missing-page"]);
 
-    await screen.findByText(/Page not found/i);
+    await screen.findByText(/Off the stage/i);
 
     expect(document.title).toBe(notFoundMetadata.title);
     expect(getMetaContent("name", "robots")).toBe("noindex, follow");

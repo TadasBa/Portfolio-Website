@@ -1,29 +1,29 @@
-$font-display: "Inter", "IBM Plex Sans", sans-serif;
-$font-body: "Inter", "IBM Plex Sans", sans-serif;
-$font-mono: "IBM Plex Mono", monospace;
+// Type
+$font-display: "Bricolage Grotesque Variable", sans-serif;
+$font-body: "Inter Variable", system-ui, sans-serif;
+$font-mono: "JetBrains Mono Variable", ui-monospace, monospace;
 
-$color-bg: #eaf3f9;
-$color-bg-soft: #d1e6f3;
-$color-panel: #fff;
-$color-panel-strong: #f8fcfd;
-$color-blue-wash: #d9edf5;
-$color-coral-wash: #ffe4df;
-$color-border: rgb(16 32 42 / 10%);
-$color-border-strong: rgb(0 129 167 / 34%);
-$color-text: #123;
-$color-muted: #557386;
-$color-subtle: #506b7c;
-$color-accent: #0084b4;
-$color-accent-strong: #0084b4;
-$color-accent-dark: #fff;
-$color-coral: #fa5a4b;
+// Palette — "Sand slate" (light, greying-blue neutral)
+$color-bg: #edeef0;
+$color-wall: #eaecef;
+$color-wallside: #e0e3e6;
+$color-floor: #e4e7ea;
+$color-fg: #12151b;
+$color-muted: #4f555f;
+$color-dim: #808793;
+$color-accent: #3a4e73;
+$color-accent-strong: #29385a;
+$color-spark: #d7623f;
+$color-spark-soft: rgb(215 98 63 / 12%);
+$color-card: #fff;
+$color-line: rgb(18 21 27 / 12%);
+$color-line-soft: rgb(18 21 27 / 6%);
+$color-seam: rgb(18 21 27 / 13%);
+$color-grid: rgb(18 21 27 / 6%);
+$color-light: rgb(255 255 255 / 34%);
 
-$radius-sm: 16px;
-$radius-md: 22px;
-$radius-lg: 24px;
-$shadow-panel:
-  0 35px 72px -40px rgb(16 32 42 / 30%),
-  0 16px 36px -28px rgb(16 32 42 / 24%),
-  0 1px 0 rgb(255 255 255 / 90%) inset;
-
-$container: 1480px;
+// Shape
+$radius-sm: 10px;
+$radius-md: 14px;
+$radius-lg: 16px;
+$container: 1080px;
