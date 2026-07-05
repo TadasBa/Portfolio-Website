@@ -1,22 +1,22 @@
-import { Compass } from "lucide-react";
-import { SectionContainer } from "../components/layout/SectionContainer";
-import { EmptyState } from "../components/ui/EmptyState";
+import { Link } from "react-router-dom";
+import { StageRoom } from "../features/stage/StageRoom";
 import { notFoundMetadata } from "../content/routeMetadata";
 import { useDocumentMeta } from "../hooks/useDocumentMeta";
-import styles from "./NotFoundPage.module.scss";
+import styles from "./Article.module.scss";
 
 export function NotFoundPage() {
   useDocumentMeta(notFoundMetadata);
 
   return (
-    <SectionContainer className={styles.page}>
-      <EmptyState
-        actionLabel="Back home"
-        actionTo="/"
-        description="The route may have changed, or the link may no longer be valid."
-        icon={<Compass />}
-        title="Page not found"
-      />
-    </SectionContainer>
+    <>
+      <StageRoom floor={false} />
+      <main className={styles.page} id="main">
+        <div className={styles.notFound}>
+          <h1>Off the stage.</h1>
+          <p>That page doesn&apos;t exist — the link may have changed.</p>
+          <Link to="/">← Back to the start</Link>
+        </div>
+      </main>
+    </>
   );
 }

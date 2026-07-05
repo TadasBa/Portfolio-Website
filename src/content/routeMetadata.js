@@ -1,5 +1,4 @@
 import { blogPostContent } from "./blog/postContent.js";
-import { projectContent } from "./projects/projectContent.js";
 import { siteConfig } from "./site.js";
 
 export const productionSiteUrl = "https://tadas.baltrunas.lt";
@@ -7,64 +6,24 @@ export const productionSiteUrl = "https://tadas.baltrunas.lt";
 const staticRouteMetadata = [
   {
     canonicalPathname: "/",
-    title: "Tadas Baltrūnas — Portfolio",
+    title: "Tadas Baltrūnas — Software engineer",
     description:
-      "Portfolio of Tadas Baltrūnas, a software developer focused on practical web projects, frontend development, automation, and deployment.",
+      "Tadas Baltrūnas is a software engineer in Vilnius, focused on the frontend — building fast, considered web interfaces. Selected work, writing, and contact.",
     ogType: "website",
     robots: "index, follow",
   },
-  {
-    canonicalPathname: "/about",
-    title: `About | ${siteConfig.name}`,
-    description:
-      "About Tadas Baltrunas, a developer focused on frontend, automation, and practical systems.",
-    ogType: "website",
-    robots: "noindex, follow",
-  },
-  {
-    canonicalPathname: "/projects",
-    title: `Projects | ${siteConfig.name}`,
-    description:
-      "Projects from frontend development, software engineering studies, and technical experiments.",
-    ogType: "website",
-    robots: "noindex, follow",
-  },
-  {
-    canonicalPathname: "/blog",
-    title: `Blog | ${siteConfig.name}`,
-    description:
-      "Blog posts from Tadas Baltrunas about software engineering, frontend development, studies, and project work.",
-    ogType: "website",
-    robots: "noindex, follow",
-  },
-  {
-    canonicalPathname: "/stack",
-    title: `Stack | ${siteConfig.name}`,
-    description: "Technologies and tools used by Tadas Baltrunas.",
-    ogType: "website",
-    robots: "noindex, follow",
-  },
 ];
-
-const projectRouteMetadata = projectContent.map((project) => ({
-  canonicalPathname: `/projects/${project.slug}`,
-  title: `${project.title} | ${siteConfig.name}`,
-  description: project.summary,
-  ogType: "website",
-  robots: "noindex, follow",
-}));
 
 const blogRouteMetadata = blogPostContent.map((post) => ({
   canonicalPathname: `/blog/${post.slug}`,
   title: `${post.title} | ${siteConfig.name}`,
   description: post.summary,
   ogType: "article",
-  robots: "noindex, follow",
+  robots: "index, follow",
 }));
 
 export const publicRouteMetadata = [
   ...staticRouteMetadata,
-  ...projectRouteMetadata,
   ...blogRouteMetadata,
 ].sort((left, right) =>
   left.canonicalPathname.localeCompare(right.canonicalPathname),
@@ -108,10 +67,6 @@ export function requireRouteMetadata(pathname) {
   }
 
   return metadata;
-}
-
-export function getProjectRouteMetadata(slug) {
-  return requireRouteMetadata(`/projects/${slug}`);
 }
 
 export function getBlogPostRouteMetadata(slug) {

@@ -1,19 +1,14 @@
-import { ArrowLeft, BookOpen } from "lucide-react";
 import ReactMarkdown from "react-markdown";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import remarkGfm from "remark-gfm";
-import { SectionContainer } from "../components/layout/SectionContainer";
-import { ButtonLink } from "../components/ui/ButtonLink";
-import { ContentCard } from "../components/ui/ContentCard";
-import { EmptyState } from "../components/ui/EmptyState";
-import { Tag } from "../components/ui/Tag";
 import { getBlogPostBySlug } from "../content/blog/posts";
 import {
   getBlogPostRouteMetadata,
   notFoundMetadata,
 } from "../content/routeMetadata";
+import { StageRoom } from "../features/stage/StageRoom";
 import { useDocumentMeta } from "../hooks/useDocumentMeta";
-import styles from "./DetailPage.module.scss";
+import styles from "./Article.module.scss";
 
 export function BlogPostPage() {
   const { slug } = useParams();
@@ -25,49 +20,45 @@ export function BlogPostPage() {
 
   if (!post) {
     return (
-      <SectionContainer className={styles.page}>
-        <EmptyState
-          actionLabel="Back to blog"
-          actionTo="/blog"
-          description="The requested blog post does not exist or the slug has changed."
-          icon={<BookOpen />}
-          title="Blog post not found"
-        />
-      </SectionContainer>
+      <>
+        <StageRoom floor={false} />
+        <main className={styles.page} id="main">
+          <div className={styles.notFound}>
+            <h1>Not written yet.</h1>
+            <p>That post doesn&apos;t exist or the link has changed.</p>
+            <Link to="/">← Back to the start</Link>
+          </div>
+        </main>
+      </>
     );
   }
 
   return (
-    <SectionContainer className={styles.page}>
-      <ButtonLink className={styles.back} to="/blog" variant="secondary">
-        <ArrowLeft />
-        Back to blog
-      </ButtonLink>
-
-      <article className={`${styles.article} ${styles.articleNarrow}`}>
-        <header>
-          <p className={styles.kicker}>Blog</p>
-          <h1 className={styles.title}>{post.title}</h1>
-          <div className={styles.meta}>
-            <span>{post.dateLabel}</span>
-            <span aria-hidden="true">·</span>
-            <span>{post.readTime}</span>
+    <>
+      <StageRoom floor={false} />
+      <header className={styles.topbar}>
+        <Link className={styles.home} to="/">
+          ← Back
+        </Link>
+      </header>
+      <main className={styles.page} id="main">
+        <article className={styles.framed}>
+          <div className={styles.framedInner}>
+            <p className={styles.kicker}>Blog</p>
+            <h1 className={styles.title}>{post.title}</h1>
+            <div className={styles.meta}>
+              <span>{post.dateLabel}</span>
+              <span aria-hidden="true">/</span>
+              <span>{post.readTime}</span>
+            </div>
+            <div className={styles.body}>
+              <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                {post.content}
+              </ReactMarkdown>
+            </div>
           </div>
-          <div className={styles.tags}>
-            {post.tags.map((tag) => (
-              <Tag key={tag}>{tag}</Tag>
-            ))}
-          </div>
-        </header>
-
-        <ContentCard className={styles.markdownCard}>
-          <div className={styles.markdown}>
-            <ReactMarkdown remarkPlugins={[remarkGfm]}>
-              {post.content}
-            </ReactMarkdown>
-          </div>
-        </ContentCard>
-      </article>
-    </SectionContainer>
+        </article>
+      </main>
+    </>
   );
 }

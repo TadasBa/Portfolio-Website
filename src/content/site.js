@@ -1,8 +1,8 @@
 export const siteConfig = {
   name: "Tadas Baltrūnas",
   shortName: "Tadas",
-  role: "Developer focused on frontend, automation, and practical systems.",
-  summary: "Developer · Software Engineering MSc",
+  role: "Frontend developer building fast, considered websites for small teams.",
+  summary: "Frontend developer · Vilnius, Lithuania",
   email: "tadas@baltrunas.lt",
 };
 

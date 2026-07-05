@@ -19,5 +19,4 @@ export const notFoundMetadata: RouteMetadata;
 export function getCanonicalUrl(pathname: string): string;
 export function getRouteMetadata(pathname: string): RouteMetadata | undefined;
 export function requireRouteMetadata(pathname: string): RouteMetadata;
-export function getProjectRouteMetadata(slug: string): RouteMetadata;
 export function getBlogPostRouteMetadata(slug: string): RouteMetadata;

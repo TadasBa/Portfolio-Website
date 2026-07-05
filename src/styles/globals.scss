@@ -1,17 +1,41 @@
 @use "./tokens" as *;
 
-@import "@fontsource/ibm-plex-sans/400.css";
-@import "@fontsource/ibm-plex-sans/500.css";
-@import "@fontsource/ibm-plex-sans/600.css";
-@import "@fontsource/ibm-plex-mono/400.css";
-@import "@fontsource/space-grotesk/500.css";
-@import "@fontsource/space-grotesk/700.css";
+@import "@fontsource-variable/bricolage-grotesque/index.css";
+@import "@fontsource-variable/inter/index.css";
+@import "@fontsource-variable/jetbrains-mono/index.css";
 
 :root {
   color-scheme: light;
-  font-family: $font-body;
-  background: $color-bg;
-  color: $color-text;
+
+  // expose tokens as custom properties for component modules
+  --bg: #{$color-bg};
+  --wall: #{$color-wall};
+  --wallside: #{$color-wallside};
+  --floor: #{$color-floor};
+  --fg: #{$color-fg};
+  --muted: #{$color-muted};
+  --dim: #{$color-dim};
+  --accent: #{$color-accent};
+  --accent-strong: #{$color-accent-strong};
+  --spark: #{$color-spark};
+  --spark-soft: #{$color-spark-soft};
+  --card: #{$color-card};
+  --line: #{$color-line};
+  --line-soft: #{$color-line-soft};
+  --seam: #{$color-seam};
+  --grid: #{$color-grid};
+  --light: #{$color-light};
+  --font-display: #{$font-display};
+  --font-body: #{$font-body};
+  --font-mono: #{$font-mono};
+  --radius-sm: #{$radius-sm};
+  --radius-md: #{$radius-md};
+  --radius-lg: #{$radius-lg};
+  --ease: cubic-bezier(0.22, 0.9, 0.3, 1);
+
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--fg);
 }
 
 * {
@@ -26,9 +50,9 @@ body {
   min-width: 320px;
   min-height: 100vh;
   margin: 0;
-  background: $color-bg;
-  color: $color-text;
-  font-family: $font-body;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizelegibility;
 }
@@ -48,6 +72,8 @@ a {
 
 button {
   border: 0;
+  background: none;
+  cursor: pointer;
 }
 
 img,
@@ -60,17 +86,44 @@ video {
 p,
 h1,
 h2,
-h3 {
+h3,
+h4 {
   margin: 0;
 }
 
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
 ::selection {
-  background: rgb(0 129 167 / 18%);
-  color: $color-text;
+  background: var(--accent);
+  color: #fff;
 }
 
 #root {
   min-height: 100vh;
+}
+
+// visually-hidden until focused (skip link)
+.skip-link {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 100;
+  padding: 10px 16px;
+  border-radius: 8px;
+  background: var(--fg);
+  color: var(--bg);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  transform: translateY(-160%);
+  transition: transform 0.2s var(--ease);
+
+  &:focus {
+    transform: none;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
