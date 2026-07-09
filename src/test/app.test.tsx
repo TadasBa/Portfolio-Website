@@ -16,7 +16,7 @@ describe("App", () => {
       screen.getByRole("heading", { name: /focused on the frontend/i }),
     ).toBeInTheDocument();
     expect(
-      screen.getByText(/I build web interfaces, mostly/i),
+      screen.getByText(/I design, build and ship web interfaces/i),
     ).toBeInTheDocument();
   });
 

@@ -13,7 +13,8 @@ export function IntroPanel() {
         Software engineer, focused on the <em>frontend</em>
       </h1>
       <p className={styles.lede}>
-        I&apos;m <b>Tadas</b>, a developer from Vilnius. I design, build and ship web interfaces.
+        I&apos;m <b>Tadas</b>, a developer from Vilnius. I design, build and
+        ship web interfaces.
       </p>
     </>
   );
