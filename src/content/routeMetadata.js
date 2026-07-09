@@ -8,7 +8,36 @@ const staticRouteMetadata = [
     canonicalPathname: "/",
     title: "Tadas Baltrūnas — Software engineer",
     description:
-      "Tadas Baltrūnas is a software engineer in Vilnius, focused on the frontend — building fast, considered web interfaces. Selected work, writing, and contact.",
+      "Tadas Baltrūnas — a developer in Vilnius, mostly frontend. Selected work, writing, and contact.",
+    ogType: "website",
+    robots: "index, follow",
+  },
+  {
+    canonicalPathname: "/work",
+    title: `Work | ${siteConfig.name}`,
+    description:
+      "Selected work by Tadas Baltrūnas — websites and web interfaces.",
+    ogType: "website",
+    robots: "index, follow",
+  },
+  {
+    canonicalPathname: "/about",
+    title: `About | ${siteConfig.name}`,
+    description: "About Tadas Baltrūnas — a developer in Vilnius.",
+    ogType: "website",
+    robots: "index, follow",
+  },
+  {
+    canonicalPathname: "/contact",
+    title: `Contact | ${siteConfig.name}`,
+    description: "Contact Tadas Baltrūnas — email and links.",
+    ogType: "website",
+    robots: "index, follow",
+  },
+  {
+    canonicalPathname: "/blog",
+    title: `Blog | ${siteConfig.name}`,
+    description: "Blog posts by Tadas Baltrūnas.",
     ogType: "website",
     robots: "index, follow",
   },

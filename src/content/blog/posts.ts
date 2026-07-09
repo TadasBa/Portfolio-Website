@@ -1,13 +1,15 @@
 import type { BlogPostEntry } from "../../types/content";
-import bakeryContent from "./a-bakery-taught-me-about-websites.md?raw";
+import placeholderOneContent from "./placeholder-1.md?raw";
+import placeholderTwoContent from "./placeholder-2.md?raw";
+import placeholderThreeContent from "./placeholder-3.md?raw";
+import placeholderFourContent from "./placeholder-4.md?raw";
 import { blogPostContent } from "./postContent";
-import rebuiltContent from "./rebuilt-this-site-14-times.md?raw";
-import softwareEngineeringAtVuContent from "./software-engineering-at-vilnius-university.md?raw";
 
 const postBodyBySlug: Record<string, string> = {
-  "rebuilt-this-site-14-times": rebuiltContent,
-  "a-bakery-taught-me-about-websites": bakeryContent,
-  "software-engineering-at-vilnius-university": softwareEngineeringAtVuContent,
+  "placeholder-1": placeholderOneContent,
+  "placeholder-2": placeholderTwoContent,
+  "placeholder-3": placeholderThreeContent,
+  "placeholder-4": placeholderFourContent,
 };
 
 export const blogPosts: BlogPostEntry[] = blogPostContent.map((post) => ({
@@ -18,6 +20,9 @@ export const blogPosts: BlogPostEntry[] = blogPostContent.map((post) => ({
 export const blogPostsByDate = [...blogPosts].sort((left, right) =>
   right.publishedAt.localeCompare(left.publishedAt),
 );
+
+/** The most recent posts, for the compact home-page preview. */
+export const featuredBlogPosts = blogPostsByDate.slice(0, 3);
 
 export function getBlogPostBySlug(slug: string) {
   return blogPosts.find((post) => post.slug === slug);

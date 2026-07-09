@@ -26,7 +26,7 @@
   left: -25%;
   right: -25%;
   bottom: 0;
-  height: 26vh;
+  height: 15vh;
   transform-origin: top center;
   transform: rotateX(74deg);
   background:
@@ -57,7 +57,7 @@
   position: absolute;
   left: 0;
   right: 0;
-  bottom: 26vh;
+  bottom: 15vh;
   height: 1px;
   background: var(--seam);
 }
@@ -67,18 +67,18 @@
   position: absolute;
   left: 0;
   right: 0;
-  bottom: 26vh;
+  bottom: 15vh;
   height: 78px;
   background: linear-gradient(180deg, transparent, rgb(18 21 27 / 4.5%));
 }
 
 @media (max-width: 820px) {
   .floor {
-    height: 16vh;
+    height: 11vh;
   }
 
   .seam,
   .grounding {
-    bottom: 16vh;
+    bottom: 11vh;
   }
 }

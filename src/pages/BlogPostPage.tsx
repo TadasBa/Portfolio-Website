@@ -26,7 +26,7 @@ export function BlogPostPage() {
           <div className={styles.notFound}>
             <h1>Not written yet.</h1>
             <p>That post doesn&apos;t exist or the link has changed.</p>
-            <Link to="/">← Back to the start</Link>
+            <Link to="/blog">← All posts</Link>
           </div>
         </main>
       </>
@@ -37,8 +37,8 @@ export function BlogPostPage() {
     <>
       <StageRoom floor={false} />
       <header className={styles.topbar}>
-        <Link className={styles.home} to="/">
-          ← Back
+        <Link className={styles.home} to="/blog">
+          ← All posts
         </Link>
       </header>
       <main className={styles.page} id="main">
