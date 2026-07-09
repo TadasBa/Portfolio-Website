@@ -58,13 +58,13 @@ describe("route metadata", () => {
   });
 
   it("sets blog post metadata as an indexable article", async () => {
-    const metadata = getBlogPostRouteMetadata("rebuilt-this-site-14-times");
+    const metadata = getBlogPostRouteMetadata("placeholder-1");
 
     renderApp([metadata.canonicalPathname]);
 
     await screen.findByRole(
       "heading",
-      { name: /rebuilt this site/i },
+      { name: /placeholder post one/i },
       { timeout: 3000 },
     );
 

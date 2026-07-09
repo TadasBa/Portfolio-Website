@@ -126,7 +126,10 @@
 @media (max-width: 820px) {
   .top {
     justify-content: flex-start;
-    padding: 18px 24px;
+    padding: 14px 24px;
+    background: color-mix(in srgb, var(--bg) 80%, transparent);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line-soft);
   }
 
   .nav {

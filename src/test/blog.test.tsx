@@ -3,14 +3,14 @@ import { renderApp } from "./renderApp";
 
 describe("blog", () => {
   it("renders a post page", async () => {
-    renderApp(["/blog/rebuilt-this-site-14-times"]);
+    renderApp(["/blog/placeholder-1"]);
 
     expect(
       await screen.findByRole("heading", {
-        name: /rebuilt this site 14 times/i,
+        name: /placeholder post one/i,
       }),
     ).toBeInTheDocument();
-    expect(screen.getByText(/stood still/i)).toBeInTheDocument();
+    expect(screen.getByText(/real content is on its way/i)).toBeInTheDocument();
   });
 
   it("shows a not-found state for an unknown slug", async () => {

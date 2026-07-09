@@ -26,7 +26,7 @@ describe("route HTML utilities", () => {
     const homeHtml = applyRouteMetadata(baseHtml, requireRouteMetadata("/"));
     const postHtml = applyRouteMetadata(
       baseHtml,
-      getBlogPostRouteMetadata("rebuilt-this-site-14-times"),
+      getBlogPostRouteMetadata("placeholder-1"),
     );
 
     expect(homeHtml).toContain(
@@ -72,6 +72,7 @@ describe("route HTML utilities", () => {
 
     expect([...indexableRoutePaths].sort()).toEqual([...sitemap].sort());
     expect(indexableRoutePaths).toContain("/");
-    expect(indexableRoutePaths).toContain("/blog/rebuilt-this-site-14-times");
+    expect(indexableRoutePaths).toContain("/blog/placeholder-1");
+    expect(indexableRoutePaths).toContain("/work");
   });
 });

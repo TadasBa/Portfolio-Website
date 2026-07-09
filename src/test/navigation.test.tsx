@@ -5,7 +5,7 @@ describe("navigation", () => {
   it("renders the section nav", () => {
     renderApp();
 
-    for (const label of ["Intro", "Work", "Blog", "About", "Contact"]) {
+    for (const label of ["Home", "Work", "Blog", "About", "Contact"]) {
       expect(screen.getByRole("button", { name: label })).toBeInTheDocument();
     }
   });
@@ -13,7 +13,7 @@ describe("navigation", () => {
   it("links blog entries to their post pages", () => {
     renderApp();
 
-    const link = screen.getByRole("link", { name: /rebuilt this site/i });
-    expect(link).toHaveAttribute("href", "/blog/rebuilt-this-site-14-times");
+    const link = screen.getByRole("link", { name: /placeholder post one/i });
+    expect(link).toHaveAttribute("href", "/blog/placeholder-1");
   });
 });
