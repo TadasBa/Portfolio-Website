@@ -10,7 +10,7 @@ const out = resolve(root, "src/assets/media/work");
 
 const jobs = [
   { in: "seimos-full-lite.png", out: "seimos.webp" },
-  { in: "brukne-full-lite.png", out: "brukne.webp" },
+  { in: "cechas-full-lite.png", out: "cechas.webp" },
   { in: "rethread-full-lite.png", out: "rethread.webp" },
 ];
 
