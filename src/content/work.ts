@@ -1,4 +1,4 @@
-import brukneShot from "../assets/media/work/brukne.webp";
+import cechasShot from "../assets/media/work/cechas.webp";
 import rethreadShot from "../assets/media/work/rethread.webp";
 import seimosShot from "../assets/media/work/seimos.webp";
 import type { WorkEntry } from "../types/content";
@@ -16,15 +16,15 @@ export const work: WorkEntry[] = [
     shot: seimosShot,
   },
   {
-    slug: "brukne",
-    title: "Bruknė",
-    tag: "Bakery",
+    slug: "cechas",
+    title: "Cechas",
+    tag: "Restaurant",
     year: "2025",
-    url: "https://brukne-2sa.pages.dev/",
-    domain: "brukne-2sa.pages.dev",
+    url: "https://cechas.pages.dev/",
+    domain: "cechas.pages.dev",
     summary:
-      "A boutique bakery studio in Vilnius — serif identity, quiet motion, online menu and booking.",
-    shot: brukneShot,
+      "A bilingual open-fire bistro concept for Paupys — typed localisation, menu data, motion and static Next.js export.",
+    shot: cechasShot,
   },
   {
     slug: "rethread",
